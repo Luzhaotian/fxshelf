@@ -18,9 +18,20 @@
     "preview": "npm run preview -w @fxshelf/site",
     "lint": "oxlint packages/card-orbit/src packages/glyph-rain/src packages/starfield/src apps/site/components apps/site/lib apps/site/app",
     "typecheck": "npm run typecheck -w @fxshelf/card-orbit && npm run typecheck -w @fxshelf/glyph-rain && npm run typecheck -w @fxshelf/starfield && npm run typecheck -w @fxshelf/site",
-    "pack:check": "npm run pack:check -w @fxshelf/card-orbit && npm run pack:check -w @fxshelf/glyph-rain && npm run pack:check -w @fxshelf/starfield"
+    "pack:check": "npm run pack:check -w @fxshelf/card-orbit && npm run pack:check -w @fxshelf/glyph-rain && npm run pack:check -w @fxshelf/starfield",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,mjs,cjs}": [
+      "oxlint"
+    ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
     "oxlint": "^1.79.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
