@@ -1,6 +1,6 @@
 {
   "name": "@fxshelf/card-orbit",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Path-constrained 3D card orbit carousel for React and Vue — rise, arc, exit. No Framer Motion / GSAP. Copy-as-source friendly.",
   "license": "MIT",
   "author": "Lu Zhaotian",
@@ -33,6 +33,7 @@
     "src/vue",
     "src/vue-shim.d.ts",
     "README.md",
+    "README.zh-CN.md",
     "LICENSE",
     "docs/使用说明.md",
     "docs/动效说明-专业.md",

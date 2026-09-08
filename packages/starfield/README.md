@@ -1,6 +1,18 @@
 # @fxshelf/starfield
 
-Canvas 2D starfield tunnel — stars fly toward the camera with perspective projection, glitter flashes, and additive trails. Zero Framer / GSAP / particles.js.
+[English](./README.md) · [中文](./README.zh-CN.md)
+
+Canvas 2D starfield tunnel for **React** and **Vue** — stars fly toward the camera with perspective projection, glitter flashes, and additive trails. Zero Framer / GSAP / particles.js.
+
+Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — install independently.
+
+| | |
+|--|--|
+| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/starfield) |
+| **npm** | [`@fxshelf/starfield@0.1.1`](https://www.npmjs.com/package/@fxshelf/starfield) |
+| **CDN** | [unpkg](https://unpkg.com/@fxshelf/starfield/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/starfield/) |
+
+Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
 
 ## Install
 
@@ -8,7 +20,12 @@ Canvas 2D starfield tunnel — stars fly toward the camera with perspective proj
 npm install @fxshelf/starfield
 ```
 
-## React
+| Consumer | Peer |
+|----------|------|
+| React | `react` / `react-dom` ≥ 18 |
+| Vue | `vue` ≥ 3.3, with `.vue` compilation (e.g. Vite) |
+
+## Usage — React
 
 ```tsx
 import { Starfield } from '@fxshelf/starfield'
@@ -26,7 +43,9 @@ export function Hero() {
 }
 ```
 
-## Vue
+## Usage — Vue
+
+Entry is source SFC: `@fxshelf/starfield/vue`.
 
 ```vue
 <script setup lang="ts">
@@ -42,6 +61,30 @@ import { Starfield } from '@fxshelf/starfield/vue'
     <h1 style="color:#fff;padding:32px">Hello</h1>
   </Starfield>
 </template>
+```
+
+## Common props
+
+| Prop | Default | Description |
+|------|---------|-------------|
+| `particleCount` | `263` | Number of stars |
+| `speed` | `1` | Fly-toward speed |
+| `density` | `48` | Radial density |
+| `starSize` | `8` | Base size |
+| `brightness` | `73` | Brightness 0–100 |
+| `glitterIntensity` | `4` | Flash intensity |
+| `trailAmount` | `26` | Trail persistence |
+| `color1` / `color2` / `color3` | `#ffffff` | Palette |
+| `reverse` | `false` | Fly away instead |
+
+## Copy as source
+
+Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/starfield/`):
+
+```
+core/     # required
+react/    # React projects
+vue/      # Vue projects
 ```
 
 ## License

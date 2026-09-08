@@ -1,6 +1,6 @@
 {
   "name": "@fxshelf/starfield",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Canvas 2D starfield tunnel for React and Vue — perspective fly-through, glitter flashes, additive trails. Zero animation-lib deps. Copy-as-source friendly.",
   "license": "MIT",
   "author": "Lu Zhaotian",
@@ -30,6 +30,7 @@
     "src/vue",
     "src/vue-shim.d.ts",
     "README.md",
+    "README.zh-CN.md",
     "LICENSE",
     "docs/使用说明.md",
     "docs/动效说明-专业.md",

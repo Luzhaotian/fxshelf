@@ -2,34 +2,34 @@
 
 [English](./README.md) · [中文](./README.zh-CN.md)
 
-Path-constrained 3D card orbit for **React** and **Vue** — rise → arc → exit.  
-Hand-written `requestAnimationFrame` + math paths. **No** Framer Motion / GSAP.
+面向 **React** / **Vue** 的路径约束 3D 卡片轨道 —— 升起 → 弧线 → 飞出。  
+手写 `requestAnimationFrame` + 数学路径，**不依赖** Framer Motion / GSAP。
 
-Inspired by [tasteskill.dev](https://tasteskill.dev).  
-Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — install independently.
+动效灵感与参考实现来自：[tasteskill.dev](https://tasteskill.dev)。  
+属于 [fxshelf](https://github.com/Luzhaotian/fxshelf) 动效书架中的一个可独立安装包。
 
 | | |
 |--|--|
-| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit) |
-| **Path demo** | [card-orbit-path](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit-path) |
+| **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit) |
+| **坐标演示** | [card-orbit-path](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit-path) |
 | **npm** | [`@fxshelf/card-orbit@0.1.6`](https://www.npmjs.com/package/@fxshelf/card-orbit) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/card-orbit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/card-orbit/) |
 
-Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
+支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
 
-## Install
+## 安装
 
 ```bash
 npm install @fxshelf/card-orbit
 ```
 
-| Consumer | Peer |
-|----------|------|
+| 使用方 | Peer |
+|--------|------|
 | React | `react` / `react-dom` ≥ 18 |
-| Vue | `vue` ≥ 3.3, with `.vue` compilation (e.g. Vite) |
-| CDN | Load **React 18 UMD** first (React 19 has no official UMD) |
+| Vue | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
+| CDN | 页面先加载 **React 18 UMD**（React 19 无官方 UMD） |
 
-## Usage — React
+## 用法 — React
 
 ```tsx
 import { CardOrbit, CardOrbitMobile } from '@fxshelf/card-orbit'
@@ -47,9 +47,9 @@ export function Hero() {
 }
 ```
 
-## Usage — Vue
+## 用法 — Vue
 
-Entry is source SFC: `@fxshelf/card-orbit/vue`.
+入口为源码 SFC：`@fxshelf/card-orbit/vue`。
 
 ```vue
 <script setup lang="ts">
@@ -65,9 +65,9 @@ const images = ['/a.webp', '/b.webp', '/c.webp']
 </template>
 ```
 
-## Usage — CDN (React 18 UMD)
+## 用法 — CDN（React 18 UMD）
 
-Self-contained build `dist/card-orbit.iife.js`, global `CardOrbit`. Full example: [docs/CDN示例.html](./docs/CDN示例.html).
+自包含产物 `dist/card-orbit.iife.js`，全局变量 `CardOrbit`。完整示例见 [docs/CDN示例.html](./docs/CDN示例.html)。
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@fxshelf/card-orbit/dist/index.css" />
@@ -88,20 +88,20 @@ Self-contained build `dist/card-orbit.iife.js`, global `CardOrbit`. Full example
 </script>
 ```
 
-Pin the version in production, e.g. `https://unpkg.com/@fxshelf/card-orbit@0.1.6/dist/card-orbit.iife.js`.  
-Do not use jsDelivr GitHub `gh/.../dist` links (`dist/` is not committed).
+生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/card-orbit@0.1.6/dist/card-orbit.iife.js`。  
+不要用 jsDelivr 的 GitHub `gh/.../dist` 直链（`dist/` 不进仓库）。
 
-## Copy as source
+## 复制源码
 
-Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/card-orbit/`):
+不经过 npm 时，从本包 `src/`（或 `node_modules/@fxshelf/card-orbit/`）拷贝：
 
 ```
-core/     # required
-react/    # React projects
-vue/      # Vue projects
+core/     # 必拷
+react/    # React 项目
+vue/      # Vue 项目
 ```
 
-Keep `core` next to `react` / `vue`, then:
+保持 `core` 与 `react`/`vue` 同级，然后：
 
 ```tsx
 // React

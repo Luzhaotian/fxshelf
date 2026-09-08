@@ -15,9 +15,9 @@ Browse the site, install only what you need — or copy the source. No Framer Mo
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | [`0.1.5`](./packages/card-orbit) | Path-constrained 3D card orbit — rise, arc, exit |
-| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | [`0.1.0`](./packages/glyph-rain) | Matrix-style glyph rain — cursor stir, optional content lighting |
-| [`@fxshelf/starfield`](./packages/starfield) | [`0.1.0`](./packages/starfield) | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails |
+| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | [`0.1.6`](./packages/card-orbit) | Path-constrained 3D card orbit — rise, arc, exit |
+| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | [`0.1.1`](./packages/glyph-rain) | Matrix-style glyph rain — cursor stir, optional content lighting |
+| [`@fxshelf/starfield`](./packages/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails |
 
 ```bash
 npm install @fxshelf/card-orbit
