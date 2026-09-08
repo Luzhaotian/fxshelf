@@ -30,20 +30,6 @@
   justify-content: center;
 }
 
-.back {
-  width: fit-content;
-  margin-bottom: 1rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #737373;
-  text-decoration: none;
-}
-
-.back:hover {
-  color: #0a0a0a;
-  text-decoration: none;
-}
-
 .eyebrow {
   margin: 0;
   font-size: 0.75rem;

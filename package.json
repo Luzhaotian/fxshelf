@@ -12,13 +12,13 @@
   ],
   "scripts": {
     "dev": "npm run dev -w @fxshelf/site",
-    "build": "npm run build -w @fxshelf/card-orbit && npm run build -w @fxshelf/glyph-rain",
+    "build": "npm run build -w @fxshelf/card-orbit && npm run build -w @fxshelf/glyph-rain && npm run build -w @fxshelf/starfield",
     "build:site": "npm run build && npm run build -w @fxshelf/site",
     "build:site:pages": "npm run build && GITHUB_PAGES=true npm run build -w @fxshelf/site",
     "preview": "npm run preview -w @fxshelf/site",
-    "lint": "oxlint packages/card-orbit/src packages/glyph-rain/src apps/site/components apps/site/lib apps/site/app",
-    "typecheck": "npm run typecheck -w @fxshelf/card-orbit && npm run typecheck -w @fxshelf/glyph-rain && npm run typecheck -w @fxshelf/site",
-    "pack:check": "npm run pack:check -w @fxshelf/card-orbit && npm run pack:check -w @fxshelf/glyph-rain"
+    "lint": "oxlint packages/card-orbit/src packages/glyph-rain/src packages/starfield/src apps/site/components apps/site/lib apps/site/app",
+    "typecheck": "npm run typecheck -w @fxshelf/card-orbit && npm run typecheck -w @fxshelf/glyph-rain && npm run typecheck -w @fxshelf/starfield && npm run typecheck -w @fxshelf/site",
+    "pack:check": "npm run pack:check -w @fxshelf/card-orbit && npm run pack:check -w @fxshelf/glyph-rain && npm run pack:check -w @fxshelf/starfield"
   },
   "devDependencies": {
     "oxlint": "^1.79.0",

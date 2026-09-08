@@ -21,4 +21,11 @@ export const effects: EffectMeta[] = [
     packageName: '@fxshelf/glyph-rain',
     docPath: '/docs/effects/glyph-rain',
   },
+  {
+    id: 'starfield',
+    title: 'Starfield',
+    blurb: 'Canvas 星空隧道 —— 透视飞近、闪烁与拖尾。',
+    packageName: '@fxshelf/starfield',
+    docPath: '/docs/effects/starfield',
+  },
 ]

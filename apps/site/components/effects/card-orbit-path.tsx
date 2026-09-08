@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import {Canvas, useFrame} from '@react-three/fiber'
 import {Grid, OrbitControls, Text} from '@react-three/drei'
 import katex from 'katex'
@@ -187,9 +186,6 @@ export function CardOrbitPathLab(): ReactNode {
     <div className={styles.root}>
       <div className={styles.layout}>
         <div className={styles.copy}>
-          <Link href="/docs/effects/card-orbit" className={styles.back}>
-            ← Card Orbit
-          </Link>
           <p className={styles.eyebrow}>R3F · KaTeX</p>
           <h2 className={styles.title}>3D 坐标轴上的轨道</h2>
           <p className={styles.body}>

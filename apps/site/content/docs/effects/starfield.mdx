@@ -1,0 +1,134 @@
+---
+title: Starfield
+description: Canvas 2D 星空隧道 —— 透视飞近、闪烁与拖尾
+---
+
+星星从远处朝镜头飞来，带拖尾与偶尔闪烁，像穿越星海。纯 Canvas 2D，零动画库依赖。
+
+[`npm i @fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield)
+
+## Demo
+
+<StarfieldDemo />
+
+## 简介
+
+Starfield 是一套 Canvas 2D 星空隧道动效：粒子保存在三维近似坐标，每帧沿深度轴推进并用透视投影到屏幕；`destination-out` 擦除制造拖尾，`lighter` 叠加发光。支持三色调色板、闪烁、湍流与反向飞离。
+
+一套 `core` 配 React / Vue 两套薄封装。支持：
+
+| 方式 | React | Vue |
+|------|--------|-----|
+| **npm** | [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | `@fxshelf/starfield/vue` |
+| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js) → 全局 `Starfield` | 暂无（SFC 源码） |
+| **复制源码** | 拷 `src/core` + `src/react` | 拷 `src/core` + `src/vue` |
+
+## 安装
+
+```bash
+npm install @fxshelf/starfield
+```
+
+- React：peer `react` / `react-dom` ≥ 18
+- Vue：peer `vue` ≥ 3.3，且能编译 `.vue`（如 Vite）
+- 运行时：Canvas 2D（无需 WebGL）
+
+## 用法
+
+### React
+
+```tsx
+import { Starfield } from '@fxshelf/starfield'
+
+export function Hero() {
+  return (
+    <Starfield
+      style={{ height: 420, background: '#0f0f12' }}
+      particleCount={263}
+      brightness={73}
+    >
+      <h1 style={{ color: '#fff', padding: 32 }}>Hello</h1>
+    </Starfield>
+  )
+}
+```
+
+### Vue
+
+Vue 入口是源码 `.vue` SFC，不会预编译进 `dist`。
+
+```vue
+<script setup lang="ts">
+import { Starfield } from '@fxshelf/starfield/vue'
+</script>
+
+<template>
+  <Starfield
+    :style="{ height: '420px', background: '#0f0f12' }"
+    :particle-count="263"
+    :brightness="73"
+  >
+    <h1 style="color:#fff;padding:32px">Hello</h1>
+  </Starfield>
+</template>
+```
+
+### CDN（React 18 UMD）
+
+需先加载 **React 18.x UMD**，再加载 IIFE。
+
+```html
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js"></script>
+<script>
+  const { Starfield } = window.Starfield
+  const root = ReactDOM.createRoot(document.getElementById('app'))
+  root.render(
+    React.createElement(
+      Starfield,
+      { style: { height: 420, background: '#0f0f12' }, particleCount: 263 },
+      React.createElement('h1', { style: { color: '#fff', padding: 32 } }, 'Hello'),
+    ),
+  )
+</script>
+```
+
+### 复制源码
+
+拷贝 `packages/starfield/src/core` 与 `src/react`（或 `src/vue`）即可，零 npm 依赖（peer 框架除外）。
+
+## Props
+
+| Property | Type | Default | 说明 |
+|----------|------|---------|------|
+| `particleCount` | `number` | `263` | 星星数量 |
+| `color1` | `string` | `#ffffff` | 调色板色 1 |
+| `color2` | `string` | `#ffffff` | 调色板色 2 |
+| `color3` | `string` | `#ffffff` | 调色板色 3 |
+| `speed` | `number` | `1` | 飞近速度倍率 |
+| `density` | `number` | `48` | 径向分布疏密 |
+| `starSize` | `number` | `8` | 基础尺寸 |
+| `focalDepth` | `number` | `13` | 透视近裁剪（0–100） |
+| `turbulence` | `number` | `0` | 横向扰动 |
+| `brightness` | `number` | `73` | 整体亮度（0–100） |
+| `glitterIntensity` | `number` | `4` | 闪烁强度（0–10） |
+| `trailAmount` | `number` | `26` | 尾迹残留（0–100） |
+| `reverse` | `boolean` | `false` | 反向飞离 |
+| `className` | `string` | — | 外层 class |
+| `style` | `CSSProperties` | — | 外层样式 |
+| `children` | `ReactNode` / slot | — | 叠在星空上的内容 |
+| `ariaLabel` | `string` | `Starfield background` | canvas 无障碍标签 |
+
+## 核心 API
+
+也可直接使用框架无关引擎：
+
+```ts
+import { createStarfield } from '@fxshelf/starfield'
+
+const field = createStarfield(canvas, { particleCount: 200 })
+field.setOptions({ brightness: 80 })
+field.resize()
+field.destroy()
+```
