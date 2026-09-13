@@ -12,16 +12,22 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
 })
 
+// Local: '' → /favicon.svg；GitHub Pages: /fxshelf → /fxshelf/favicon.svg
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+const favicon = `${basePath}/favicon.svg`
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://luzhaotian.github.io/fxshelf'),
+  metadataBase: new URL(
+    basePath ? `https://luzhaotian.github.io${basePath}` : 'http://localhost:3001',
+  ),
   title: {
     default: 'fxshelf',
     template: '%s · fxshelf',
   },
   description: '可复制源码、按需安装的 React / Vue 微动效包书架。',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    shortcut: '/favicon.svg',
+    icon: [{ url: favicon, type: 'image/svg+xml' }],
+    shortcut: favicon,
   },
 }
 
