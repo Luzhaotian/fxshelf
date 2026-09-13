@@ -28,8 +28,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Typecheck
-        run: npm run typecheck
-
+      # packages/*/dist is gitignored; site typecheck resolves @fxshelf/* from dist types
       - name: Build packages
         run: npm run build
+
+      - name: Typecheck
+        run: npm run typecheck
