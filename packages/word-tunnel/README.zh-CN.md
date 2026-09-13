@@ -2,12 +2,17 @@
 
 [English](./README.md) · [中文](./README.zh-CN.md)
 
-3D 词云隧道 —— 文字朝灭点飞来。纯 CSS transform，零动画库。
+面向 **React** / **Vue** 的 3D 词云隧道 —— 文字朝灭点飞来，纯 CSS transform。零 Framer / GSAP 依赖。
+
+属于 [fxshelf](https://github.com/Luzhaotian/fxshelf) 动效书架中的一个可独立安装包。
 
 | | |
 |--|--|
 | **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/word-tunnel) |
-| **npm** | [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) |
+| **npm** | [`@fxshelf/word-tunnel@0.1.0`](https://www.npmjs.com/package/@fxshelf/word-tunnel) |
+| **CDN** | [unpkg](https://unpkg.com/@fxshelf/word-tunnel/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/word-tunnel/) |
+
+支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
 
 ## 安装
 
@@ -15,7 +20,18 @@
 npm install @fxshelf/word-tunnel
 ```
 
-## 用法
+记得引入样式：
+
+```ts
+import '@fxshelf/word-tunnel/styles.css'
+```
+
+| 使用方 | Peer |
+|--------|------|
+| React | `react` / `react-dom` ≥ 18 |
+| Vue | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
+
+## 用法 — React
 
 ```tsx
 import { WordTunnel } from '@fxshelf/word-tunnel'
@@ -36,7 +52,9 @@ export function Hero() {
 <WordTunnel words={['喵', '汪', '咕咕咕']} />
 ```
 
-## Vue
+## 用法 — Vue
+
+入口为源码 SFC：`@fxshelf/word-tunnel/vue`。
 
 ```vue
 <script setup lang="ts">
@@ -47,6 +65,30 @@ import '@fxshelf/word-tunnel/styles.css'
 <template>
   <WordTunnel :style="{ height: '420px', background: '#0c081e' }" />
 </template>
+```
+
+## 常用 props
+
+| prop | 默认 | 说明 |
+|------|------|------|
+| `words` | 内置词条 | 词条数组 |
+| `count` | 按宽度自适应 | 固定词数 |
+| `seed` | `20250913` | 随机种子（同值布局可复现） |
+| `perspective` | `900` | CSS perspective |
+| `innerRadius` | `8` | 中心空洞半径 |
+| `outerRadius` | `52` | 外圈采样半径 |
+| `travelMin` / `travelRange` | `480` / `560` | z 飞行距离 |
+| `fadeIn` / `fadeOut` | `10` / `88` | 淡入/淡出进度 0–100 |
+| `color` / `fontSize` | `#fff` / `24` | 文字样式 |
+
+## 复制源码
+
+不经过 npm 时，从本包 `src/`（或 `node_modules/@fxshelf/word-tunnel/`）拷贝：
+
+```
+core/     # 必拷（含 styles.css）
+react/    # React 项目
+vue/      # Vue 项目
 ```
 
 ## 参考文章

@@ -17,9 +17,9 @@
 |------|------|------|
 | [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | [`0.1.6`](./packages/card-orbit) | 路径约束的 3D 卡片轨道 —— 升起、弧线、飞出 |
 | [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | [`0.1.1`](./packages/glyph-rain) | Matrix 风格字符雨 —— 光标搅动，可选内容照明 |
-| [`@fxshelf/starfield`](./packages/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D 星空隧道 —— 透视飞近、闪烁与拖尾 |
-| [`@fxshelf/button-kit`](./packages/button-kit) | [`0.1.0`](./packages/button-kit) | 按钮动效书架 —— 用 `variant` 字符串切换样式 |
-| [`@fxshelf/word-tunnel`](./packages/word-tunnel) | [`0.1.0`](./packages/word-tunnel) | 3D 词云隧道 —— 文字朝灭点飞来 |
+| [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D 星空隧道 —— 透视飞近、闪烁与拖尾 |
+| [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.0`](./packages/button-kit) | 按钮动效书架 —— 用 `variant` 字符串切换样式 |
+| [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.0`](./packages/word-tunnel) | 3D 词云隧道 —— 文字朝灭点飞来 |
 
 ```bash
 npm install @fxshelf/card-orbit
