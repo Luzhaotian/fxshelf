@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@fxshelf/word-tunnel · script 直引示例</title>
+  <!--
+    @fxshelf/word-tunnel 浏览器直引示例:零构建工具,React UMD + word-tunnel 浏览器产物。
+
+    资源走 npm CDN(需联网,包已发布为 @fxshelf/word-tunnel):
+      CSS: https://unpkg.com/@fxshelf/word-tunnel/dist/index.css
+      JS : https://unpkg.com/@fxshelf/word-tunnel/dist/word-tunnel.iife.js
+
+    本地已 build 时也可改成相对路径:
+      ../dist/index.css
+      ../dist/word-tunnel.iife.js
+
+    注意:不要用 jsDelivr 的 gh/.../dist 直链 —— dist/ 不进 Git,会 404。
+    注意:React 需用 18.x 的 UMD 版本 —— React 19 起官方不再提供 UMD 构建。
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/@fxshelf/word-tunnel/dist/index.css" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: #0c081e;
+      color: #fff;
+    }
+    #app { height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@fxshelf/word-tunnel/dist/word-tunnel.iife.js"></script>
+
+  <script>
+    var WordTunnelView = WordTunnel.WordTunnel
+
+    ReactDOM.createRoot(document.getElementById('app')).render(
+      React.createElement(
+        WordTunnelView,
+        {
+          style: { height: '100%', background: '#0c081e' },
+          words: ['我本地是好的', '先上线再说', 'LGTM', '再改改', '周末上线'],
+        },
+        React.createElement(
+          'h1',
+          { style: { color: '#fff', padding: 32, margin: 0, position: 'relative', zIndex: 1 } },
+          'Word Tunnel',
+        ),
+      ),
+    )
+  </script>
+</body>
+</html>

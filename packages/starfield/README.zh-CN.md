@@ -77,6 +77,28 @@ import { Starfield } from '@fxshelf/starfield/vue'
 | `color1` / `color2` / `color3` | `#ffffff` | 三色调色板 |
 | `reverse` | `false` | 反向飞离 |
 
+## 用法 — CDN（React 18 UMD）
+
+自包含产物 `dist/starfield.iife.js`，全局 `Starfield`。完整示例：[docs/CDN示例.html](./docs/CDN示例.html)。
+
+```html
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js"></script>
+
+<div id="app" style="height:420px;background:#0f0f12"></div>
+<script>
+  ReactDOM.createRoot(document.getElementById('app')).render(
+    React.createElement(Starfield.Starfield, {
+      style: { height: 420, background: '#0f0f12' },
+      particleCount: 263,
+    }),
+  )
+</script>
+```
+
+生产环境建议锁定版本。不要用 jsDelivr GitHub `gh/.../dist` 直链。
+
 ## 复制源码
 
 不经过 npm 时，从本包 `src/`（或 `node_modules/@fxshelf/starfield/`）拷贝：

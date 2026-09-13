@@ -81,6 +81,30 @@ import '@fxshelf/word-tunnel/styles.css'
 | `fadeIn` / `fadeOut` | `10` / `88` | Fade progress 0–100 |
 | `color` / `fontSize` | `#fff` / `24` | Text style |
 
+## Usage — CDN (React 18 UMD)
+
+Self-contained build `dist/word-tunnel.iife.js`, global `WordTunnel`. Full example: [docs/CDN示例.html](./docs/CDN示例.html).
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@fxshelf/word-tunnel/dist/index.css" />
+
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@fxshelf/word-tunnel/dist/word-tunnel.iife.js"></script>
+
+<div id="app" style="height:420px;background:#0c081e"></div>
+<script>
+  ReactDOM.createRoot(document.getElementById('app')).render(
+    React.createElement(WordTunnel.WordTunnel, {
+      style: { height: '100%', background: '#0c081e' },
+    }),
+  )
+</script>
+```
+
+Pin the version in production, e.g. `@fxshelf/word-tunnel@0.1.0/...`.  
+Do not use jsDelivr GitHub `gh/.../dist` links (`dist/` is not committed).
+
 ## Copy as source
 
 Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/word-tunnel/`):
@@ -89,6 +113,20 @@ Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/word-t
 core/     # required (includes styles.css)
 react/    # React projects
 vue/      # Vue projects
+```
+
+Keep `core` next to `react` / `vue`, then:
+
+```tsx
+// React
+import { WordTunnel } from './components/word-tunnel/react'
+import './components/word-tunnel/core/styles.css'
+```
+
+```ts
+// Vue
+import { WordTunnel } from './components/word-tunnel/vue'
+import './components/word-tunnel/core/styles.css'
 ```
 
 ## Related articles

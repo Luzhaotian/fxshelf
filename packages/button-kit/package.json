@@ -37,7 +37,8 @@
     "LICENSE",
     "docs/使用说明.md",
     "docs/动效说明-专业.md",
-    "docs/动效说明-大白话.md"
+    "docs/动效说明-大白话.md",
+    "docs/CDN示例.html"
   ],
   "publishConfig": {
     "access": "public"

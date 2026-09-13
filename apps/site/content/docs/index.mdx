@@ -1,5 +1,5 @@
 ---
-title: 入门
+title: 文档
 description: 浏览并安装 fxshelf 动效包
 ---
 
@@ -13,13 +13,19 @@ description: 浏览并安装 fxshelf 动效包
   <Card title="Card Orbit" href="/docs/effects/card-orbit" description="路径约束的 3D 卡片轨道 —— 升起、弧线、飞出。" />
   <Card title="Glyph Rain" href="/docs/effects/glyph-rain" description="Matrix 风格字符雨 —— 光标搅动，可选内容照明。" />
   <Card title="Starfield" href="/docs/effects/starfield" description="Canvas 星空隧道 —— 透视飞近、闪烁与拖尾。" />
+  <Card title="Button Kit" href="/docs/effects/button-kit" description="按钮动效书架 —— 用 variant 字符串切换样式。" />
+  <Card title="Word Tunnel" href="/docs/effects/word-tunnel" description="3D 词云隧道 —— 文字朝灭点飞来。" />
 </Cards>
 
 ```bash
 npm install @fxshelf/card-orbit
+npm install @fxshelf/glyph-rain
+npm install @fxshelf/starfield
+npm install @fxshelf/button-kit
+npm install @fxshelf/word-tunnel
 ```
 
-已发布包见 [npm `@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit)。CDN 示例与完整用法见各动效文档页。
+已发布包见 [npm `@fxshelf`](https://www.npmjs.com/org/fxshelf)。CDN 示例与完整用法见各动效文档页。
 
 ## 新增动效
 
@@ -27,4 +33,5 @@ npm install @fxshelf/card-orbit
 2. 在 `apps/site/lib/effects.ts` 追加一条 registry
 3. 添加 `apps/site/content/docs/effects/<id>.mdx`
 4. 更新 `apps/site/content/docs/effects/meta.json`
-5. 首页卡片会自动读取 registry
+5. 如需，更新根目录 `package.json` 脚本（`build` / `typecheck` / `pack:check` / `lint`）以及 `apps/site` 依赖
+6. 首页卡片会自动读取 registry；文档页 Cards 请同步补上

@@ -54,6 +54,8 @@ export function Cta() {
 
 ### Vue
 
+Vue 入口是源码 `.vue` SFC，不会预编译进 `dist`。目标项目需要能编译 SFC（例如 Vite + `@vitejs/plugin-vue`）。
+
 ```vue
 <script setup lang="ts">
 import { Button } from '@fxshelf/button-kit/vue'
@@ -63,6 +65,66 @@ import '@fxshelf/button-kit/styles.css'
 <template>
   <Button variant="neon">Continue</Button>
 </template>
+```
+
+### CDN（React 18 UMD）
+
+适合静态页或零构建场景。需先加载 **React 18.x UMD**（React 19 起官方不再提供 UMD），再加载 IIFE，并引入 CSS。
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://unpkg.com/@fxshelf/button-kit/dist/index.css" />
+</head>
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js"></script>
+
+  <script>
+    var Button = ButtonKit.Button
+    ReactDOM.createRoot(document.getElementById('app')).render(
+      React.createElement(Button, { variant: 'glow' }, 'Continue'),
+    )
+  </script>
+</body>
+</html>
+```
+
+- 全局 `ButtonKit` 上有 `Button`、`BUTTON_VARIANTS` 等。
+- 也可用 jsDelivr：`https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/dist/button-kit.iife.js`
+- 生产环境建议锁定版本：`@fxshelf/button-kit@0.1.0/...`
+- 顺序：React 必须在 button-kit 之前加载；样式用 `dist/index.css`。
+- 不要用 jsDelivr 的 `gh/.../dist` 直链（`dist/` 不进 Git）。
+- 仓库内完整示例：[CDN示例.html](https://github.com/Luzhaotian/fxshelf/blob/main/packages/button-kit/docs/CDN示例.html)
+- Vue 暂无 script 直引；请用 npm 或下方复制源码。
+
+### 复制源码（不经过 npm）
+
+从仓库 [`packages/button-kit/src`](https://github.com/Luzhaotian/fxshelf/tree/main/packages/button-kit/src)（或已安装的 `node_modules/@fxshelf/button-kit/`）拷贝：
+
+```
+src/core/     # 必拷（含 styles.css）
+src/react/    # 仅 React 项目
+src/vue/      # 仅 Vue 项目
+```
+
+建议放到例如 `components/button-kit/`，保持 `core` 与 `react`/`vue` 同级，然后：
+
+```tsx
+// React
+import { Button } from './components/button-kit/react'
+import './components/button-kit/core/styles.css'
+```
+
+```ts
+// Vue
+import { Button } from './components/button-kit/vue'
+import './components/button-kit/core/styles.css'
 ```
 
 ## Props

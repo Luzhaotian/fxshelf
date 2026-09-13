@@ -69,26 +69,32 @@ chore: 接入 husky 与 commitlint
 
 配置见 [`commitlint.config.js`](./commitlint.config.js)。
 
+Cursor 源码管理面板的「生成提交信息」会读取 [`.cursorrules`](./.cursorrules)，按本仓库约定用**简体中文**生成 commit message。
+
 ## 新增一个动效
 
 1. 创建 `packages/<id>/`，`"name"` 设为 `@fxshelf/<id>`
 2. 在 [`apps/site/lib/effects.ts`](./apps/site/lib/effects.ts) 追加条目
-3. 添加 `apps/site/content/docs/effects/<id>.mdx`
+3. 添加 `apps/site/content/docs/effects/<id>.mdx`（含 npm / CDN / 复制源码）
 4. 更新 [`apps/site/content/docs/effects/meta.json`](./apps/site/content/docs/effects/meta.json)
-5. 如需，更新根目录 `package.json` 脚本（`build` / `typecheck` / `pack:check` / `lint`）以及 `apps/site` 依赖
-6. 首页卡片会从 registry 自动带上
+5. 更新 [`apps/site/content/docs/index.mdx`](./apps/site/content/docs/index.mdx) Cards
+6. 如需，更新根目录 `package.json` 脚本（`build` / `typecheck` / `pack:check` / `lint`）以及 `apps/site` 依赖
+7. 首页卡片会从 registry 自动带上
+
+更多说明见 [CONTRIBUTING.md](./CONTRIBUTING.md)。变更记录见 [CHANGELOG.md](./CHANGELOG.md)。
 
 ## 发布包
 
-需要 npm 组织 **`fxshelf`**（scoped 包发布权限）。
+需要 npm 组织 **`fxshelf`**（scoped 包发布权限）。推荐用 [Changesets](./.changeset)：
 
 ```bash
+npm run changeset          # 记录改了哪些包
+npm run version-packages   # bump 版本并写各包 CHANGELOG
 npm whoami
-cd packages/<id>
-# 先改 package.json 里的 version，然后：
-npm run pack:check
-npm publish --access public
+npm run release            # 构建 + changeset publish
 ```
+
+细节见 [CONTRIBUTING.md](./CONTRIBUTING.md)。
 
 ## License
 

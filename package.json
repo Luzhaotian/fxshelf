@@ -10,6 +10,9 @@
     "packages/*",
     "apps/*"
   ],
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "npm run dev -w @fxshelf/site",
     "build": "npm run build -w @fxshelf/card-orbit && npm run build -w @fxshelf/glyph-rain && npm run build -w @fxshelf/starfield && npm run build -w @fxshelf/button-kit && npm run build -w @fxshelf/word-tunnel",
@@ -19,6 +22,9 @@
     "lint": "oxlint packages/card-orbit/src packages/glyph-rain/src packages/starfield/src packages/button-kit/src packages/word-tunnel/src apps/site/components apps/site/lib apps/site/app",
     "typecheck": "npm run typecheck -w @fxshelf/card-orbit && npm run typecheck -w @fxshelf/glyph-rain && npm run typecheck -w @fxshelf/starfield && npm run typecheck -w @fxshelf/button-kit && npm run typecheck -w @fxshelf/word-tunnel && npm run typecheck -w @fxshelf/site",
     "pack:check": "npm run pack:check -w @fxshelf/card-orbit && npm run pack:check -w @fxshelf/glyph-rain && npm run pack:check -w @fxshelf/starfield && npm run pack:check -w @fxshelf/button-kit && npm run pack:check -w @fxshelf/word-tunnel",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "npm run build && changeset publish",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
@@ -28,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.2",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "husky": "^9.1.7",

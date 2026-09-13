@@ -10,13 +10,8 @@ export function baseOptions(): BaseLayoutProps {
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
     links: [
       {
-        text: 'Card Orbit',
-        url: '/docs/effects/card-orbit',
-        active: 'nested-url',
-      },
-      {
         text: 'npm',
-        url: 'https://www.npmjs.com/package/@fxshelf/card-orbit',
+        url: 'https://www.npmjs.com/search?q=fxshelf',
         external: true,
       },
     ],

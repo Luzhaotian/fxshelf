@@ -40,12 +40,6 @@ export default function HomePage() {
             >
               阅读文档
             </Link>
-            <Link
-              href="/docs/effects/card-orbit"
-              className="inline-flex items-center rounded-lg border border-fd-border bg-fd-background/70 px-4 py-2 text-sm font-medium text-fd-foreground transition hover:bg-fd-accent"
-            >
-              打开 Card Orbit
-            </Link>
           </div>
         </header>
 

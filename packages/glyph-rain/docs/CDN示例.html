@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@fxshelf/glyph-rain · script 直引示例</title>
+  <!--
+    @fxshelf/glyph-rain 浏览器直引示例:零构建工具,React UMD + glyph-rain 浏览器产物。
+
+    资源走 npm CDN(需联网):
+      JS: https://unpkg.com/@fxshelf/glyph-rain/dist/glyph-rain.iife.js
+
+    本地已 build 时可改成 ../dist/glyph-rain.iife.js
+    注意:不要用 jsDelivr 的 gh/.../dist 直链 —— dist/ 不进 Git。
+    注意:React 需用 18.x UMD。
+    注意:内容照明需 Chrome 实验性 html-in-canvas；无该 API 时仍渲染 WebGL2 雨层。
+  -->
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: #050508;
+      color: #fff;
+    }
+    #app { height: 100%; }
+    .panel {
+      padding: 2rem;
+      max-width: 28rem;
+    }
+    .panel h1 { margin: 0 0 0.75rem; font-size: 1.75rem; }
+    .panel p { margin: 0; line-height: 1.6; opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@fxshelf/glyph-rain/dist/glyph-rain.iife.js"></script>
+
+  <script>
+    var GlyphRainView = GlyphRain.GlyphRain
+
+    ReactDOM.createRoot(document.getElementById('app')).render(
+      React.createElement(
+        GlyphRainView,
+        { style: { height: '100%' }, density: 0.18, stir: 0.8 },
+        React.createElement(
+          'div',
+          { className: 'panel' },
+          React.createElement('h1', null, 'Glyph Rain'),
+          React.createElement('p', null, '移动鼠标搅动雨滴。内容照明依赖 Chrome 实验性 html-in-canvas。'),
+        ),
+      ),
+    )
+  </script>
+</body>
+</html>

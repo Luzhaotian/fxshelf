@@ -77,6 +77,28 @@ import { Starfield } from '@fxshelf/starfield/vue'
 | `color1` / `color2` / `color3` | `#ffffff` | Palette |
 | `reverse` | `false` | Fly away instead |
 
+## Usage — CDN (React 18 UMD)
+
+Self-contained build `dist/starfield.iife.js`, global `Starfield`. Full example: [docs/CDN示例.html](./docs/CDN示例.html).
+
+```html
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js"></script>
+
+<div id="app" style="height:420px;background:#0f0f12"></div>
+<script>
+  ReactDOM.createRoot(document.getElementById('app')).render(
+    React.createElement(Starfield.Starfield, {
+      style: { height: 420, background: '#0f0f12' },
+      particleCount: 263,
+    }),
+  )
+</script>
+```
+
+Pin the version in production. Do not use jsDelivr GitHub `gh/.../dist` links.
+
 ## Copy as source
 
 Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/starfield/`):

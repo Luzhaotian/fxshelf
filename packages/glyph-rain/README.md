@@ -65,6 +65,37 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 | Content lighting / dim | Chrome experimental `drawElementImage` + `layoutsubtree` (html-in-canvas) |
 | Cursor stir | Pointer events on the wrapper |
 
+## Common props
+
+| Prop | Default | Description |
+|------|---------|-------------|
+| `cell` | `15` | Glyph cell size (CSS px) |
+| `speed` | `0.2` | Fall speed |
+| `density` | `0.15` | Drop density |
+| `trail` | `0.65` | Trail length |
+| `glow` | `1.75` | Head brightness |
+| `stir` | `0.7` | Cursor stir strength |
+| `dim` / `light` | `0.5` / `2.8` | Page dim / drop lighting (html-in-canvas) |
+
+## Usage — CDN (React 18 UMD)
+
+Self-contained build `dist/glyph-rain.iife.js`, global `GlyphRain`. Full example: [docs/CDN示例.html](./docs/CDN示例.html).
+
+```html
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@fxshelf/glyph-rain/dist/glyph-rain.iife.js"></script>
+
+<div id="app" style="height:420px"></div>
+<script>
+  ReactDOM.createRoot(document.getElementById('app')).render(
+    React.createElement(GlyphRain.GlyphRain, { style: { height: 420 }, density: 0.18 }),
+  )
+</script>
+```
+
+Pin the version in production. Do not use jsDelivr GitHub `gh/.../dist` links.
+
 ## Copy as source
 
 Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/glyph-rain/`):

@@ -1,3 +1,5 @@
 ## Commit messages
 
 All generated commit messages must be written in Simplified Chinese (简体中文).
+
+Follow Conventional Commits: `type(scope?): 中文说明` — the subject must include Chinese.

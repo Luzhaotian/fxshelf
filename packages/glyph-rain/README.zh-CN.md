@@ -65,6 +65,37 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 | 内容照明 / 压暗 | Chrome 实验性 `drawElementImage` + `layoutsubtree`（html-in-canvas） |
 | 光标搅动 | 容器上的指针事件 |
 
+## 常用 props
+
+| prop | 默认 | 说明 |
+|------|------|------|
+| `cell` | `15` | 字元格子大小（CSS px） |
+| `speed` | `0.2` | 下落速度 |
+| `density` | `0.15` | 雨滴密度 |
+| `trail` | `0.65` | 拖尾长度 |
+| `glow` | `1.75` | 头部亮度 |
+| `stir` | `0.7` | 光标搅动强度 |
+| `dim` / `light` | `0.5` / `2.8` | 页面压暗与雨滴照明（需 html-in-canvas） |
+
+## 用法 — CDN（React 18 UMD）
+
+自包含产物 `dist/glyph-rain.iife.js`，全局 `GlyphRain`。完整示例：[docs/CDN示例.html](./docs/CDN示例.html)。
+
+```html
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@fxshelf/glyph-rain/dist/glyph-rain.iife.js"></script>
+
+<div id="app" style="height:420px"></div>
+<script>
+  ReactDOM.createRoot(document.getElementById('app')).render(
+    React.createElement(GlyphRain.GlyphRain, { style: { height: 420 }, density: 0.18 }),
+  )
+</script>
+```
+
+生产环境建议锁定版本。不要用 jsDelivr GitHub `gh/.../dist` 直链。
+
 ## 复制源码
 
 不经过 npm 时，从本包 `src/`（或 `node_modules/@fxshelf/glyph-rain/`）拷贝：

@@ -69,7 +69,7 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 
 ### CDN（React 18 UMD）
 
-需先加载 **React 18.x UMD**，再加载 IIFE。
+需先加载 **React 18.x UMD**，再加载 IIFE。仓库内完整示例：[CDN示例.html](https://github.com/Luzhaotian/fxshelf/blob/main/packages/glyph-rain/docs/CDN示例.html)。
 
 ```html
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
@@ -92,9 +92,11 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 </script>
 ```
 
+生产环境建议锁定版本；不要用 jsDelivr `gh/.../dist` 直链（`dist/` 不进 Git）。Vue 暂无 script 直引。
+
 ### 复制源码
 
-拷贝 `packages/glyph-rain/src/core` 与 `src/react`（或 `src/vue`）即可，零 npm 依赖（peer 框架除外）。
+拷贝 `packages/glyph-rain/src/core` 与 `src/react`（或 `src/vue`）即可，零 npm 依赖（peer 框架除外）。保持 `core` 与 `react`/`vue` 同级。
 
 ## Props
 

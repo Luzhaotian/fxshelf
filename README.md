@@ -69,26 +69,32 @@ Allowed types: `feat` · `fix` · `docs` · `style` · `refactor` · `perf` · `
 
 Config: [`commitlint.config.js`](./commitlint.config.js)
 
+Cursor Source Control 「Generate Commit Message」 follows [`.cursorrules`](./.cursorrules) — messages are generated in Simplified Chinese to match this convention.
+
 ## Add a new effect
 
 1. Create `packages/<id>/` with `"name": "@fxshelf/<id>"`
 2. Append an entry in [`apps/site/lib/effects.ts`](./apps/site/lib/effects.ts)
-3. Add `apps/site/content/docs/effects/<id>.mdx`
+3. Add `apps/site/content/docs/effects/<id>.mdx` (npm / CDN / copy-as-source)
 4. Update [`apps/site/content/docs/effects/meta.json`](./apps/site/content/docs/effects/meta.json)
-5. Wire root `package.json` scripts (`build` / `typecheck` / `pack:check` / `lint`) and `apps/site` dependency if needed
-6. Homepage cards pick it up from the registry
+5. Update [`apps/site/content/docs/index.mdx`](./apps/site/content/docs/index.mdx) Cards
+6. Wire root `package.json` scripts (`build` / `typecheck` / `pack:check` / `lint`) and `apps/site` dependency if needed
+7. Homepage cards pick it up from the registry
+
+More detail: [CONTRIBUTING.md](./CONTRIBUTING.md). Changelog: [CHANGELOG.md](./CHANGELOG.md).
 
 ## Publish a package
 
-Requires npm org **`fxshelf`** (scoped publish rights).
+Requires npm org **`fxshelf`** (scoped publish rights). Prefer [Changesets](./.changeset):
 
 ```bash
+npm run changeset          # record which packages changed
+npm run version-packages   # bump versions + write package CHANGELOGs
 npm whoami
-cd packages/<id>
-# bump version in package.json, then:
-npm run pack:check
-npm publish --access public
+npm run release            # build + changeset publish
 ```
+
+Details: [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 

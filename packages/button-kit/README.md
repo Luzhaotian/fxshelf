@@ -74,6 +74,28 @@ import '@fxshelf/button-kit/styles.css'
 
 Unknown strings fall back to `solid`.
 
+## Usage — CDN (React 18 UMD)
+
+Self-contained build `dist/button-kit.iife.js`, global `ButtonKit`. Full example: [docs/CDN示例.html](./docs/CDN示例.html).
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@fxshelf/button-kit/dist/index.css" />
+
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js"></script>
+
+<div id="app"></div>
+<script>
+  ReactDOM.createRoot(document.getElementById('app')).render(
+    React.createElement(ButtonKit.Button, { variant: 'glow' }, 'Continue'),
+  )
+</script>
+```
+
+Pin the version in production, e.g. `@fxshelf/button-kit@0.1.0/...`.  
+Do not use jsDelivr GitHub `gh/.../dist` links (`dist/` is not committed).
+
 ## Copy as source
 
 Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/button-kit/`):
@@ -82,6 +104,20 @@ Skip npm and copy from this package’s `src/` (or `node_modules/@fxshelf/button
 core/     # required (includes styles.css)
 react/    # React projects
 vue/      # Vue projects
+```
+
+Keep `core` next to `react` / `vue`, then:
+
+```tsx
+// React
+import { Button } from './components/button-kit/react'
+import './components/button-kit/core/styles.css'
+```
+
+```ts
+// Vue
+import { Button } from './components/button-kit/vue'
+import './components/button-kit/core/styles.css'
 ```
 
 ## License

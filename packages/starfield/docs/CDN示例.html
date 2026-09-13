@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@fxshelf/starfield · script 直引示例</title>
+  <!--
+    @fxshelf/starfield 浏览器直引示例:零构建工具,React UMD + starfield 浏览器产物。
+
+    资源走 npm CDN(需联网):
+      JS: https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js
+
+    本地已 build 时可改成 ../dist/starfield.iife.js
+    注意:不要用 jsDelivr 的 gh/.../dist 直链 —— dist/ 不进 Git。
+    注意:React 需用 18.x UMD。
+  -->
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: #0f0f12;
+      color: #fff;
+    }
+    #app { height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js"></script>
+
+  <script>
+    var StarfieldView = Starfield.Starfield
+
+    ReactDOM.createRoot(document.getElementById('app')).render(
+      React.createElement(
+        StarfieldView,
+        {
+          style: { height: '100%', background: '#0f0f12' },
+          particleCount: 263,
+          brightness: 73,
+        },
+        React.createElement(
+          'h1',
+          { style: { color: '#fff', padding: 32, margin: 0, position: 'relative', zIndex: 1 } },
+          'Starfield',
+        ),
+      ),
+    )
+  </script>
+</body>
+</html>
