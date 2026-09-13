@@ -49,6 +49,12 @@ import '@fxshelf/word-tunnel/styles.css'
 </template>
 ```
 
+## Related articles
+
+- [CSS 3D starfield tunnel Loading (no Three.js)](https://juejin.cn/post/7684547172777246766) — Juejin
+- [Zhihu column](https://zhuanlan.zhihu.com/p/2082492419061330179)
+- [CSDN post](https://blog.csdn.net/paopao_pop/article/details/165232859)
+
 ## License
 
 MIT

@@ -49,6 +49,12 @@ import '@fxshelf/word-tunnel/styles.css'
 </template>
 ```
 
+## 参考文章
+
+- [我用 CSS 3D 做了个星空隧道 Loading，没有 Three.js](https://juejin.cn/post/7684547172777246766)（掘金）
+- [知乎专栏 · 星空隧道词云 Loading](https://zhuanlan.zhihu.com/p/2082492419061330179)
+- [CSDN · 星空隧道词云 Loading](https://blog.csdn.net/paopao_pop/article/details/165232859)
+
 ## License
 
 MIT
