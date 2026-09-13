@@ -7,9 +7,9 @@ Browse the site, install only what you need — or copy the source. No Framer Mo
 
 | | |
 |--|--|
-| **Site / Docs** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/) |
+| **Site / Docs** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/)（中文为主；各包 README 双语） |
 | **Scope** | `@fxshelf/*` |
-| **Deploy** | GitHub Actions → Pages（`main` push） |
+| **Deploy** | GitHub Actions → Pages（`main` push）；发包可手动跑 Release workflow |
 
 ## Packages
 
@@ -85,7 +85,13 @@ More detail: [CONTRIBUTING.md](./CONTRIBUTING.md). Changelog: [CHANGELOG.md](./C
 
 ## Publish a package
 
-Requires npm org **`fxshelf`** (scoped publish rights). Prefer [Changesets](./.changeset):
+Requires npm org **`fxshelf`** (scoped publish rights). After versions are bumped:
+
+```bash
+npm run publish:packages   # scan packages/* → login check → confirm → pack:check → publish
+```
+
+Or via [Changesets](./.changeset):
 
 ```bash
 npm run changeset          # record which packages changed

@@ -5,12 +5,12 @@ Published packages keep independent semver; entries below are grouped by package
 
 ## Unreleased
 
-- Docs: 文档页补齐 button-kit / word-tunnel；各包 CDN / 复制源码说明与 `CDN示例.html` 对齐
-- Docs: 根 README 说明 Cursor 生成中文 commit message（`.cursorrules`）
-- CI: 新增 PR / `main` 上的 lint · typecheck · build 工作流
-- Meta: 新增 `CONTRIBUTING.md`、`.nvmrc`；坐标演示页仅从 Card Orbit 文内链接进入（不进侧栏）
-- Tooling: 接入 [Changesets](./.changeset)（`changeset` / `version-packages` / `release`）
-- Nav: 侧栏文档首页标题为「文档」；npm 链到 fxshelf 搜索结果；首页去掉「打开 Card Orbit」
+- Chore: 补齐站点五包 `transpilePackages` / tsconfig paths / turbopack alias
+- Chore: 删除空 Changeset；CI 增加 `pack:check` 与 site build；Deploy / Release 统一 `.nvmrc`
+- Docs: glyph-rain / starfield CDN 锁定版本示例；button-kit / word-tunnel 动效说明加厚
+- Docs: `apps/site` 双语 README；CONTRIBUTING 列出当前五包与新增 checklist
+- Meta: 首页预览改为 `previews` 映射；新增手动 `release.yml`（需 `NPM_TOKEN`）
+- Tooling: 新增 `npm run publish:packages`（扫描 packages/*、登录校验、确认后发布）
 
 后续包级变更记录以 `packages/*/CHANGELOG.md` 为准（由 `npm run version-packages` 生成）；本文件保留 monorepo 总览。
 

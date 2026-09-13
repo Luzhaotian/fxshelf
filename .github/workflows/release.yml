@@ -1,0 +1,42 @@
+name: Release packages
+
+# Manual publish via Changesets. Requires repo Secret NPM_TOKEN
+# (npm automation / classic token with publish rights to @fxshelf/*).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - name: Install
+        run: npm ci
+
+      - name: Build, typecheck, pack check
+        run: |
+          npm run build
+          npm run typecheck
+          npm run pack:check
+
+      - name: Publish
+        run: npx changeset publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

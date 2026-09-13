@@ -97,7 +97,8 @@ import { Starfield } from '@fxshelf/starfield/vue'
 </script>
 ```
 
-生产环境建议锁定版本。不要用 jsDelivr GitHub `gh/.../dist` 直链。
+生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/starfield@0.1.1/dist/starfield.iife.js`。  
+不要用 jsDelivr GitHub `gh/.../dist` 直链。
 
 ## 复制源码
 

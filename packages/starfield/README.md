@@ -97,7 +97,8 @@ Self-contained build `dist/starfield.iife.js`, global `Starfield`. Full example:
 </script>
 ```
 
-Pin the version in production. Do not use jsDelivr GitHub `gh/.../dist` links.
+Pin the version in production, e.g. `https://unpkg.com/@fxshelf/starfield@0.1.1/dist/starfield.iife.js`.  
+Do not use jsDelivr GitHub `gh/.../dist` links.
 
 ## Copy as source
 

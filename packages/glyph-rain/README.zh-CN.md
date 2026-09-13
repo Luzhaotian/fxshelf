@@ -94,7 +94,8 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 </script>
 ```
 
-生产环境建议锁定版本。不要用 jsDelivr GitHub `gh/.../dist` 直链。
+生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/glyph-rain@0.1.1/dist/glyph-rain.iife.js`。  
+不要用 jsDelivr GitHub `gh/.../dist` 直链。
 
 ## 复制源码
 

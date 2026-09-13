@@ -25,6 +25,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "npm run build && changeset publish",
+    "publish:packages": "node scripts/publish-packages.mjs",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },

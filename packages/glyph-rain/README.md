@@ -94,7 +94,8 @@ Self-contained build `dist/glyph-rain.iife.js`, global `GlyphRain`. Full example
 </script>
 ```
 
-Pin the version in production. Do not use jsDelivr GitHub `gh/.../dist` links.
+Pin the version in production, e.g. `https://unpkg.com/@fxshelf/glyph-rain@0.1.1/dist/glyph-rain.iife.js`.  
+Do not use jsDelivr GitHub `gh/.../dist` links.
 
 ## Copy as source
 

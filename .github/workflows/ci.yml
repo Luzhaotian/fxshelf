@@ -34,3 +34,9 @@ jobs:
 
       - name: Typecheck
         run: npm run typecheck
+
+      - name: Pack check
+        run: npm run pack:check
+
+      - name: Build site
+        run: npm run build:site

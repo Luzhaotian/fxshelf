@@ -7,9 +7,9 @@
 
 | | |
 |--|--|
-| **站点 / 文档** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/) |
+| **站点 / 文档** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/)（中文为主；各包 README 双语） |
 | **包作用域** | `@fxshelf/*` |
-| **部署** | GitHub Actions → Pages（`main` 推送） |
+| **部署** | GitHub Actions → Pages（`main` 推送）；发包可手动跑 Release workflow |
 
 ## 包列表
 
@@ -85,7 +85,13 @@ Cursor 源码管理面板的「生成提交信息」会读取 [`.cursorrules`](.
 
 ## 发布包
 
-需要 npm 组织 **`fxshelf`**（scoped 包发布权限）。推荐用 [Changesets](./.changeset)：
+需要 npm 组织 **`fxshelf`**（scoped 包发布权限）。版本已 bump 后：
+
+```bash
+npm run publish:packages   # 扫描 packages/* → 登录检查 → 确认 → pack:check → publish
+```
+
+或用 [Changesets](./.changeset)：
 
 ```bash
 npm run changeset          # 记录改了哪些包

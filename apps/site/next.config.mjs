@@ -21,11 +21,23 @@ const config = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
-  transpilePackages: ['@fxshelf/card-orbit'],
+  transpilePackages: [
+    '@fxshelf/button-kit',
+    '@fxshelf/card-orbit',
+    '@fxshelf/glyph-rain',
+    '@fxshelf/starfield',
+    '@fxshelf/word-tunnel',
+  ],
   turbopack: {
     resolveAlias: {
+      '@fxshelf/button-kit': '../../packages/button-kit/src/index.ts',
+      '@fxshelf/button-kit/styles.css': '../../packages/button-kit/src/core/styles.css',
       '@fxshelf/card-orbit': '../../packages/card-orbit/src/index.ts',
       '@fxshelf/card-orbit/styles.css': '../../packages/card-orbit/src/core/styles.css',
+      '@fxshelf/glyph-rain': '../../packages/glyph-rain/src/index.ts',
+      '@fxshelf/starfield': '../../packages/starfield/src/index.ts',
+      '@fxshelf/word-tunnel': '../../packages/word-tunnel/src/index.ts',
+      '@fxshelf/word-tunnel/styles.css': '../../packages/word-tunnel/src/core/styles.css',
     },
   },
 }
