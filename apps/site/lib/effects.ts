@@ -28,4 +28,18 @@ export const effects: EffectMeta[] = [
     packageName: '@fxshelf/starfield',
     docPath: '/docs/effects/starfield',
   },
+  {
+    id: 'button-kit',
+    title: 'Button Kit',
+    blurb: '按钮动效书架 —— 用 variant 字符串切换样式。',
+    packageName: '@fxshelf/button-kit',
+    docPath: '/docs/effects/button-kit',
+  },
+  {
+    id: 'word-tunnel',
+    title: 'Word Tunnel',
+    blurb: '3D 词云隧道 —— 文字朝灭点飞来。',
+    packageName: '@fxshelf/word-tunnel',
+    docPath: '/docs/effects/word-tunnel',
+  },
 ]

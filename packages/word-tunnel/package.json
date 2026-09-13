@@ -1,0 +1,88 @@
+{
+  "name": "@fxshelf/word-tunnel",
+  "version": "0.1.0",
+  "description": "3D keyword tunnel word-cloud for React and Vue — perspective fly-through text. Zero animation-lib deps. Copy-as-source friendly.",
+  "license": "MIT",
+  "author": "Lu Zhaotian",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/word-tunnel.iife.js",
+  "jsdelivr": "./dist/word-tunnel.iife.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./vue": {
+      "types": "./src/vue/index.ts",
+      "import": "./src/vue/index.ts",
+      "default": "./src/vue/index.ts"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist",
+    "src/core",
+    "src/react",
+    "src/vue",
+    "src/vue-shim.d.ts",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "docs/使用说明.md",
+    "docs/动效说明-专业.md",
+    "docs/动效说明-大白话.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup && node scripts/postbuild.mjs",
+    "lint": "oxlint src",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "pack:check": "npm run build && npm pack --dry-run",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "vue": ">=3.3"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "fxshelf",
+    "react",
+    "vue",
+    "word-cloud",
+    "word-tunnel",
+    "keyword",
+    "animation",
+    "effect",
+    "background"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luzhaotian/fxshelf.git",
+    "directory": "packages/word-tunnel"
+  },
+  "bugs": {
+    "url": "https://github.com/Luzhaotian/fxshelf/issues"
+  },
+  "homepage": "https://github.com/Luzhaotian/fxshelf/tree/main/packages/word-tunnel#readme"
+}

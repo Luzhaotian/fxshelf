@@ -1,0 +1,71 @@
+.fx-wt {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.fx-wt__stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  perspective: var(--fx-wt-perspective, 900px);
+  perspective-origin: 50% 50%;
+}
+
+.fx-wt__space {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.fx-wt__word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--fx-wt-color, #fff);
+  font-size: var(--fx-wt-font-size, 24px);
+  line-height: 1;
+  white-space: nowrap;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  animation-name: var(--fx-wt-anim, fx-wt-converge);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.fx-wt__content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+/* 默认 keyframes；自定义 fadeIn/fadeOut 时由组件注入覆盖名 */
+@keyframes fx-wt-converge {
+  0% {
+    opacity: 0;
+    transform: translate3d(
+      calc(-50% + var(--fx-wt-x)),
+      calc(-50% + var(--fx-wt-y)),
+      var(--fx-wt-z0)
+    );
+  }
+
+  10% {
+    opacity: var(--fx-wt-op);
+  }
+
+  88% {
+    opacity: calc(var(--fx-wt-op) * 0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(
+      calc(-50% + var(--fx-wt-x)),
+      calc(-50% + var(--fx-wt-y)),
+      var(--fx-wt-z1)
+    );
+  }
+}

@@ -1,0 +1,330 @@
+.fx-btn {
+  --fx-btn-fg: #0f0f12;
+  --fx-btn-bg: #f4f4f5;
+  --fx-btn-accent: #3b82f6;
+  --fx-btn-radius: 10px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--fx-btn-radius);
+  background: var(--fx-btn-bg);
+  color: var(--fx-btn-fg);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform 160ms ease,
+    box-shadow 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.fx-btn:focus-visible {
+  outline: 2px solid var(--fx-btn-accent);
+  outline-offset: 3px;
+}
+
+.fx-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.fx-btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* —— solid —— */
+.fx-btn--solid {
+  --fx-btn-fg: #fafafa;
+  --fx-btn-bg: #18181b;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+.fx-btn--solid:hover:not(:disabled) {
+  background: #27272a;
+}
+
+/* —— outline —— */
+.fx-btn--outline {
+  --fx-btn-fg: #18181b;
+  --fx-btn-bg: transparent;
+  border-color: #d4d4d8;
+  background: transparent;
+}
+
+.fx-btn--outline:hover:not(:disabled) {
+  border-color: #18181b;
+  background: #18181b;
+  color: #fafafa;
+}
+
+/* —— soft —— */
+.fx-btn--soft {
+  --fx-btn-fg: #1d4ed8;
+  --fx-btn-bg: #dbeafe;
+}
+
+.fx-btn--soft:hover:not(:disabled) {
+  background: #bfdbfe;
+  transform: translateY(-1px);
+}
+
+.fx-btn--soft:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+/* —— glow —— */
+.fx-btn--glow {
+  --fx-btn-fg: #f8fafc;
+  --fx-btn-bg: #2563eb;
+  box-shadow:
+    0 0 0 0 rgba(37, 99, 235, 0.45),
+    0 8px 24px rgba(37, 99, 235, 0.28);
+  animation: fx-btn-glow-pulse 2.4s ease-in-out infinite;
+}
+
+.fx-btn--glow:hover:not(:disabled) {
+  background: #1d4ed8;
+  box-shadow:
+    0 0 0 6px rgba(37, 99, 235, 0.18),
+    0 10px 28px rgba(37, 99, 235, 0.4);
+  animation: none;
+}
+
+@keyframes fx-btn-glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(37, 99, 235, 0.4),
+      0 8px 24px rgba(37, 99, 235, 0.28);
+  }
+  50% {
+    box-shadow:
+      0 0 0 8px rgba(37, 99, 235, 0),
+      0 10px 28px rgba(37, 99, 235, 0.35);
+  }
+}
+
+/* —— neon —— */
+.fx-btn--neon {
+  --fx-btn-fg: #67e8f9;
+  --fx-btn-bg: #0b1220;
+  border-color: #22d3ee;
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.25),
+    0 0 18px rgba(34, 211, 238, 0.35),
+    inset 0 0 12px rgba(34, 211, 238, 0.08);
+  text-shadow: 0 0 10px rgba(103, 232, 249, 0.55);
+}
+
+.fx-btn--neon:hover:not(:disabled) {
+  color: #ecfeff;
+  border-color: #67e8f9;
+  box-shadow:
+    0 0 0 1px rgba(103, 232, 249, 0.45),
+    0 0 28px rgba(34, 211, 238, 0.55),
+    inset 0 0 16px rgba(34, 211, 238, 0.14);
+}
+
+/* —— shimmer —— */
+.fx-btn--shimmer {
+  --fx-btn-fg: #fafafa;
+  --fx-btn-bg: #111827;
+}
+
+.fx-btn--shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.28) 48%,
+    transparent 66%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.55s ease;
+}
+
+.fx-btn--shimmer:hover:not(:disabled)::before {
+  transform: translateX(120%);
+}
+
+.fx-btn--shimmer:hover:not(:disabled) {
+  background: #1f2937;
+}
+
+/* —— chroma（炫彩流光 + hover 高斯光晕） —— */
+.fx-btn--chroma {
+  --fx-btn-fg: #fff;
+  --fx-btn-radius: 999px;
+  z-index: 0;
+  overflow: visible;
+  isolation: auto;
+  border: none;
+  background: linear-gradient(
+    to right,
+    #03a9f4,
+    #f441a5,
+    #ffeb3b,
+    #03a9f4
+  );
+  background-size: 400%;
+  letter-spacing: 0.08em;
+  animation: fx-btn-chroma-shift 8s ease infinite;
+}
+
+.fx-btn--chroma::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(
+    to right,
+    #03a9f4,
+    #f441a5,
+    #ffeb3b,
+    #03a9f4
+  );
+  background-size: 400%;
+  filter: blur(0);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.4s ease,
+    filter 0.4s ease;
+  animation: fx-btn-chroma-shift 8s ease infinite;
+}
+
+.fx-btn--chroma:hover:not(:disabled)::before {
+  opacity: 1;
+  filter: blur(8px);
+}
+
+.fx-btn--chroma:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+}
+
+@keyframes fx-btn-chroma-shift {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+/* —— liquid（底部液体升起） —— */
+.fx-btn--liquid {
+  --fx-btn-fg: #0891b2;
+  --fx-btn-bg: transparent;
+  z-index: 0;
+  border-color: #0891b2;
+  background: transparent;
+  overflow: hidden;
+}
+
+.fx-btn--liquid::before {
+  content: '';
+  position: absolute;
+  left: -30%;
+  bottom: 0;
+  z-index: -1;
+  width: 160%;
+  height: 220%;
+  border-radius: 42% 48% 0 0 / 28% 32% 0 0;
+  background: linear-gradient(180deg, #22d3ee, #0891b2);
+  transform: translateY(82%);
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fx-btn--liquid:hover:not(:disabled) {
+  color: #fff;
+}
+
+.fx-btn--liquid:hover:not(:disabled)::before {
+  transform: translateY(12%);
+  animation: fx-btn-liquid-wave 2.4s ease-in-out infinite 0.55s;
+}
+
+@keyframes fx-btn-liquid-wave {
+  0%,
+  100% {
+    border-radius: 42% 48% 0 0 / 28% 32% 0 0;
+  }
+
+  50% {
+    border-radius: 48% 42% 0 0 / 34% 26% 0 0;
+  }
+}
+
+/* —— wipe（左向右擦除填充） —— */
+.fx-btn--wipe {
+  --fx-btn-fg: #f4f4f5;
+  --fx-btn-bg: transparent;
+  z-index: 0;
+  border-color: rgba(244, 244, 245, 0.7);
+  background: transparent;
+  overflow: hidden;
+}
+
+.fx-btn--wipe::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #f4f4f5;
+  transform: translateX(-105%) skewX(-12deg);
+  transform-origin: left center;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fx-btn--wipe:hover:not(:disabled) {
+  color: #18181b;
+  border-color: #f4f4f5;
+}
+
+.fx-btn--wipe:hover:not(:disabled)::before {
+  transform: translateX(0) skewX(0deg);
+}
+
+/* —— glass（毛玻璃） —— */
+.fx-btn--glass {
+  --fx-btn-fg: #f8fafc;
+  --fx-btn-bg: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 24px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.fx-btn--glass:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.fx-btn--glass:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}

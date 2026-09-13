@@ -1,0 +1,92 @@
+---
+title: Word Tunnel
+description: 3D 词云隧道 —— 文字朝灭点飞来
+---
+
+经典星空隧道式词云：词从四面飞向中心灭点。纯 CSS 3D，零动画库。
+
+[`npm i @fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel)
+
+## Demo
+
+<WordTunnelDemo />
+
+## 简介
+
+从加载页词云抽出来的通用背景效果：环外随机布局 + z 轴飞近。默认词条是程序员吐槽，也可传 `words` 自定义。
+
+| 方式 | React | Vue |
+|------|--------|-----|
+| **npm** | [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | `@fxshelf/word-tunnel/vue` |
+| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/word-tunnel/dist/word-tunnel.iife.js) → 全局 `WordTunnel` | 暂无（SFC 源码） |
+| **复制源码** | 拷 `src/core` + `src/react` | 拷 `src/core` + `src/vue` |
+
+## 安装
+
+```bash
+npm install @fxshelf/word-tunnel
+```
+
+```ts
+import '@fxshelf/word-tunnel/styles.css'
+```
+
+## 用法
+
+### React
+
+```tsx
+import { WordTunnel } from '@fxshelf/word-tunnel'
+import '@fxshelf/word-tunnel/styles.css'
+
+export function Hero() {
+  return (
+    <WordTunnel
+      style={{ height: 420, background: '#0c081e' }}
+      words={['我本地是好的', '先上线再说', 'LGTM']}
+    >
+      <h1 style={{ color: '#fff', padding: 32 }}>Hello</h1>
+    </WordTunnel>
+  )
+}
+```
+
+### Vue
+
+```vue
+<script setup lang="ts">
+import { WordTunnel } from '@fxshelf/word-tunnel/vue'
+import '@fxshelf/word-tunnel/styles.css'
+</script>
+
+<template>
+  <WordTunnel :style="{ height: '420px', background: '#0c081e' }" />
+</template>
+```
+
+## Props
+
+| Property | Type | Default | 说明 |
+|----------|------|---------|------|
+| `words` | `string[]` | 内置搞笑词 | 词条 |
+| `count` | `number` | 按宽度自适应 | 固定词数 |
+| `seed` | `number` | `20250913` | 随机种子 |
+| `perspective` | `number` | `900` | CSS perspective |
+| `innerRadius` | `number` | `8` | 中心空洞半径，越小越贴灭点 |
+| `outerRadius` | `number` | `52` | 外圈采样半径 |
+| `travelMin` | `number` | `480` | z 最短飞行距离，越大消隐越靠中心 |
+| `travelRange` | `number` | `560` | z 额外随机飞行距离 |
+| `fadeIn` | `number` | `10` | 淡入完成进度 0–100 |
+| `fadeOut` | `number` | `88` | 开始淡出进度 0–100，越大越晚消失 |
+| `color` | `string` | `#fff` | 文字颜色 |
+| `fontSize` | `number \| string` | `24` | 字号 |
+| `className` / `style` | — | — | 外层样式 |
+| `children` / slot | — | — | 叠在词云上的内容 |
+
+> **`seed` 是什么？** 伪随机数的起点。相同 seed + 相同词数 → 每次渲染位置都一样；改成 `seed={1}` 之类会得到另一套布局。日常一般不用改。
+
+想让词更靠近中心再消失，可调小 `innerRadius`、加大 `travelMin` / `travelRange`，或提高 `fadeOut`：
+
+```tsx
+<WordTunnel innerRadius={4} travelMin={600} travelRange={700} fadeOut={92} />
+```

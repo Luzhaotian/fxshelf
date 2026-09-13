@@ -1,13 +1,17 @@
 import Link from 'next/link'
 import { effects } from '@/lib/effects'
+import { ButtonKitPreview } from '@/components/effects/button-kit-preview'
 import { CardOrbitPreview } from '@/components/effects/card-orbit-preview'
 import { GlyphRainPreview } from '@/components/effects/glyph-rain-preview'
 import { StarfieldPreview } from '@/components/effects/starfield-preview'
+import { WordTunnelPreview } from '@/components/effects/word-tunnel-preview'
 
 function EffectPreview({ id }: { id: string }) {
   if (id === 'card-orbit') return <CardOrbitPreview />
   if (id === 'glyph-rain') return <GlyphRainPreview />
   if (id === 'starfield') return <StarfieldPreview />
+  if (id === 'button-kit') return <ButtonKitPreview />
+  if (id === 'word-tunnel') return <WordTunnelPreview />
   return (
     <div className="flex aspect-[16/10] items-center justify-center bg-fd-muted text-sm text-fd-muted-foreground">
       预览

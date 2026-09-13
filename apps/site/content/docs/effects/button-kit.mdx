@@ -1,0 +1,78 @@
+---
+title: Button Kit
+description: 按钮动效书架 —— 用 variant 字符串切换样式
+---
+
+一组可切换的按钮样式：传 `variant` 字符串即可换皮。纯 CSS，零动画库依赖。
+
+[`npm i @fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit)
+
+## Demo
+
+<ButtonKitDemo />
+
+## 简介
+
+Button Kit 把常见按钮外观收成一个组件，用字符串切换：
+
+`solid` · `outline` · `soft` · `glow` · `neon` · `shimmer` · `chroma` · `liquid` · `wipe` · `glass`
+
+`chroma` 来自常见炫彩渐变按钮：默认就有背景流光；悬停时 `::before` 贴边淡入光晕。另有液体填充、擦除、毛玻璃等效果。
+
+一套 `core`（变体映射 + CSS）配 React / Vue 薄封装。
+
+| 方式 | React | Vue |
+|------|--------|-----|
+| **npm** | [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | `@fxshelf/button-kit/vue` |
+| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js) → 全局 `ButtonKit` | 暂无（SFC 源码） |
+| **复制源码** | 拷 `src/core` + `src/react` | 拷 `src/core` + `src/vue` |
+
+## 安装
+
+```bash
+npm install @fxshelf/button-kit
+```
+
+并引入样式：
+
+```ts
+import '@fxshelf/button-kit/styles.css'
+```
+
+## 用法
+
+### React
+
+```tsx
+import { Button } from '@fxshelf/button-kit'
+import '@fxshelf/button-kit/styles.css'
+
+export function Cta() {
+  return <Button variant="glow">Continue</Button>
+}
+```
+
+### Vue
+
+```vue
+<script setup lang="ts">
+import { Button } from '@fxshelf/button-kit/vue'
+import '@fxshelf/button-kit/styles.css'
+</script>
+
+<template>
+  <Button variant="neon">Continue</Button>
+</template>
+```
+
+## Props
+
+| Property | Type | Default | 说明 |
+|----------|------|---------|------|
+| `variant` | `string` | `solid` | 样式名；`chroma` 为炫彩流光（光晕仅 hover）；未知值回退 `solid` |
+| `children` / slot | — | — | 按钮文案 |
+| `className` | `string` | — | 追加 class |
+| `style` | `CSSProperties` | — | 内联样式 |
+| 其余 | `button` 原生属性 | — | `disabled`、`onClick` 等 |
+
+也可导入 `BUTTON_VARIANTS` 拿到全部合法字符串。

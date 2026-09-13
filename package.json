@@ -12,13 +12,13 @@
   ],
   "scripts": {
     "dev": "npm run dev -w @fxshelf/site",
-    "build": "npm run build -w @fxshelf/card-orbit && npm run build -w @fxshelf/glyph-rain && npm run build -w @fxshelf/starfield",
+    "build": "npm run build -w @fxshelf/card-orbit && npm run build -w @fxshelf/glyph-rain && npm run build -w @fxshelf/starfield && npm run build -w @fxshelf/button-kit && npm run build -w @fxshelf/word-tunnel",
     "build:site": "npm run build && npm run build -w @fxshelf/site",
     "build:site:pages": "npm run build && GITHUB_PAGES=true npm run build -w @fxshelf/site",
     "preview": "npm run preview -w @fxshelf/site",
-    "lint": "oxlint packages/card-orbit/src packages/glyph-rain/src packages/starfield/src apps/site/components apps/site/lib apps/site/app",
-    "typecheck": "npm run typecheck -w @fxshelf/card-orbit && npm run typecheck -w @fxshelf/glyph-rain && npm run typecheck -w @fxshelf/starfield && npm run typecheck -w @fxshelf/site",
-    "pack:check": "npm run pack:check -w @fxshelf/card-orbit && npm run pack:check -w @fxshelf/glyph-rain && npm run pack:check -w @fxshelf/starfield",
+    "lint": "oxlint packages/card-orbit/src packages/glyph-rain/src packages/starfield/src packages/button-kit/src packages/word-tunnel/src apps/site/components apps/site/lib apps/site/app",
+    "typecheck": "npm run typecheck -w @fxshelf/card-orbit && npm run typecheck -w @fxshelf/glyph-rain && npm run typecheck -w @fxshelf/starfield && npm run typecheck -w @fxshelf/button-kit && npm run typecheck -w @fxshelf/word-tunnel && npm run typecheck -w @fxshelf/site",
+    "pack:check": "npm run pack:check -w @fxshelf/card-orbit && npm run pack:check -w @fxshelf/glyph-rain && npm run pack:check -w @fxshelf/starfield && npm run pack:check -w @fxshelf/button-kit && npm run pack:check -w @fxshelf/word-tunnel",
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },

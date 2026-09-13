@@ -16,8 +16,12 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
+      "@fxshelf/button-kit": ["../../packages/button-kit/src/index.ts"],
+      "@fxshelf/button-kit/styles.css": ["../../packages/button-kit/src/core/styles.css"],
       "@fxshelf/card-orbit": ["../../packages/card-orbit/src/index.ts"],
-      "@fxshelf/card-orbit/styles.css": ["../../packages/card-orbit/src/core/styles.css"]
+      "@fxshelf/card-orbit/styles.css": ["../../packages/card-orbit/src/core/styles.css"],
+      "@fxshelf/word-tunnel": ["../../packages/word-tunnel/src/index.ts"],
+      "@fxshelf/word-tunnel/styles.css": ["../../packages/word-tunnel/src/core/styles.css"]
     },
     "plugins": [
       {
