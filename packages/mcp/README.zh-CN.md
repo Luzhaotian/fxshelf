@@ -43,6 +43,7 @@ fxshelf 的 MCP server —— 让 AI 助手（Claude Code、Cursor 或任何 MCP
 
 | 工具 | 返回内容 |
 |------|----------|
+| `ping` | 连通性检查：ok 标志、服务名/版本、动效数量、快照生成时间、服务器时间（可选回显） |
 | `list_effects` | 全部动效：id、标题、简介、npm 包名、版本、文档链接 |
 | `get_effect_docs` | 单个动效的完整文档 Markdown（安装、React/Vue 用法、API） |
 | `get_effect_source` | 真实源码文件（`core` / `react` / `vue` 三组），带路径，可直接复制 |

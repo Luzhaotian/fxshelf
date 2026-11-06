@@ -162,3 +162,26 @@ import './components/word-tunnel/core/styles.css'
 - [我用 CSS 3D 做了个星空隧道 Loading，没有 Three.js](https://juejin.cn/post/7684547172777246766)（掘金）
 - [知乎专栏 · 星空隧道词云 Loading](https://zhuanlan.zhihu.com/p/2082492419061330179)
 - [CSDN · 星空隧道词云 Loading](https://blog.csdn.net/paopao_pop/article/details/165232859)
+
+## MCP
+
+在 Claude Code、Cursor 等 MCP 客户端接入 [`@fxshelf/mcp`](https://github.com/Luzhaotian/fxshelf/tree/main/packages/mcp) 后，助手可以直接获取本页文档、可复制源码与锁定版本的 CDN 片段（本地 stdio 运行，无需 API key、无需联网）：
+
+```json
+{
+  "mcpServers": {
+    "fxshelf": {
+      "command": "npx",
+      "args": ["-y", "@fxshelf/mcp"]
+    }
+  }
+}
+```
+
+配置好后可以直接对 AI 助手说：
+
+- 「做一个 3D 词云隧道 Loading」→ 助手会 `list_effects` 发现 word-tunnel，读文档后安装或复制源码
+- 「把 word-tunnel 的 Vue 源码给我」→ `get_effect_source`
+- 「给我一个 word-tunnel 免构建 CDN 示例」→ `get_cdn_snippet`
+
+不确定是否连通时，说「测试一下 fxshelf MCP 是否连通」→ `ping`。

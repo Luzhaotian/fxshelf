@@ -182,3 +182,26 @@ React / Vue **props 名称一致**。图片 URL 由调用方提供，包内不�
 | `trackClassName` / `cardClassName` / `imageClassName` | — | 子节点 class |
 | `hideOnDesktop` | `true` | `lg+` 是否隐藏 |
 | `durationSec` | `28` | 跑马灯一周时长（秒） |
+
+## MCP
+
+在 Claude Code、Cursor 等 MCP 客户端接入 [`@fxshelf/mcp`](https://github.com/Luzhaotian/fxshelf/tree/main/packages/mcp) 后，助手可以直接获取本页文档、可复制源码与锁定版本的 CDN 片段（本地 stdio 运行，无需 API key、无需联网）：
+
+```json
+{
+  "mcpServers": {
+    "fxshelf": {
+      "command": "npx",
+      "args": ["-y", "@fxshelf/mcp"]
+    }
+  }
+}
+```
+
+配置好后可以直接对 AI 助手说：
+
+- 「做一个 3D 卡片轮播展示我的产品图」→ 助手会 `list_effects` 发现 card-orbit，读文档后安装或复制源码
+- 「把 card-orbit 的 React 源码给我」→ `get_effect_source`
+- 「给我一个 card-orbit 免构建 CDN 示例」→ `get_cdn_snippet`
+
+不确定是否连通时，说「测试一下 fxshelf MCP 是否连通」→ `ping`。

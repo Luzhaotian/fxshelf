@@ -15,10 +15,11 @@ import { z } from 'zod'
 import { data, effects, findEffect, formatCdn, formatSource } from './catalog.js'
 
 const CHARACTER_LIMIT = 60_000
+const SERVER_NAME = 'fxshelf-mcp-server'
 
 const server = new McpServer(
   {
-    name: 'fxshelf-mcp-server',
+    name: SERVER_NAME,
     version: pkg.version,
   },
   {
@@ -27,6 +28,44 @@ const server = new McpServer(
       'Workflow: list_effects → get_effect_docs (usage/API) → get_effect_source (copy core + react/vue files into the user project) or get_cdn_snippet (no-build <script> usage).',
       'When adding an effect to a user project, prefer get_effect_source output verbatim (copy-as-source) and keep the package README link.',
     ].join('\n'),
+  },
+)
+
+server.registerTool(
+  'ping',
+  {
+    title: 'Ping / connectivity check',
+    description: `Health check: confirms the fxshelf MCP server is reachable and its baked-in data is loaded. No arguments required (optional "message" is echoed back). Returns ok, server name + version, effect count, snapshot generation time and server time. Use this first to test whether the MCP connection works before calling other tools.`,
+    inputSchema: z
+      .object({
+        message: z.string().max(200).default('pong').describe('Optional text to echo back.'),
+      })
+      .strict(),
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  },
+  async ({ message }) => {
+    const serverTime = new Date().toISOString()
+    return {
+      content: [
+        {
+          type: 'text' as const,
+          text: [
+            `ok — fxshelf MCP server is up`,
+            `server: ${SERVER_NAME}@${pkg.version}`,
+            `effects: ${effects.length} loaded (snapshot ${data.generatedAt})`,
+            `echo: ${message}`,
+          ].join('\n'),
+        },
+      ],
+      structuredContent: {
+        ok: true,
+        server: { name: SERVER_NAME, version: pkg.version },
+        effect_count: effects.length,
+        snapshot_generated_at: data.generatedAt,
+        server_time: serverTime,
+        echo: message,
+      },
+    }
   },
 )
 

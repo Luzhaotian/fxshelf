@@ -27,6 +27,35 @@ npm install @fxshelf/word-tunnel
 
 已发布包见 [npm `@fxshelf`](https://www.npmjs.com/org/fxshelf)。CDN 示例与完整用法见各动效文档页。
 
+## MCP
+
+在 Claude Code、Cursor 等支持 MCP 的 AI 助手里接入 `@fxshelf/mcp`，助手即可直接发现动效、读取文档、获取可复制源码与锁定版本的 CDN 片段。本地 stdio 运行，**无需 API key、无需联网**。
+
+写入 MCP 客户端配置（如 `~/.claude.json` 的 `mcpServers`，或 Cursor 的 `mcp.json`）：
+
+```json
+{
+  "mcpServers": {
+    "fxshelf": {
+      "command": "npx",
+      "args": ["-y", "@fxshelf/mcp"]
+    }
+  }
+}
+```
+
+工具一览：
+
+| 工具 | 返回内容 |
+|------|----------|
+| `ping` | 连通性检查：ok 标志、服务名/版本、动效数量、快照时间（可选回显） |
+| `list_effects` | 全部动效：id、标题、简介、npm 包名、版本、文档链接 |
+| `get_effect_docs` | 单个动效的完整文档 Markdown（安装、React/Vue 用法、API） |
+| `get_effect_source` | 真实源码文件（`core` / `react` / `vue` 三组），带路径，可直接复制 |
+| `get_cdn_snippet` | 锁定版本的 `<script>` 片段（unpkg / jsDelivr、可运行 HTML 示例） |
+
+配置好后可以直接对助手说「给我的 hero 区加一个星空隧道背景」「把 word-tunnel 的 Vue 源码给我」，或先说「测试一下 fxshelf MCP 是否连通」验证接入。详见 [`@fxshelf/mcp`](https://github.com/Luzhaotian/fxshelf/tree/main/packages/mcp)。
+
 ## 新增动效
 
 1. 在 `packages/<id>/` 新建包，`name` 设为 `@fxshelf/<id>`
