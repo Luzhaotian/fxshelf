@@ -24,6 +24,7 @@ npm run pack:check
 | `@fxshelf/starfield` | [`packages/starfield`](./packages/starfield) |
 | `@fxshelf/button-kit` | [`packages/button-kit`](./packages/button-kit) |
 | `@fxshelf/word-tunnel` | [`packages/word-tunnel`](./packages/word-tunnel) |
+| `@fxshelf/mcp` | [`packages/mcp`](./packages/mcp)（MCP server，非动效包；数据由 `scripts/gen-data.mjs` 构建时生成） |
 
 文档站：[`apps/site`](./apps/site)（中文为主；包级 README 双语）。
 
@@ -47,6 +48,8 @@ See root [README](./README.md#commit-convention) for allowed types.
 7. Wire root `package.json` scripts (`build` / `typecheck` / `pack:check` / `lint`) and `apps/site` dependency
 8. Update `apps/site/tsconfig.json` `paths` 与 `next.config.mjs`（`transpilePackages` + turbopack `resolveAlias`）
 9. Prefer `README.md` + `README.zh-CN.md` + `docs/使用说明.md` + `docs/CDN示例.html`（若提供 IIFE）
+
+新增动效后 `@fxshelf/mcp` 无需改动：`packages/mcp/scripts/gen-data.mjs` 在 build/typecheck 时会自动从 `effects.ts`、站点 MDX 与各包 `src/` 重新生成快照。
 
 ## Publish a package
 

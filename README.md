@@ -20,6 +20,7 @@ Browse the site, install only what you need — or copy the source. No Framer Mo
 | [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails |
 | [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.0`](./packages/button-kit) | Animated button shelf — switch styles by `variant` string |
 | [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.0`](./packages/word-tunnel) | 3D keyword tunnel — words fly to the vanishing point |
+| [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp) | [`0.1.0`](./packages/mcp) | MCP server — let AI assistants (Claude Code / Cursor) browse the shelf, read docs, copy source |
 
 ```bash
 npm install @fxshelf/card-orbit
@@ -30,6 +31,16 @@ npm install @fxshelf/word-tunnel
 ```
 
 Each package supports **npm**, **CDN `<script>`** (React via unpkg / jsDelivr), and **copying `src/core` + `react` / `vue`**. See [docs](https://luzhaotian.github.io/fxshelf/docs).
+
+### Use via MCP
+
+Point your AI assistant at the whole shelf — docs, copy-as-source, CDN snippets:
+
+```json
+{ "mcpServers": { "fxshelf": { "command": "npx", "args": ["-y", "@fxshelf/mcp"] } } }
+```
+
+Details: [@fxshelf/mcp README](./packages/mcp/README.md).
 
 ## Local development
 

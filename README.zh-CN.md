@@ -20,6 +20,7 @@
 | [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D 星空隧道 —— 透视飞近、闪烁与拖尾 |
 | [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.0`](./packages/button-kit) | 按钮动效书架 —— 用 `variant` 字符串切换样式 |
 | [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.0`](./packages/word-tunnel) | 3D 词云隧道 —— 文字朝灭点飞来 |
+| [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp) | [`0.1.0`](./packages/mcp) | MCP server —— 让 AI 助手（Claude Code / Cursor）浏览书架、读文档、复制源码 |
 
 ```bash
 npm install @fxshelf/card-orbit
@@ -30,6 +31,16 @@ npm install @fxshelf/word-tunnel
 ```
 
 每个包支持 **npm**、**CDN `<script>`**（React，经 unpkg / jsDelivr）、**复制 `src/core` + `react` / `vue` 源码**。详见 [站点文档](https://luzhaotian.github.io/fxshelf/docs)。
+
+### MCP 接入
+
+把你的 AI 助手接到整个书架 —— 文档、可复制源码、CDN 片段：
+
+```json
+{ "mcpServers": { "fxshelf": { "command": "npx", "args": ["-y", "@fxshelf/mcp"] } } }
+```
+
+详见 [@fxshelf/mcp README](./packages/mcp/README.zh-CN.md)。
 
 ## 本地开发
 
