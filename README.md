@@ -15,11 +15,11 @@ Browse the site, install only what you need — or copy the source. No Framer Mo
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | [`0.1.6`](./packages/card-orbit) | Path-constrained 3D card orbit — rise, arc, exit |
-| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | [`0.1.1`](./packages/glyph-rain) | Matrix-style glyph rain — cursor stir, optional content lighting |
-| [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails |
-| [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.0`](./packages/button-kit) | Animated button shelf — switch styles by `variant` string |
-| [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.0`](./packages/word-tunnel) | 3D keyword tunnel — words fly to the vanishing point |
+| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | [`0.1.7`](./packages/card-orbit) | Path-constrained 3D card orbit — rise, arc, exit |
+| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | [`0.1.2`](./packages/glyph-rain) | Matrix-style glyph rain — cursor stir, optional content lighting |
+| [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.2`](./packages/starfield) | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails |
+| [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.1`](./packages/button-kit) | Animated button shelf — switch styles by `variant` string |
+| [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.1`](./packages/word-tunnel) | 3D keyword tunnel — words fly to the vanishing point |
 | [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) | [`0.1.0`](./packages/swarm-cursors) | Multi-cursor swarm page builder — workers draw as you scroll (React) |
 | [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp) | [`0.1.0`](./packages/mcp) | MCP server — let AI assistants (Claude Code / Cursor) browse the shelf, read docs, copy source |
 

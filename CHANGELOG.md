@@ -9,13 +9,25 @@ Published packages keep independent semver; entries below are grouped by package
 
 | Package | Version |
 |---------|---------|
-| `@fxshelf/card-orbit` | `0.1.6` |
-| `@fxshelf/glyph-rain` | `0.1.1` |
-| `@fxshelf/starfield` | `0.1.1` |
-| `@fxshelf/button-kit` | `0.1.0` |
-| `@fxshelf/word-tunnel` | `0.1.0` |
+| `@fxshelf/card-orbit` | `0.1.7` |
+| `@fxshelf/glyph-rain` | `0.1.2` |
+| `@fxshelf/starfield` | `0.1.2` |
+| `@fxshelf/button-kit` | `0.1.1` |
+| `@fxshelf/word-tunnel` | `0.1.1` |
 | `@fxshelf/swarm-cursors` | `0.1.0` |
 | `@fxshelf/mcp` | `0.1.0` |
+
+### Patch bumps（已上架包）
+
+- `card-orbit` `0.1.6` → `0.1.7`
+- `glyph-rain` `0.1.1` → `0.1.2`
+- `starfield` `0.1.1` → `0.1.2`
+- `button-kit` `0.1.0` → `0.1.1`
+- `word-tunnel` `0.1.0` → `0.1.1`
+
+### `@fxshelf/mcp` — 0.1.0
+
+- 初版发布：MCP server，供 Claude Code / Cursor 浏览书架、读文档、复制源码
 
 ### `@fxshelf/swarm-cursors` — 0.1.0
 

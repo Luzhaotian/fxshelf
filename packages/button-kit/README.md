@@ -9,7 +9,7 @@ Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — in
 | | |
 |--|--|
 | **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/button-kit) |
-| **npm** | [`@fxshelf/button-kit@0.1.0`](https://www.npmjs.com/package/@fxshelf/button-kit) |
+| **npm** | [`@fxshelf/button-kit@0.1.1`](https://www.npmjs.com/package/@fxshelf/button-kit) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/button-kit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/) |
 
 Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
@@ -93,7 +93,7 @@ Self-contained build `dist/button-kit.iife.js`, global `ButtonKit`. Full example
 </script>
 ```
 
-Pin the version in production, e.g. `@fxshelf/button-kit@0.1.0/...`.  
+Pin the version in production, e.g. `@fxshelf/button-kit@0.1.1/...`.  
 Do not use jsDelivr GitHub `gh/.../dist` links (`dist/` is not committed).
 
 ## Copy as source

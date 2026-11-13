@@ -1,6 +1,6 @@
 {
   "name": "@fxshelf/glyph-rain",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Matrix-style glyph rain with cursor stir and drop-head lighting for React and Vue. WebGL2, zero animation-lib deps. Copy-as-source friendly.",
   "license": "MIT",
   "author": "Lu Zhaotian",

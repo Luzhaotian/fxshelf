@@ -11,7 +11,7 @@ Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — in
 | | |
 |--|--|
 | **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/glyph-rain) |
-| **npm** | [`@fxshelf/glyph-rain@0.1.1`](https://www.npmjs.com/package/@fxshelf/glyph-rain) |
+| **npm** | [`@fxshelf/glyph-rain@0.1.2`](https://www.npmjs.com/package/@fxshelf/glyph-rain) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/glyph-rain/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/glyph-rain/) |
 
 Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
@@ -94,7 +94,7 @@ Self-contained build `dist/glyph-rain.iife.js`, global `GlyphRain`. Full example
 </script>
 ```
 
-Pin the version in production, e.g. `https://unpkg.com/@fxshelf/glyph-rain@0.1.1/dist/glyph-rain.iife.js`.  
+Pin the version in production, e.g. `https://unpkg.com/@fxshelf/glyph-rain@0.1.2/dist/glyph-rain.iife.js`.  
 Do not use jsDelivr GitHub `gh/.../dist` links.
 
 ## Copy as source

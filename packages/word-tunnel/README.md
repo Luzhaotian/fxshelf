@@ -9,7 +9,7 @@ Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — in
 | | |
 |--|--|
 | **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/word-tunnel) |
-| **npm** | [`@fxshelf/word-tunnel@0.1.0`](https://www.npmjs.com/package/@fxshelf/word-tunnel) |
+| **npm** | [`@fxshelf/word-tunnel@0.1.1`](https://www.npmjs.com/package/@fxshelf/word-tunnel) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/word-tunnel/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/word-tunnel/) |
 
 Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
@@ -102,7 +102,7 @@ Self-contained build `dist/word-tunnel.iife.js`, global `WordTunnel`. Full examp
 </script>
 ```
 
-Pin the version in production, e.g. `@fxshelf/word-tunnel@0.1.0/...`.  
+Pin the version in production, e.g. `@fxshelf/word-tunnel@0.1.1/...`.  
 Do not use jsDelivr GitHub `gh/.../dist` links (`dist/` is not committed).
 
 ## Copy as source

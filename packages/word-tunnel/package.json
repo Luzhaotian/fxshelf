@@ -1,6 +1,6 @@
 {
   "name": "@fxshelf/word-tunnel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "3D keyword tunnel word-cloud for React and Vue — perspective fly-through text. Zero animation-lib deps. Copy-as-source friendly.",
   "license": "MIT",
   "author": "Lu Zhaotian",

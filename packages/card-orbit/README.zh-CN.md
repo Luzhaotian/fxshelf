@@ -12,7 +12,7 @@
 |--|--|
 | **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit) |
 | **坐标演示** | [card-orbit-path](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit-path) |
-| **npm** | [`@fxshelf/card-orbit@0.1.6`](https://www.npmjs.com/package/@fxshelf/card-orbit) |
+| **npm** | [`@fxshelf/card-orbit@0.1.7`](https://www.npmjs.com/package/@fxshelf/card-orbit) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/card-orbit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/card-orbit/) |
 
 支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
@@ -88,7 +88,7 @@ const images = ['/a.webp', '/b.webp', '/c.webp']
 </script>
 ```
 
-生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/card-orbit@0.1.6/dist/card-orbit.iife.js`。  
+生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/card-orbit@0.1.7/dist/card-orbit.iife.js`。  
 不要用 jsDelivr 的 GitHub `gh/.../dist` 直链（`dist/` 不进仓库）。
 
 ## 复制源码

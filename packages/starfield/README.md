@@ -9,7 +9,7 @@ Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — in
 | | |
 |--|--|
 | **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/starfield) |
-| **npm** | [`@fxshelf/starfield@0.1.1`](https://www.npmjs.com/package/@fxshelf/starfield) |
+| **npm** | [`@fxshelf/starfield@0.1.2`](https://www.npmjs.com/package/@fxshelf/starfield) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/starfield/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/starfield/) |
 
 Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
@@ -97,7 +97,7 @@ Self-contained build `dist/starfield.iife.js`, global `Starfield`. Full example:
 </script>
 ```
 
-Pin the version in production, e.g. `https://unpkg.com/@fxshelf/starfield@0.1.1/dist/starfield.iife.js`.  
+Pin the version in production, e.g. `https://unpkg.com/@fxshelf/starfield@0.1.2/dist/starfield.iife.js`.  
 Do not use jsDelivr GitHub `gh/.../dist` links.
 
 ## Copy as source

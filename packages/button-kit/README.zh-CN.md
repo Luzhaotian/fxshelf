@@ -9,7 +9,7 @@
 | | |
 |--|--|
 | **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/button-kit) |
-| **npm** | [`@fxshelf/button-kit@0.1.0`](https://www.npmjs.com/package/@fxshelf/button-kit) |
+| **npm** | [`@fxshelf/button-kit@0.1.1`](https://www.npmjs.com/package/@fxshelf/button-kit) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/button-kit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/) |
 
 支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
@@ -93,7 +93,7 @@ import '@fxshelf/button-kit/styles.css'
 </script>
 ```
 
-生产环境建议锁定版本，如 `@fxshelf/button-kit@0.1.0/...`。  
+生产环境建议锁定版本，如 `@fxshelf/button-kit@0.1.1/...`。  
 不要用 jsDelivr GitHub `gh/.../dist` 直链（`dist/` 不进 Git）。
 
 ## 复制源码

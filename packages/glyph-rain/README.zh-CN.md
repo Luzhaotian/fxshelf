@@ -11,7 +11,7 @@
 | | |
 |--|--|
 | **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/glyph-rain) |
-| **npm** | [`@fxshelf/glyph-rain@0.1.1`](https://www.npmjs.com/package/@fxshelf/glyph-rain) |
+| **npm** | [`@fxshelf/glyph-rain@0.1.2`](https://www.npmjs.com/package/@fxshelf/glyph-rain) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/glyph-rain/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/glyph-rain/) |
 
 支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
@@ -94,7 +94,7 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 </script>
 ```
 
-生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/glyph-rain@0.1.1/dist/glyph-rain.iife.js`。  
+生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/glyph-rain@0.1.2/dist/glyph-rain.iife.js`。  
 不要用 jsDelivr GitHub `gh/.../dist` 直链。
 
 ## 复制源码

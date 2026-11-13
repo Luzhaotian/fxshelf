@@ -1,6 +1,6 @@
 {
   "name": "@fxshelf/button-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Animated button shelf for React and Vue — switch styles by variant string. Zero animation-lib deps. Copy-as-source friendly.",
   "license": "MIT",
   "author": "Lu Zhaotian",

@@ -9,7 +9,7 @@
 | | |
 |--|--|
 | **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/word-tunnel) |
-| **npm** | [`@fxshelf/word-tunnel@0.1.0`](https://www.npmjs.com/package/@fxshelf/word-tunnel) |
+| **npm** | [`@fxshelf/word-tunnel@0.1.1`](https://www.npmjs.com/package/@fxshelf/word-tunnel) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/word-tunnel/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/word-tunnel/) |
 
 支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
@@ -102,7 +102,7 @@ import '@fxshelf/word-tunnel/styles.css'
 </script>
 ```
 
-生产环境建议锁定版本，如 `@fxshelf/word-tunnel@0.1.0/...`。  
+生产环境建议锁定版本，如 `@fxshelf/word-tunnel@0.1.1/...`。  
 不要用 jsDelivr GitHub `gh/.../dist` 直链（`dist/` 不进 Git）。
 
 ## 复制源码

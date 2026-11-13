@@ -12,7 +12,7 @@ Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — in
 |--|--|
 | **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit) |
 | **Path demo** | [card-orbit-path](https://luzhaotian.github.io/fxshelf/docs/effects/card-orbit-path) |
-| **npm** | [`@fxshelf/card-orbit@0.1.6`](https://www.npmjs.com/package/@fxshelf/card-orbit) |
+| **npm** | [`@fxshelf/card-orbit@0.1.7`](https://www.npmjs.com/package/@fxshelf/card-orbit) |
 | **CDN** | [unpkg](https://unpkg.com/@fxshelf/card-orbit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/card-orbit/) |
 
 Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
@@ -88,7 +88,7 @@ Self-contained build `dist/card-orbit.iife.js`, global `CardOrbit`. Full example
 </script>
 ```
 
-Pin the version in production, e.g. `https://unpkg.com/@fxshelf/card-orbit@0.1.6/dist/card-orbit.iife.js`.  
+Pin the version in production, e.g. `https://unpkg.com/@fxshelf/card-orbit@0.1.7/dist/card-orbit.iife.js`.  
 Do not use jsDelivr GitHub `gh/.../dist` links (`dist/` is not committed).
 
 ## Copy as source
