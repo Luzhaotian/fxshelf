@@ -24,6 +24,7 @@ npm run pack:check
 | `@fxshelf/starfield` | [`packages/starfield`](./packages/starfield) |
 | `@fxshelf/button-kit` | [`packages/button-kit`](./packages/button-kit) |
 | `@fxshelf/word-tunnel` | [`packages/word-tunnel`](./packages/word-tunnel) |
+| `@fxshelf/swarm-cursors` | [`packages/swarm-cursors`](./packages/swarm-cursors)（v0.1 React-only） |
 | `@fxshelf/mcp` | [`packages/mcp`](./packages/mcp)（MCP server，非动效包；数据由 `scripts/gen-data.mjs` 构建时生成） |
 
 文档站：[`apps/site`](./apps/site)（中文为主；包级 README 双语）。
@@ -39,15 +40,16 @@ See root [README](./README.md#commit-convention) for allowed types.
 
 ## Add a new effect
 
-1. Create `packages/<id>/` with `"name": "@fxshelf/<id>"`
+1. Create `packages/<id>/` with `"name": "@fxshelf/<id>"`（建议初版 `0.1.0`）
 2. Append an entry in [`apps/site/lib/effects.ts`](./apps/site/lib/effects.ts)
-3. Add homepage preview in [`apps/site/app/(home)/page.tsx`](./apps/site/app/(home)/page.tsx) `previews` map
-4. Add `apps/site/content/docs/effects/<id>.mdx`（含 npm / CDN / 复制源码；CDN 写清 `@pkg@x.y.z` 锁定示例）
-5. Update [`apps/site/content/docs/effects/meta.json`](./apps/site/content/docs/effects/meta.json)
-6. Update [`apps/site/content/docs/index.mdx`](./apps/site/content/docs/index.mdx) Cards
-7. Wire root `package.json` scripts (`build` / `typecheck` / `pack:check` / `lint`) and `apps/site` dependency
-8. Update `apps/site/tsconfig.json` `paths` 与 `next.config.mjs`（`transpilePackages` + turbopack `resolveAlias`）
-9. Prefer `README.md` + `README.zh-CN.md` + `docs/使用说明.md` + `docs/CDN示例.html`（若提供 IIFE）
+3. Add `apps/site/components/effects/<id>-demo.tsx`（用 [`DemoFrame`](./apps/site/components/effects/demo-frame.tsx) 包一层）与 `<id>-preview.tsx`
+4. Register demo in [`apps/site/components/mdx.tsx`](./apps/site/components/mdx.tsx)，preview in [`apps/site/app/(home)/page.tsx`](./apps/site/app/(home)/page.tsx) `previews`，fullscreen in [`effect-fullscreen-demo.tsx`](./apps/site/components/effects/effect-fullscreen-demo.tsx)（`/preview/<id>` 静态参数来自 `effects.ts`）
+5. Add `apps/site/content/docs/effects/<id>.mdx`（含 npm / CDN / 复制源码；CDN 写清 `@pkg@x.y.z` 锁定示例）
+6. Update [`apps/site/content/docs/effects/meta.json`](./apps/site/content/docs/effects/meta.json)
+7. Update [`apps/site/content/docs/index.mdx`](./apps/site/content/docs/index.mdx) Cards
+8. Add `apps/site` dependency（根脚本会自动扫 `packages/*`，无需再改 `build` / `typecheck` / `pack:check` / `lint`）
+9. Update `apps/site/tsconfig.json` `paths` 与 `next.config.mjs`（`transpilePackages` + turbopack `resolveAlias`）
+10. Prefer `README.md` + `README.zh-CN.md` + `docs/使用说明.md` + `docs/CDN示例.html`（若提供 IIFE）；同步根 [CHANGELOG.md](./CHANGELOG.md) 版本快照
 
 新增动效后 `@fxshelf/mcp` 无需改动：`packages/mcp/scripts/gen-data.mjs` 在 build/typecheck 时会自动从 `effects.ts`、站点 MDX 与各包 `src/` 重新生成快照。
 

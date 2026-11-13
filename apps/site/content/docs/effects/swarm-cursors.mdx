@@ -1,0 +1,66 @@
+---
+title: Swarm Cursors
+description: 多光标 swarm 页面共建 —— 滚动时工人画出整页
+---
+
+一群光标像施工队一样，边飞边把参考线、色块和文案画出来。零动画库依赖；v0.1 仅 React。
+
+[`npm i @fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors)
+
+## Demo
+
+<SwarmCursorsDemo />
+
+## 简介
+
+引擎调度一群「工人光标」：根据滚动前沿解锁任务，绘制 path / rect / text / guide。默认附带产品 landing 场景（`createScene`），书架卡片用精简场景 `createDemoScene`。可用 `SceneBuilder` 自定义布局。
+
+灵感来自 Joel Califa 的 Swarm；运行时源码源自 MIT 的 [swarm-cursors-skills](https://github.com/cxyax/swarm-cursors-skills)。
+
+| 方式 | React |
+|------|--------|
+| **npm** | [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) |
+| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/swarm-cursors@0.1.0/dist/swarm-cursors.iife.js) → 全局 `SwarmCursors` |
+| **复制源码** | 拷 `src/core` + `src/react` |
+
+生产环境请锁定版本：`@fxshelf/swarm-cursors@0.1.0`（jsDelivr 同理：`https://cdn.jsdelivr.net/npm/@fxshelf/swarm-cursors@0.1.0/dist/swarm-cursors.iife.js`）。
+
+## 安装
+
+```bash
+npm install @fxshelf/swarm-cursors
+```
+
+- Peer：`react` / `react-dom` ≥ 18
+- 记得引入样式：`import '@fxshelf/swarm-cursors/styles.css'`
+- 建议加载字体：Space Grotesk、Source Sans 3、IBM Plex Mono
+
+## 用法
+
+```tsx
+import { SwarmCursors, createDemoScene } from '@fxshelf/swarm-cursors'
+import '@fxshelf/swarm-cursors/styles.css'
+
+export function Demo() {
+  return (
+    <div style={{ height: 480 }}>
+      <SwarmCursors
+        embed
+        autoStart
+        sceneFactory={createDemoScene}
+        showDialog={false}
+        style={{ height: '100%' }}
+      />
+    </div>
+  )
+}
+```
+
+整页模式去掉 `embed`，默认使用完整 `createScene`，跟随 window 滚动。
+
+更换 `sceneFactory` / `autoStart` 时请用新的 React `key` 重新挂载。
+
+## 相关
+
+- 包内文档：`docs/使用说明.md` · `docs/动效说明-大白话.md` · `docs/动效说明-专业.md`
+- 溯源：`SOURCE.md`

@@ -27,6 +27,7 @@ const config = {
     '@fxshelf/glyph-rain',
     '@fxshelf/starfield',
     '@fxshelf/word-tunnel',
+    '@fxshelf/swarm-cursors',
   ],
   turbopack: {
     resolveAlias: {
@@ -38,6 +39,8 @@ const config = {
       '@fxshelf/starfield': '../../packages/starfield/src/index.ts',
       '@fxshelf/word-tunnel': '../../packages/word-tunnel/src/index.ts',
       '@fxshelf/word-tunnel/styles.css': '../../packages/word-tunnel/src/core/styles.css',
+      '@fxshelf/swarm-cursors': '../../packages/swarm-cursors/src/index.ts',
+      '@fxshelf/swarm-cursors/styles.css': '../../packages/swarm-cursors/src/core/styles/index.css',
     },
   },
 }

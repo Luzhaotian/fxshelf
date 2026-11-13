@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@fxshelf/swarm-cursors CDN</title>
+    <link rel="stylesheet" href="https://unpkg.com/@fxshelf/swarm-cursors/dist/index.css" />
+    <style>
+      html,
+      body,
+      #root {
+        margin: 0;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@fxshelf/swarm-cursors/dist/swarm-cursors.iife.js"></script>
+    <script>
+      const api = window.SwarmCursors
+      const root = ReactDOM.createRoot(document.getElementById('root'))
+      root.render(
+        React.createElement(api.SwarmCursors, {
+          embed: true,
+          autoStart: true,
+          sceneFactory: api.createDemoScene,
+          showDialog: false,
+          style: { height: '100%' },
+        }),
+      )
+    </script>
+  </body>
+</html>

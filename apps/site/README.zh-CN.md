@@ -13,8 +13,9 @@ npm run dev
 
 - 首页卡片：`lib/effects.ts`
 - 文档内容：`content/docs`
-- Live demo：`components/effects/*`
-- 预览映射：`app/(home)/page.tsx` → `previews`（与 `effects.ts` 的 id 对齐）
+- Live demo：`components/effects/*-demo.tsx`（`DemoFrame` 右上角全屏 → `/preview/<id>`）
+- 首页预览映射：`app/(home)/page.tsx` → `previews`（与 `effects.ts` 的 id 对齐）
+- 全屏预览：`app/preview/[id]`（`effect-demo-ids.ts` / `effect-fullscreen-demo.tsx`）
 - GitHub Pages 产物：`out/`，当 `GITHUB_PAGES=true` 时 `basePath=/fxshelf`
 - 已发布包的 CDN 示例走 npm / unpkg，不要用 GitHub `dist/` 直链
 
@@ -27,3 +28,4 @@ npm run dev
 | `starfield` | `@fxshelf/starfield` |
 | `button-kit` | `@fxshelf/button-kit` |
 | `word-tunnel` | `@fxshelf/word-tunnel` |
+| `swarm-cursors` | `@fxshelf/swarm-cursors` |

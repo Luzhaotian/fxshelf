@@ -42,4 +42,11 @@ export const effects: EffectMeta[] = [
     packageName: '@fxshelf/word-tunnel',
     docPath: '/docs/effects/word-tunnel',
   },
+  {
+    id: 'swarm-cursors',
+    title: 'Swarm Cursors',
+    blurb: '多光标页面共建 —— 滚动时工人画出整页。',
+    packageName: '@fxshelf/swarm-cursors',
+    docPath: '/docs/effects/swarm-cursors',
+  },
 ]

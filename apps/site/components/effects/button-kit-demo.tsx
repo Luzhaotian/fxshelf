@@ -9,8 +9,10 @@ import {
 } from 'react'
 import { Button, BUTTON_VARIANTS, type ButtonVariant } from '@fxshelf/button-kit'
 import '@fxshelf/button-kit/styles.css'
+import { DemoFrame } from '@/components/effects/demo-frame'
+import { cn } from '@/lib/cn'
 
-export function ButtonKitDemo() {
+export function ButtonKitDemo({ fill = false }: { fill?: boolean }) {
   const [variant, setVariant] = useState<ButtonVariant>('chroma')
   const [expanded, setExpanded] = useState(false)
   const [overflows, setOverflows] = useState(false)
@@ -36,9 +38,14 @@ export function ButtonKitDemo() {
     return () => ro.disconnect()
   }, [measureOverflow])
 
-  return (
-    <div className="not-prose my-6 overflow-hidden rounded-2xl border border-fd-border bg-[#040d15]">
-      <div className="flex items-start gap-2 border-b border-white/10 px-4 py-3 sm:px-6">
+  const stage = (
+    <>
+      <div
+        className={cn(
+          'flex items-start gap-2 border-b border-white/10 px-4 py-3 sm:px-6',
+          !fill && 'pr-14 sm:pr-14',
+        )}
+      >
         <div
           ref={tabsRef}
           className={`flex min-w-0 flex-1 flex-wrap gap-2 ${
@@ -70,12 +77,27 @@ export function ButtonKitDemo() {
           </button>
         ) : null}
       </div>
-      <div className="flex min-h-[240px] flex-col items-center justify-center gap-4 overflow-visible px-6 py-12">
+      <div
+        className={cn(
+          'flex flex-col items-center justify-center gap-4 overflow-visible px-6 py-12',
+          fill ? 'min-h-[calc(100dvh-3.25rem)]' : 'min-h-[240px]',
+        )}
+      >
         <Button variant={variant}>Continue with {variant}</Button>
         <code className="text-xs text-white/45">
           {`<Button variant="${variant}" />`}
         </code>
       </div>
-    </div>
+    </>
+  )
+
+  if (fill) {
+    return <div className="min-h-dvh w-full bg-[#040d15]">{stage}</div>
+  }
+
+  return (
+    <DemoFrame effectId="button-kit" className="bg-[#040d15]">
+      {stage}
+    </DemoFrame>
   )
 }

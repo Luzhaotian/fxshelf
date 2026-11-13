@@ -20,6 +20,7 @@
 | [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D 星空隧道 —— 透视飞近、闪烁与拖尾 |
 | [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.0`](./packages/button-kit) | 按钮动效书架 —— 用 `variant` 字符串切换样式 |
 | [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.0`](./packages/word-tunnel) | 3D 词云隧道 —— 文字朝灭点飞来 |
+| [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) | [`0.1.0`](./packages/swarm-cursors) | 多光标 swarm 页面共建 —— 滚动时工人画出整页（React） |
 | [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp) | [`0.1.0`](./packages/mcp) | MCP server —— 让 AI 助手（Claude Code / Cursor）浏览书架、读文档、复制源码 |
 
 ```bash
@@ -28,6 +29,7 @@ npm install @fxshelf/glyph-rain
 npm install @fxshelf/starfield
 npm install @fxshelf/button-kit
 npm install @fxshelf/word-tunnel
+npm install @fxshelf/swarm-cursors
 ```
 
 每个包支持 **npm**、**CDN `<script>`**（React，经 unpkg / jsDelivr）、**复制 `src/core` + `react` / `vue` 源码**。详见 [站点文档](https://luzhaotian.github.io/fxshelf/docs)。
@@ -47,16 +49,18 @@ npm install @fxshelf/word-tunnel
 ```bash
 npm install
 npm run dev              # 文档站 → http://localhost:3001
-npm run build            # 构建 @fxshelf/* 包
+npm run build            # 构建全部 packages/*（自动发现）
 npm run build:site       # 静态导出 → apps/site/out
 npm run build:site:pages # GitHub Pages 构建（basePath=/fxshelf）
 npm run lint
-npm run typecheck
+npm run typecheck        # 全部 workspace
+npm run pack:check       # 带 pack:check 的包
 ```
 
 ```
 packages/<id>/     可发布的 @fxshelf/<id>
-apps/site/         Fumadocs + Next.js 静态导出
+apps/site/         Fumadocs + Next.js 静态导出（Demo → /preview/<id>）
+scripts/           run-packages.mjs · publish-packages.mjs
 .github/workflows/ 站点部署到 Pages
 ```
 
@@ -89,8 +93,9 @@ Cursor 源码管理面板的「生成提交信息」会读取 [`.cursorrules`](.
 3. 添加 `apps/site/content/docs/effects/<id>.mdx`（含 npm / CDN / 复制源码）
 4. 更新 [`apps/site/content/docs/effects/meta.json`](./apps/site/content/docs/effects/meta.json)
 5. 更新 [`apps/site/content/docs/index.mdx`](./apps/site/content/docs/index.mdx) Cards
-6. 如需，更新根目录 `package.json` 脚本（`build` / `typecheck` / `pack:check` / `lint`）以及 `apps/site` 依赖
-7. 首页卡片会从 registry 自动带上
+6. 添加 `apps/site` 依赖与 `tsconfig` paths / `next.config.mjs` aliases（根 `build` / `typecheck` / `pack:check` / `lint` 会自动扫 `packages/*`，不必再改脚本列表）
+7. 添加 `components/effects/<id>-demo.tsx`（包进 `DemoFrame`）与 `<id>-preview.tsx`，并在 `mdx.tsx` / 首页 `previews` 注册
+8. 首页卡片会从 registry 自动带上；全屏预览走 `/preview/<id>`
 
 更多说明见 [CONTRIBUTING.md](./CONTRIBUTING.md)。变更记录见 [CHANGELOG.md](./CHANGELOG.md)。
 

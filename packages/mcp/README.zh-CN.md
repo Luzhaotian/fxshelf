@@ -17,6 +17,7 @@ fxshelf 的 MCP server —— 让 AI 助手（Claude Code、Cursor 或任何 MCP
 | Starfield | `@fxshelf/starfield` |
 | Button Kit | `@fxshelf/button-kit` |
 | Word Tunnel | `@fxshelf/word-tunnel` |
+| Swarm Cursors | `@fxshelf/swarm-cursors` |
 
 ## 配置
 

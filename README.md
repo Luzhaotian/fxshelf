@@ -20,6 +20,7 @@ Browse the site, install only what you need — or copy the source. No Framer Mo
 | [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.1`](./packages/starfield) | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails |
 | [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.0`](./packages/button-kit) | Animated button shelf — switch styles by `variant` string |
 | [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.0`](./packages/word-tunnel) | 3D keyword tunnel — words fly to the vanishing point |
+| [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) | [`0.1.0`](./packages/swarm-cursors) | Multi-cursor swarm page builder — workers draw as you scroll (React) |
 | [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp) | [`0.1.0`](./packages/mcp) | MCP server — let AI assistants (Claude Code / Cursor) browse the shelf, read docs, copy source |
 
 ```bash
@@ -28,6 +29,7 @@ npm install @fxshelf/glyph-rain
 npm install @fxshelf/starfield
 npm install @fxshelf/button-kit
 npm install @fxshelf/word-tunnel
+npm install @fxshelf/swarm-cursors
 ```
 
 Each package supports **npm**, **CDN `<script>`** (React via unpkg / jsDelivr), and **copying `src/core` + `react` / `vue`**. See [docs](https://luzhaotian.github.io/fxshelf/docs).
@@ -47,16 +49,18 @@ Details: [@fxshelf/mcp README](./packages/mcp/README.md).
 ```bash
 npm install
 npm run dev              # docs site → http://localhost:3001
-npm run build            # build @fxshelf/* packages
+npm run build            # build all packages/* (auto-discovered)
 npm run build:site       # static export → apps/site/out
 npm run build:site:pages # GitHub Pages build (basePath=/fxshelf)
 npm run lint
-npm run typecheck
+npm run typecheck        # all workspaces
+npm run pack:check       # packages with pack:check script
 ```
 
 ```
 packages/<id>/     publishable @fxshelf/<id>
-apps/site/         Fumadocs + Next.js static export
+apps/site/         Fumadocs + Next.js static export（Demo → /preview/<id>）
+scripts/           run-packages.mjs · publish-packages.mjs
 .github/workflows/ site deploy to Pages
 ```
 
@@ -89,8 +93,9 @@ Cursor Source Control 「Generate Commit Message」 follows [`.cursorrules`](./.
 3. Add `apps/site/content/docs/effects/<id>.mdx` (npm / CDN / copy-as-source)
 4. Update [`apps/site/content/docs/effects/meta.json`](./apps/site/content/docs/effects/meta.json)
 5. Update [`apps/site/content/docs/index.mdx`](./apps/site/content/docs/index.mdx) Cards
-6. Wire root `package.json` scripts (`build` / `typecheck` / `pack:check` / `lint`) and `apps/site` dependency if needed
-7. Homepage cards pick it up from the registry
+6. Add `apps/site` dependency + `tsconfig` paths / `next.config.mjs` aliases（根 `build` / `typecheck` / `pack:check` / `lint` 会自动扫 `packages/*`，不必再改脚本列表）
+7. Add `components/effects/<id>-demo.tsx`（包进 `DemoFrame`）与 `<id>-preview.tsx`，并在 `mdx.tsx` / 首页 `previews` 注册
+8. Homepage cards pick it up from the registry；全屏预览走 `/preview/<id>`
 
 More detail: [CONTRIBUTING.md](./CONTRIBUTING.md). Changelog: [CHANGELOG.md](./CHANGELOG.md).
 

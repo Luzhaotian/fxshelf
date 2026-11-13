@@ -15,6 +15,7 @@ description: 浏览并安装 fxshelf 动效包
   <Card title="Starfield" href="/docs/effects/starfield" description="Canvas 星空隧道 —— 透视飞近、闪烁与拖尾。" />
   <Card title="Button Kit" href="/docs/effects/button-kit" description="按钮动效书架 —— 用 variant 字符串切换样式。" />
   <Card title="Word Tunnel" href="/docs/effects/word-tunnel" description="3D 词云隧道 —— 文字朝灭点飞来。" />
+  <Card title="Swarm Cursors" href="/docs/effects/swarm-cursors" description="多光标 swarm 页面共建 —— 滚动时工人画出整页。" />
 </Cards>
 
 ```bash
@@ -23,6 +24,7 @@ npm install @fxshelf/glyph-rain
 npm install @fxshelf/starfield
 npm install @fxshelf/button-kit
 npm install @fxshelf/word-tunnel
+npm install @fxshelf/swarm-cursors
 ```
 
 已发布包见 [npm `@fxshelf`](https://www.npmjs.com/org/fxshelf)。CDN 示例与完整用法见各动效文档页。
@@ -62,5 +64,6 @@ npm install @fxshelf/word-tunnel
 2. 在 `apps/site/lib/effects.ts` 追加一条 registry
 3. 添加 `apps/site/content/docs/effects/<id>.mdx`
 4. 更新 `apps/site/content/docs/effects/meta.json`
-5. 如需，更新根目录 `package.json` 脚本（`build` / `typecheck` / `pack:check` / `lint`）以及 `apps/site` 依赖
-6. 首页卡片会自动读取 registry；文档页 Cards 请同步补上
+5. 添加 `apps/site` 依赖与路径别名（根脚本会自动扫 `packages/*`，不必再改 `build` / `typecheck` / `pack:check` / `lint` 列表）
+6. 添加 `*-demo.tsx`（`DemoFrame`）/ `*-preview.tsx`，注册到 `mdx.tsx` 与首页 `previews`；全屏页 `/preview/<id>` 会按 `effects.ts` 自动生成
+7. 首页卡片会自动读取 registry；文档页 Cards 请同步补上

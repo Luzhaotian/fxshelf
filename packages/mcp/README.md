@@ -18,6 +18,7 @@ build time. The server runs locally over **stdio**, needs **no API key and no ne
 | Starfield | `@fxshelf/starfield` |
 | Button Kit | `@fxshelf/button-kit` |
 | Word Tunnel | `@fxshelf/word-tunnel` |
+| Swarm Cursors | `@fxshelf/swarm-cursors` |
 
 ## Setup
 

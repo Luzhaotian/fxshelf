@@ -5,6 +5,7 @@ import { CardOrbitDemo } from '@/components/effects/card-orbit-demo'
 import { CardOrbitPathLab } from '@/components/effects/card-orbit-path'
 import { GlyphRainDemo } from '@/components/effects/glyph-rain-demo'
 import { StarfieldDemo } from '@/components/effects/starfield-demo'
+import { SwarmCursorsDemo } from '@/components/effects/swarm-cursors-demo'
 import { WordTunnelDemo } from '@/components/effects/word-tunnel-demo'
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -15,6 +16,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     CardOrbitPathLab,
     GlyphRainDemo,
     StarfieldDemo,
+    SwarmCursorsDemo,
     WordTunnelDemo,
     ...components,
   } as MDXComponents

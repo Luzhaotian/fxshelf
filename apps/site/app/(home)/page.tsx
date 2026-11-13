@@ -6,6 +6,7 @@ import { CardOrbitPreview } from '@/components/effects/card-orbit-preview'
 import { GlyphRainPreview } from '@/components/effects/glyph-rain-preview'
 import { StarfieldPreview } from '@/components/effects/starfield-preview'
 import { WordTunnelPreview } from '@/components/effects/word-tunnel-preview'
+import { SwarmCursorsPreview } from '@/components/effects/swarm-cursors-preview'
 
 const previews: Record<string, () => ReactNode> = {
   'card-orbit': () => <CardOrbitPreview />,
@@ -13,6 +14,7 @@ const previews: Record<string, () => ReactNode> = {
   starfield: () => <StarfieldPreview />,
   'button-kit': () => <ButtonKitPreview />,
   'word-tunnel': () => <WordTunnelPreview />,
+  'swarm-cursors': () => <SwarmCursorsPreview />,
 }
 
 function EffectPreview({ id }: { id: string }) {

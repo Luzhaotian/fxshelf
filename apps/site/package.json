@@ -16,6 +16,7 @@
     "@fxshelf/glyph-rain": "*",
     "@fxshelf/starfield": "*",
     "@fxshelf/word-tunnel": "*",
+    "@fxshelf/swarm-cursors": "*",
     "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "^9.7.0",
     "cnfast": "^0.1.0",
