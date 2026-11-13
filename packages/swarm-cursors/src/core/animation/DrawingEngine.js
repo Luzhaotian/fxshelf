@@ -8,8 +8,7 @@ const EDGE_MAX = 10000;
 
 /**
  * 将场景对象的创建、复制和编辑拆成可逐帧执行的设计工具动作。
- * 位置换算、时钟、移动、输入与对象索引由SwarmEngine提供。
- * @author 程序员阿鑫
+ * 位置换算、时钟、移动、输入与对象索引由 SwarmEngine 提供。
  */
 export class DrawingEngine {
   /**

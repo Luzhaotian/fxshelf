@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * Generic intro mark for the shelf package (replaces portfolio-specific seals).
+ * Generic intro mark for the shelf package.
  * @param {{className?: string}} props
  * @returns {React.ReactElement}
  */

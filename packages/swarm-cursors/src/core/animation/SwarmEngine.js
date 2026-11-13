@@ -19,8 +19,7 @@ import {
 } from "./motion.js";
 
 /**
- * 调度页面施工任务、滚动触发与光标飞行，为React场景提供可变动画状态。
- * @author 程序员阿鑫
+ * 调度页面施工任务、滚动触发与光标飞行，为 React 场景提供可变动画状态。
  */
 export class SwarmEngine extends DrawingEngine {
   /**

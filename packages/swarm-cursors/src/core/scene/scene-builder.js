@@ -10,7 +10,6 @@ import { ElementKind, TaskType } from "./types.js";
 
 /**
  * 将可编辑的页面元素转换为场景与施工任务，维护复制和文字替换的依赖关系。
- * @author 程序员阿鑫
  */
 export class SceneBuilder {
   /** 初始化独立的页面元素、任务和重复组容器。 */
