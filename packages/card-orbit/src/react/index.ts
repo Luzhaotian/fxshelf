@@ -11,8 +11,4 @@ export {
   DEFAULT_PERSPECTIVE,
   type PathPoint,
 } from '../core/path'
-export {
-  createOrbit,
-  type CreateOrbitOptions,
-  type OrbitController,
-} from '../core/createOrbit'
+export { createOrbit, type CreateOrbitOptions, type OrbitController } from '../core/createOrbit'

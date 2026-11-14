@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 100,
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/out/**",
+    "**/.next/**",
+    "**/node_modules/**",
+    "package-lock.json",
+    "packages/mcp/src/data/snapshot.json",
+    "apps/site/.source/**",
+    "**/source.config.mjs"
+  ]
+}

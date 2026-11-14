@@ -1,9 +1,9 @@
-import React from "react";
-import { RULER_SIZE } from "../scene/theme.js";
-import { ElementKind } from "../scene/types.js";
+import React from 'react'
+import { RULER_SIZE } from '../scene/theme.js'
+import { ElementKind } from '../scene/types.js'
 
-const SELECTION_COLOR = "#0D99FF";
-const GUIDE_COLOR = "#F24822";
+const SELECTION_COLOR = '#0D99FF'
+const GUIDE_COLOR = '#F24822'
 
 /**
  * 绘制施工光标产生的锚点、参考线、选框、尺寸标签与间距测量。
@@ -11,11 +11,11 @@ const GUIDE_COLOR = "#F24822";
  * @returns {React.ReactElement} 位于内容上方且不拦截指针的施工图层。
  */
 export function ConstructionOverlay({ engine }) {
-  const { s: scale, left: offsetX, vw: viewportWidth, scrollY } = engine.vp;
-  const canvasHeight = engine.height * scale;
-  const shapes = [];
-  const labels = [];
-  let nextKey = 0;
+  const { s: scale, left: offsetX, vw: viewportWidth, scrollY } = engine.vp
+  const canvasHeight = engine.height * scale
+  const shapes = []
+  const labels = []
+  let nextKey = 0
 
   /**
    * 将设计坐标横向投影为居中画布内的屏幕坐标。
@@ -24,7 +24,7 @@ export function ConstructionOverlay({ engine }) {
    */
   function projectX(value) {
     // 画布横向偏移不随滚动改变。
-    return offsetX + value * scale;
+    return offsetX + value * scale
   }
 
   /**
@@ -34,24 +34,22 @@ export function ConstructionOverlay({ engine }) {
    */
   function projectY(value) {
     // 图层跟随整个页面，因此这里不能重复扣除scrollY。
-    return value * scale;
+    return value * scale
   }
 
   // 场景参考线保持原站贯穿画布的长度，并在吸附时短暂加粗发亮。
   for (const element of engine.list) {
     if (element.kind === ElementKind.GUIDE && element.vis && element.op > 0) {
       const glow =
-        element.flash > 0
-          ? `drop-shadow(0 0 ${2 + element.flash * 3}px ${GUIDE_COLOR})`
-          : undefined;
+        element.flash > 0 ? `drop-shadow(0 0 ${2 + element.flash * 3}px ${GUIDE_COLOR})` : undefined
       const lineStyle = {
         stroke: GUIDE_COLOR,
         strokeWidth: 1 + element.flash,
         opacity: element.op,
         style: { filter: glow },
-      };
+      }
       shapes.push(
-        element.axis === "x" ? (
+        element.axis === 'x' ? (
           <line
             key={nextKey++}
             x1={projectX(element.cur)}
@@ -69,42 +67,33 @@ export function ConstructionOverlay({ engine }) {
             y2={projectY(element.cur)}
             {...lineStyle}
           />
-        )
-      );
+        ),
+      )
     }
 
     // 路径处于编辑状态时，将已落下锚点与负责描绘的光标连接。
     if (element.kind === ElementKind.PATH && element.edit) {
-      const stickyOffset = element.sticky ? engine.stick : 0;
+      const stickyOffset = element.sticky ? engine.stick : 0
       const placedPoints = element.pts.slice(0, element.placed).map((point) => ({
         x: projectX(point.x),
         y: projectY(point.y + stickyOffset),
-      }));
+      }))
       const owner =
-        element.owner != null
-          ? engine.cursors.find((cursor) => cursor.id === element.owner)
-          : null;
+        element.owner != null ? engine.cursors.find((cursor) => cursor.id === element.owner) : null
       const drawingPoints = owner
-        ? [
-            ...placedPoints,
-            { x: projectX(owner.x), y: projectY(owner.y + stickyOffset) },
-          ]
-        : placedPoints;
+        ? [...placedPoints, { x: projectX(owner.x), y: projectY(owner.y + stickyOffset) }]
+        : placedPoints
       const closePath =
-        element.shut && placedPoints.length
-          ? ` ${placedPoints[0].x},${placedPoints[0].y}`
-          : "";
+        element.shut && placedPoints.length ? ` ${placedPoints[0].x},${placedPoints[0].y}` : ''
       shapes.push(
         <polyline
           key={nextKey++}
-          points={
-            drawingPoints.map((point) => `${point.x},${point.y}`).join(" ") + closePath
-          }
+          points={drawingPoints.map((point) => `${point.x},${point.y}`).join(' ') + closePath}
           fill="none"
           stroke={SELECTION_COLOR}
           strokeWidth={1.5}
-        />
-      );
+        />,
+      )
       for (const point of placedPoints) {
         shapes.push(
           <circle
@@ -115,17 +104,17 @@ export function ConstructionOverlay({ engine }) {
             fill="#fff"
             stroke={SELECTION_COLOR}
             strokeWidth={1.5}
-          />
-        );
+          />,
+        )
       }
     }
   }
 
   // 每个工人可提交自己的选框或测距描述，展示层不干预施工任务。
-  const rulerProgress = engine.rulers.t;
+  const rulerProgress = engine.rulers.t
   for (const cursor of engine.cursors) {
-    if (!cursor.ov) continue;
-    const stickyOffset = cursor.sticky ? engine.stick : 0;
+    if (!cursor.ov) continue
+    const stickyOffset = cursor.sticky ? engine.stick : 0
 
     /**
      * 投影当前光标所属元素的纵坐标，补偿吸顶导航的位移。
@@ -134,16 +123,16 @@ export function ConstructionOverlay({ engine }) {
      */
     function cursorY(value) {
       // 吸顶任务仍使用设计坐标，展示时才加入导航偏移。
-      return (value + stickyOffset) * scale;
+      return (value + stickyOffset) * scale
     }
 
     for (const overlay of cursor.ov()) {
-      if (overlay.t === "box") {
-        const left = projectX(overlay.b.x);
-        const top = cursorY(overlay.b.y);
-        const width = overlay.b.w * scale;
-        const height = overlay.b.h * scale;
-        const color = overlay.color === "red" ? GUIDE_COLOR : SELECTION_COLOR;
+      if (overlay.t === 'box') {
+        const left = projectX(overlay.b.x)
+        const top = cursorY(overlay.b.y)
+        const width = overlay.b.w * scale
+        const height = overlay.b.h * scale
+        const color = overlay.color === 'red' ? GUIDE_COLOR : SELECTION_COLOR
         shapes.push(
           <rect
             key={nextKey++}
@@ -154,12 +143,12 @@ export function ConstructionOverlay({ engine }) {
             fill="none"
             stroke={color}
             strokeWidth={1}
-          />
-        );
+          />,
+        )
 
         // 文字编辑中的下划线与选框分开计算，保留字形基线位置。
         if (overlay.underline && overlay.underline.w > 0) {
-          const underline = overlay.underline;
+          const underline = overlay.underline
           shapes.push(
             <line
               key={nextKey++}
@@ -169,8 +158,8 @@ export function ConstructionOverlay({ engine }) {
               y2={cursorY(underline.y)}
               stroke={SELECTION_COLOR}
               strokeWidth={1.5}
-            />
-          );
+            />,
+          )
         }
         if (overlay.rulerLines && rulerProgress > 0.05) {
           shapes.push(
@@ -181,20 +170,15 @@ export function ConstructionOverlay({ engine }) {
               strokeDasharray="2 2"
               opacity={rulerProgress}
             >
-              <line
-                x1={RULER_SIZE}
-                x2={left}
-                y1={top + height / 2}
-                y2={top + height / 2}
-              />
+              <line x1={RULER_SIZE} x2={left} y1={top + height / 2} y2={top + height / 2} />
               <line
                 x1={left + width / 2}
                 x2={left + width / 2}
                 y1={scrollY + RULER_SIZE}
                 y2={top}
               />
-            </g>
-          );
+            </g>,
+          )
         }
         if (overlay.handles) {
           for (const [handleX, handleY] of [
@@ -213,8 +197,8 @@ export function ConstructionOverlay({ engine }) {
                 fill="#fff"
                 stroke={SELECTION_COLOR}
                 strokeWidth={1}
-              />
-            );
+              />,
+            )
           }
         }
         if (overlay.badge && width > 0) {
@@ -229,14 +213,14 @@ export function ConstructionOverlay({ engine }) {
               }}
             >
               {overlay.badge}
-            </div>
-          );
+            </div>,
+          )
         }
       } else {
         // 水平和垂直测距标签采用各自的偏移，防止与测距线重叠。
-        const start = { x: projectX(overlay.a.x), y: cursorY(overlay.a.y) };
-        const end = { x: projectX(overlay.b.x), y: cursorY(overlay.b.y) };
-        const horizontal = start.y === end.y;
+        const start = { x: projectX(overlay.a.x), y: cursorY(overlay.a.y) }
+        const end = { x: projectX(overlay.b.x), y: cursorY(overlay.b.y) }
+        const horizontal = start.y === end.y
         shapes.push(
           <line
             key={nextKey++}
@@ -246,8 +230,8 @@ export function ConstructionOverlay({ engine }) {
             y2={end.y}
             stroke={GUIDE_COLOR}
             strokeWidth={1}
-          />
-        );
+          />,
+        )
         labels.push(
           <div
             key={nextKey++}
@@ -259,8 +243,8 @@ export function ConstructionOverlay({ engine }) {
             }}
           >
             {overlay.label}
-          </div>
-        );
+          </div>,
+        )
       }
     }
   }
@@ -272,5 +256,5 @@ export function ConstructionOverlay({ engine }) {
       </svg>
       {labels}
     </div>
-  );
+  )
 }

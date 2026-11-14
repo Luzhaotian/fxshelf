@@ -1,6 +1,6 @@
-import React from "react";
-import { TaskState } from "../animation/config.js";
-import { InteractionStyle, PAGE_INTERACTIONS } from "../interactions/actions.js";
+import React from 'react'
+import { TaskState } from '../animation/config.js'
+import { InteractionStyle, PAGE_INTERACTIONS } from '../interactions/actions.js'
 
 /**
  * 在已施工完成的场景内容上覆盖原生按钮，继承所在画布的缩放与吸顶坐标。
@@ -17,19 +17,15 @@ export function SceneInteractions({
   return (
     <>
       {interactions.map((interaction) => {
-        const elements = interaction.elements.map((id) => engine.els.get(id));
-        if (elements.some((element) => !element?.vis)) return null;
-        if (Boolean(elements[0].sticky) !== sticky) return null;
-        if (
-          !interaction.after.every(
-            (id) => engine.byTask.get(id)?.state === TaskState.DONE
-          )
-        )
-          return null;
-        const bounds = engine.unionBounds(interaction.elements);
-        const isButton = interaction.style === InteractionStyle.BUTTON;
-        const paddingX = isButton ? 0 : 7;
-        const paddingY = isButton ? 0 : Math.max(6, (36 - bounds.h) / 2);
+        const elements = interaction.elements.map((id) => engine.els.get(id))
+        if (elements.some((element) => !element?.vis)) return null
+        if (Boolean(elements[0].sticky) !== sticky) return null
+        if (!interaction.after.every((id) => engine.byTask.get(id)?.state === TaskState.DONE))
+          return null
+        const bounds = engine.unionBounds(interaction.elements)
+        const isButton = interaction.style === InteractionStyle.BUTTON
+        const paddingX = isButton ? 0 : 7
+        const paddingY = isButton ? 0 : Math.max(6, (36 - bounds.h) / 2)
         return (
           <button
             key={interaction.id}
@@ -38,7 +34,7 @@ export function SceneInteractions({
             data-interaction-id={interaction.id}
             aria-label={interaction.label}
             title={interaction.label}
-            aria-haspopup={interaction.action.kind ? "dialog" : undefined}
+            aria-haspopup={interaction.action.kind ? 'dialog' : undefined}
             style={{
               left: bounds.x - paddingX,
               top: bounds.y - paddingY,
@@ -48,8 +44,8 @@ export function SceneInteractions({
             }}
             onClick={() => onAction(interaction.action)}
           />
-        );
+        )
       })}
     </>
-  );
+  )
 }

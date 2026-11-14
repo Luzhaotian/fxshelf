@@ -5,23 +5,23 @@
 A shelf of copy-friendly micro animation packages for **React** and **Vue**.  
 Browse the site, install only what you need — or copy the source. No Framer Motion / GSAP.
 
-| | |
-|--|--|
+|                 |                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------- |
 | **Site / Docs** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/)（中文为主；各包 README 双语） |
-| **Scope** | `@fxshelf/*` |
-| **Deploy** | GitHub Actions → Pages（`main` push）；发包可手动跑 Release workflow |
+| **Scope**       | `@fxshelf/*`                                                                                        |
+| **Deploy**      | GitHub Actions → Pages（`main` push）；发包可手动跑 Release workflow                                |
 
 ## Packages
 
-| Package | Version | Description |
-|---------|---------|-------------|
-| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | [`0.1.7`](./packages/card-orbit) | Path-constrained 3D card orbit — rise, arc, exit |
-| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | [`0.1.2`](./packages/glyph-rain) | Matrix-style glyph rain — cursor stir, optional content lighting |
-| [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.2`](./packages/starfield) | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails |
-| [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.1`](./packages/button-kit) | Animated button shelf — switch styles by `variant` string |
-| [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.1`](./packages/word-tunnel) | 3D keyword tunnel — words fly to the vanishing point |
-| [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) | [`0.1.0`](./packages/swarm-cursors) | Multi-cursor swarm page builder — workers draw as you scroll (React) |
-| [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp) | [`0.1.0`](./packages/mcp) | MCP server — let AI assistants (Claude Code / Cursor) browse the shelf, read docs, copy source |
+| Package                                                                          | Version                             | Description                                                                                    |
+| -------------------------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit)       | [`0.1.8`](./packages/card-orbit)    | Path-constrained 3D card orbit — rise, arc, exit                                               |
+| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain)       | [`0.1.3`](./packages/glyph-rain)    | Matrix-style glyph rain — cursor stir, optional content lighting                               |
+| [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield)         | [`0.1.3`](./packages/starfield)     | Canvas 2D starfield tunnel — perspective fly-through, glitter, trails                          |
+| [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit)       | [`0.1.2`](./packages/button-kit)    | Animated button shelf — switch styles by `variant` string                                      |
+| [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel)     | [`0.1.2`](./packages/word-tunnel)   | 3D keyword tunnel — words fly to the vanishing point                                           |
+| [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) | [`0.1.1`](./packages/swarm-cursors) | Multi-cursor swarm page builder — workers draw as you scroll (React)                           |
+| [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp)                     | [`0.1.1`](./packages/mcp)           | MCP server — let AI assistants (Claude Code / Cursor) browse the shelf, read docs, copy source |
 
 ```bash
 npm install @fxshelf/card-orbit
@@ -68,8 +68,10 @@ scripts/           run-packages.mjs · publish-packages.mjs
 
 Husky gates commits:
 
-- **pre-commit** — oxlint on staged JS/TS/Vue
+- **pre-commit** — `lint-staged`：`oxfmt` formats staged files, then `oxlint` on JS/TS/Vue
 - **commit-msg** — commitlint（Conventional Commits）
+
+Manual format: `npm run fmt` / `npm run fmt:check`（[`.oxfmtrc.json`](./.oxfmtrc.json)）
 
 Format: `type(scope?): 中文说明` — **subject must include Chinese**.
 

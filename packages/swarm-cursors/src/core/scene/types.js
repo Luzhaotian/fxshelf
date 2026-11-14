@@ -1,20 +1,20 @@
 /** 场景中可编辑元素的类型，渲染器与动画调度器共享同一协议。 */
 export const ElementKind = Object.freeze({
-  PATH: "path",
-  RECTANGLE: "rect",
-  TEXT: "text",
-  GUIDE: "guide",
-});
+  PATH: 'path',
+  RECTANGLE: 'rect',
+  TEXT: 'text',
+  GUIDE: 'guide',
+})
 
 /** 施工任务类型，重复组先复制再替换文案，保持参考站的施工顺序。 */
 export const TaskType = Object.freeze({
-  PATH: "path",
-  RECTANGLE: "rect",
-  TEXT: "text",
-  GUIDE: "guide",
-  DUPLICATE: "dup",
-  EDIT_TEXT: "edit",
-});
+  PATH: 'path',
+  RECTANGLE: 'rect',
+  TEXT: 'text',
+  GUIDE: 'guide',
+  DUPLICATE: 'dup',
+  EDIT_TEXT: 'edit',
+})
 
 /**
  * @typedef {object} SceneElement

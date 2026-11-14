@@ -3,16 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "description": "fxshelf — a shelf of copy-friendly micro animation packages for React and Vue.",
+  "homepage": "https://github.com/Luzhaotian/fxshelf#readme",
+  "bugs": {
+    "url": "https://github.com/Luzhaotian/fxshelf/issues"
+  },
   "license": "MIT",
   "author": "Lu Zhaotian",
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luzhaotian/fxshelf.git"
+  },
   "workspaces": [
     "packages/*",
     "apps/*"
   ],
-  "engines": {
-    "node": ">=22"
-  },
+  "type": "module",
   "scripts": {
     "dev": "npm run dev -w @fxshelf/site",
     "build": "node scripts/run-packages.mjs build",
@@ -20,6 +25,8 @@
     "build:site:pages": "npm run build && GITHUB_PAGES=true npm run build -w @fxshelf/site",
     "preview": "npm run preview -w @fxshelf/site",
     "lint": "oxlint packages/*/src packages/*/scripts apps/site/components apps/site/lib apps/site/app",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "pack:check": "npm run pack:check --workspaces --if-present",
     "changeset": "changeset",
@@ -29,17 +36,13 @@
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue,mjs,cjs}": [
-      "oxlint"
-    ]
-  },
   "devDependencies": {
     "@changesets/cli": "^3.0.2",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
+    "oxfmt": "^0.78.0",
     "oxlint": "^1.79.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -47,12 +50,11 @@
     "typescript": "~5.8.3",
     "vue": "^3.5.42"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Luzhaotian/fxshelf.git"
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern",
+    "*.{js,jsx,ts,tsx,vue,mjs,cjs}": "oxlint"
   },
-  "bugs": {
-    "url": "https://github.com/Luzhaotian/fxshelf/issues"
-  },
-  "homepage": "https://github.com/Luzhaotian/fxshelf#readme"
+  "engines": {
+    "node": ">=22"
+  }
 }

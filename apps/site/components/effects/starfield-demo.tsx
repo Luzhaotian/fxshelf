@@ -29,8 +29,7 @@ export function StarfieldDemo({ fill = false }: { fill?: boolean }) {
           Stars rush past the viewport.
         </p>
         <p className="max-w-sm text-sm leading-relaxed text-white/55">
-          Canvas 2D tunnel · glitter flashes · additive trails · zero Framer /
-          GSAP.
+          Canvas 2D tunnel · glitter flashes · additive trails · zero Framer / GSAP.
         </p>
       </div>
     </Starfield>
@@ -40,5 +39,9 @@ export function StarfieldDemo({ fill = false }: { fill?: boolean }) {
     return <div className="min-h-dvh w-full bg-[#0a0a0f]">{stage}</div>
   }
 
-  return <DemoFrame effectId="starfield" className="bg-[#0a0a0f]">{stage}</DemoFrame>
+  return (
+    <DemoFrame effectId="starfield" className="bg-[#0a0a0f]">
+      {stage}
+    </DemoFrame>
+  )
 }

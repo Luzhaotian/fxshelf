@@ -35,5 +35,9 @@ export function GlyphRainDemo({ fill = false }: { fill?: boolean }) {
     return <div className="min-h-dvh w-full bg-[#07090f]">{stage}</div>
   }
 
-  return <DemoFrame effectId="glyph-rain" className="bg-[#07090f]">{stage}</DemoFrame>
+  return (
+    <DemoFrame effectId="glyph-rain" className="bg-[#07090f]">
+      {stage}
+    </DemoFrame>
+  )
 }

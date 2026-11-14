@@ -6,11 +6,11 @@
 
 属于 [fxshelf](https://github.com/Luzhaotian/fxshelf) 动效书架中的一个可独立安装包。
 
-| | |
-|--|--|
-| **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/button-kit) |
-| **npm** | [`@fxshelf/button-kit@0.1.1`](https://www.npmjs.com/package/@fxshelf/button-kit) |
-| **CDN** | [unpkg](https://unpkg.com/@fxshelf/button-kit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/) |
+|                 |                                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/button-kit)                    |
+| **npm**         | [`@fxshelf/button-kit@0.1.2`](https://www.npmjs.com/package/@fxshelf/button-kit)                                |
+| **CDN**         | [unpkg](https://unpkg.com/@fxshelf/button-kit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/) |
 
 支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
 
@@ -26,10 +26,10 @@ npm install @fxshelf/button-kit
 import '@fxshelf/button-kit/styles.css'
 ```
 
-| 使用方 | Peer |
-|--------|------|
-| React | `react` / `react-dom` ≥ 18 |
-| Vue | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
+| 使用方 | Peer                                    |
+| ------ | --------------------------------------- |
+| React  | `react` / `react-dom` ≥ 18              |
+| Vue    | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
 
 ## 用法 — React
 
@@ -59,18 +59,18 @@ import '@fxshelf/button-kit/styles.css'
 
 ## variant
 
-| 值 | 效果 |
-|----|------|
-| `solid` | 实心深色 |
-| `outline` | 描边，悬停填实 |
-| `soft` | 浅色软按钮 |
-| `glow` | 呼吸光晕 |
-| `neon` | 霓虹描边 |
-| `shimmer` | 悬停扫光 |
-| `chroma` | 炫彩流光；hover 贴边高斯光晕 |
-| `liquid` | 底部液体升起填充 |
-| `wipe` | 斜向擦除填充 |
-| `glass` | 毛玻璃半透明 |
+| 值        | 效果                         |
+| --------- | ---------------------------- |
+| `solid`   | 实心深色                     |
+| `outline` | 描边，悬停填实               |
+| `soft`    | 浅色软按钮                   |
+| `glow`    | 呼吸光晕                     |
+| `neon`    | 霓虹描边                     |
+| `shimmer` | 悬停扫光                     |
+| `chroma`  | 炫彩流光；hover 贴边高斯光晕 |
+| `liquid`  | 底部液体升起填充             |
+| `wipe`    | 斜向擦除填充                 |
+| `glass`   | 毛玻璃半透明                 |
 
 未知字符串会回退到 `solid`。
 
@@ -82,7 +82,10 @@ import '@fxshelf/button-kit/styles.css'
 <link rel="stylesheet" href="https://unpkg.com/@fxshelf/button-kit/dist/index.css" />
 
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+></script>
 <script src="https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js"></script>
 
 <div id="app"></div>
@@ -93,7 +96,7 @@ import '@fxshelf/button-kit/styles.css'
 </script>
 ```
 
-生产环境建议锁定版本，如 `@fxshelf/button-kit@0.1.1/...`。  
+生产环境建议锁定版本，如 `@fxshelf/button-kit@0.1.2/...`。  
 不要用 jsDelivr GitHub `gh/.../dist` 直链（`dist/` 不进 Git）。
 
 ## 复制源码

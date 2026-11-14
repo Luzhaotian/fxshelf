@@ -21,11 +21,11 @@ npm run dev
 
 ## 书架上的包
 
-| id | 包名 |
-|----|------|
-| `card-orbit` | `@fxshelf/card-orbit` |
-| `glyph-rain` | `@fxshelf/glyph-rain` |
-| `starfield` | `@fxshelf/starfield` |
-| `button-kit` | `@fxshelf/button-kit` |
-| `word-tunnel` | `@fxshelf/word-tunnel` |
+| id              | 包名                     |
+| --------------- | ------------------------ |
+| `card-orbit`    | `@fxshelf/card-orbit`    |
+| `glyph-rain`    | `@fxshelf/glyph-rain`    |
+| `starfield`     | `@fxshelf/starfield`     |
+| `button-kit`    | `@fxshelf/button-kit`    |
+| `word-tunnel`   | `@fxshelf/word-tunnel`   |
 | `swarm-cursors` | `@fxshelf/swarm-cursors` |

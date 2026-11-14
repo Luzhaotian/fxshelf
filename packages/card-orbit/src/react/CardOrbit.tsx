@@ -1,11 +1,6 @@
 'use client'
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-} from 'react'
+import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { createOrbit } from '../core/createOrbit'
 import {
   DEFAULT_ACTIVE_WINDOW,
@@ -86,11 +81,7 @@ export function CardOrbit({
 
   if (!hasImages) return null
 
-  const rootClass = [
-    'card-orbit',
-    desktopOnly ? 'card-orbit--desktop-only' : '',
-    className ?? '',
-  ]
+  const rootClass = ['card-orbit', desktopOnly ? 'card-orbit--desktop-only' : '', className ?? '']
     .filter(Boolean)
     .join(' ')
 
@@ -101,9 +92,7 @@ export function CardOrbit({
       style={{ perspective: `${perspective}px`, ...style }}
       aria-label={ariaLabel}
     >
-      <div
-        className={['card-orbit__stage', stageClassName].filter(Boolean).join(' ')}
-      >
+      <div className={['card-orbit__stage', stageClassName].filter(Boolean).join(' ')}>
         {images.map((src, index) => {
           const phase = (index / images.length + progress) % 1
           const active = phase > 0 && phase < activeWindow

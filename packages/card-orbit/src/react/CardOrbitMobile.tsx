@@ -57,9 +57,7 @@ export function CardOrbitMobile({
             <img
               src={src}
               alt={alts?.[i % images.length] ?? ''}
-              className={['card-orbit-mobile__image', imageClassName]
-                .filter(Boolean)
-                .join(' ')}
+              className={['card-orbit-mobile__image', imageClassName].filter(Boolean).join(' ')}
               draggable={false}
             />
           </figure>

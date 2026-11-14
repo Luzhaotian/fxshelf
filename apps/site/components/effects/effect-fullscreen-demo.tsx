@@ -8,10 +8,7 @@ import { SwarmCursorsDemo } from '@/components/effects/swarm-cursors-demo'
 import { WordTunnelDemo } from '@/components/effects/word-tunnel-demo'
 import type { EffectDemoId } from '@/lib/effect-demo-ids'
 
-const demos: Record<
-  EffectDemoId,
-  (props: { fill?: boolean }) => React.ReactNode
-> = {
+const demos: Record<EffectDemoId, (props: { fill?: boolean }) => React.ReactNode> = {
   'button-kit': ButtonKitDemo,
   'card-orbit': CardOrbitDemo,
   'glyph-rain': GlyphRainDemo,

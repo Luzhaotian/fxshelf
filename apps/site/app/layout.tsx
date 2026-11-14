@@ -33,7 +33,11 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="zh-CN" className={`${geist.className} ${geistMono.variable}`} suppressHydrationWarning>
+    <html
+      lang="zh-CN"
+      className={`${geist.className} ${geistMono.variable}`}
+      suppressHydrationWarning
+    >
       <body className="flex min-h-screen flex-col antialiased">
         <Provider>{children}</Provider>
       </body>

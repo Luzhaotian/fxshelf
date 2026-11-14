@@ -8,10 +8,7 @@ export default {
       rules: {
         'subject-has-chinese': ({ subject }) => {
           const ok = hasChinese(subject)
-          return [
-            ok,
-            'subject 须包含中文。示例：feat(starfield): 新增星空隧道动效包',
-          ]
+          return [ok, 'subject 须包含中文。示例：feat(starfield): 新增星空隧道动效包']
         },
       },
     },

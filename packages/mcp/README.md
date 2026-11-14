@@ -11,13 +11,13 @@ build time. The server runs locally over **stdio**, needs **no API key and no ne
 
 ## Effects covered
 
-| Effect | npm |
-|--------|-----|
-| Card Orbit | `@fxshelf/card-orbit` |
-| Glyph Rain | `@fxshelf/glyph-rain` |
-| Starfield | `@fxshelf/starfield` |
-| Button Kit | `@fxshelf/button-kit` |
-| Word Tunnel | `@fxshelf/word-tunnel` |
+| Effect        | npm                      |
+| ------------- | ------------------------ |
+| Card Orbit    | `@fxshelf/card-orbit`    |
+| Glyph Rain    | `@fxshelf/glyph-rain`    |
+| Starfield     | `@fxshelf/starfield`     |
+| Button Kit    | `@fxshelf/button-kit`    |
+| Word Tunnel   | `@fxshelf/word-tunnel`   |
 | Swarm Cursors | `@fxshelf/swarm-cursors` |
 
 ## Setup
@@ -45,13 +45,13 @@ Then ask your assistant things like:
 
 ## Tools
 
-| Tool | What it returns |
-|------|-----------------|
-| `ping` | Health check: ok flag, server name/version, effect count, snapshot time, server time (optional echo) |
-| `list_effects` | Every effect: id, title, blurb, npm name, version, docs URL |
-| `get_effect_docs` | Full docs markdown for one effect (install, React/Vue usage, API) |
-| `get_effect_source` | Actual source files (`core` / `react` / `vue` groups) for copy-as-source, with paths |
-| `get_cdn_snippet` | Version-locked `<script>` snippet (unpkg / jsDelivr, React UMD prereqs, CSS link, runnable HTML sample) |
+| Tool                | What it returns                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ping`              | Health check: ok flag, server name/version, effect count, snapshot time, server time (optional echo)    |
+| `list_effects`      | Every effect: id, title, blurb, npm name, version, docs URL                                             |
+| `get_effect_docs`   | Full docs markdown for one effect (install, React/Vue usage, API)                                       |
+| `get_effect_source` | Actual source files (`core` / `react` / `vue` groups) for copy-as-source, with paths                    |
+| `get_cdn_snippet`   | Version-locked `<script>` snippet (unpkg / jsDelivr, React UMD prereqs, CSS link, runnable HTML sample) |
 
 Resources: `fxshelf://effects` (JSON index) and `fxshelf://effects/{id}/docs`
 (markdown per effect).

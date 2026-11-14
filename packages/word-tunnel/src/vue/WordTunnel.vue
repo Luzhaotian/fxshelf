@@ -57,8 +57,7 @@ let resizeTimer: ReturnType<typeof setTimeout> | undefined
 
 function rebuild() {
   const nextCount =
-    props.count ??
-    (typeof window !== 'undefined' ? wordCountForWidth(window.innerWidth) : 80)
+    props.count ?? (typeof window !== 'undefined' ? wordCountForWidth(window.innerWidth) : 80)
   items.value = buildWords({
     count: nextCount,
     seed: props.seed,
@@ -101,13 +100,9 @@ watch(
   { deep: true },
 )
 
-const keyframesCss = computed(() =>
-  buildConvergeKeyframes(animName, props.fadeIn, props.fadeOut),
-)
+const keyframesCss = computed(() => buildConvergeKeyframes(animName, props.fadeIn, props.fadeOut))
 
-const rootClass = computed(() =>
-  ['fx-wt', props.className].filter(Boolean).join(' '),
-)
+const rootClass = computed(() => ['fx-wt', props.className].filter(Boolean).join(' '))
 
 const rootStyle = computed(() => ({
   ...props.style,
@@ -117,9 +112,7 @@ const rootStyle = computed(() => ({
   ...(props.fontSize != null
     ? {
         '--fx-wt-font-size':
-          typeof props.fontSize === 'number'
-            ? `${props.fontSize}px`
-            : props.fontSize,
+          typeof props.fontSize === 'number' ? `${props.fontSize}px` : props.fontSize,
       }
     : null),
 }))

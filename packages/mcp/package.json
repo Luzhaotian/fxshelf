@@ -1,11 +1,26 @@
 {
   "name": "@fxshelf/mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for fxshelf — let AI assistants (Claude Code, Cursor, etc.) list the effect shelf, fetch docs / CDN snippets, and copy-as-source for React and Vue.",
+  "keywords": [
+    "animation",
+    "fxshelf",
+    "mcp",
+    "model-context-protocol",
+    "react",
+    "vue"
+  ],
+  "homepage": "https://github.com/Luzhaotian/fxshelf/tree/main/packages/mcp#readme",
+  "bugs": {
+    "url": "https://github.com/Luzhaotian/fxshelf/issues"
+  },
   "license": "MIT",
   "author": "Lu Zhaotian",
-  "type": "module",
-  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luzhaotian/fxshelf.git",
+    "directory": "packages/mcp"
+  },
   "bin": {
     "fxshelf-mcp": "./dist/index.js"
   },
@@ -15,6 +30,8 @@
     "README.zh-CN.md",
     "LICENSE"
   ],
+  "type": "module",
+  "main": "./dist/index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -28,28 +45,11 @@
     "pack:check": "npm run build && npm pack --dry-run",
     "prepublishOnly": "npm run typecheck && npm run build"
   },
-  "engines": {
-    "node": ">=22"
-  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
     "zod": "^4.5.4"
   },
-  "keywords": [
-    "fxshelf",
-    "mcp",
-    "model-context-protocol",
-    "animation",
-    "react",
-    "vue"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Luzhaotian/fxshelf.git",
-    "directory": "packages/mcp"
-  },
-  "bugs": {
-    "url": "https://github.com/Luzhaotian/fxshelf/issues"
-  },
-  "homepage": "https://github.com/Luzhaotian/fxshelf/tree/main/packages/mcp#readme"
+  "engines": {
+    "node": ">=22"
+  }
 }

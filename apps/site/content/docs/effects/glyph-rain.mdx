@@ -17,11 +17,11 @@ Glyph Rain 是一套 WebGL2 字符雨动效：片元着色器程序化生成雨�
 
 一套 `core`（atlas + shader + 引擎）配 React / Vue 两套薄封装。支持：
 
-| 方式 | React | Vue |
-|------|--------|-----|
-| **npm** | [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | `@fxshelf/glyph-rain/vue` |
-| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/glyph-rain/dist/glyph-rain.iife.js) → 全局 `GlyphRain` | 暂无（SFC 源码） |
-| **复制源码** | 拷 `src/core` + `src/react` | 拷 `src/core` + `src/vue` |
+| 方式               | React                                                                                          | Vue                       |
+| ------------------ | ---------------------------------------------------------------------------------------------- | ------------------------- |
+| **npm**            | [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain)                     | `@fxshelf/glyph-rain/vue` |
+| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/glyph-rain/dist/glyph-rain.iife.js) → 全局 `GlyphRain` | 暂无（SFC 源码）          |
+| **复制源码**       | 拷 `src/core` + `src/react`                                                                    | 拷 `src/core` + `src/vue` |
 
 灵感与参考实现来自 [Canvas UI Glyph Rain](https://canvasui.dev/docs/components/glyph-rain)。
 
@@ -93,7 +93,7 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 ```
 
 - 也可用 jsDelivr：`https://cdn.jsdelivr.net/npm/@fxshelf/glyph-rain/dist/glyph-rain.iife.js`
-- 生产环境建议锁定版本：`@fxshelf/glyph-rain@0.1.2/...`（例如 `https://unpkg.com/@fxshelf/glyph-rain@0.1.2/dist/glyph-rain.iife.js`）
+- 生产环境建议锁定版本：`@fxshelf/glyph-rain@0.1.3/...`（例如 `https://unpkg.com/@fxshelf/glyph-rain@0.1.3/dist/glyph-rain.iife.js`）
 - 不要用 jsDelivr `gh/.../dist` 直链（`dist/` 不进 Git）
 - Vue 暂无 script 直引
 
@@ -103,31 +103,31 @@ import { GlyphRain } from '@fxshelf/glyph-rain/vue'
 
 ## Props
 
-| Property | Type | Default | 说明 |
-|----------|------|---------|------|
-| `charset` | `string` | 片假名 + 数字等 | 雨滴字符集 |
-| `cell` | `number` | `15` | 字元格大小（8–64） |
-| `color` | `[r,g,b]` | `[0.267, 0.455, 1]` | 雨色 0–1 |
-| `headColor` | `[r,g,b]` | `[0.169, 0.416, 1]` | 头部亮色 |
-| `speed` | `number` | `0.2` | 下落速度 |
-| `speedVariance` | `number` | `0.5` | 列速差 |
-| `density` | `number` | `0.15` | 生成密度 |
-| `trail` | `number` | `0.65` | 拖尾 |
-| `glow` | `number` | `1.75` | 头部亮度 |
-| `mutate` | `number` | `0` | 字符突变速度 |
-| `flicker` | `number` | `0` | 闪烁 |
-| `layers` | `number` | `2` | 视差层 1–3 |
-| `dim` | `number` | `0.5` | 未照亮区域压暗 |
-| `light` | `number` | `2.8` | 雨滴照明强度 |
-| `lightRadius` | `number` | `240` | 光池半径 |
-| `lightHeight` | `number` | `172` | 光源高度 |
-| `relief` | `number` | `0.05` | 浮雕感 |
-| `stir` | `number` | `0.7` | 光标搅动 |
-| `stirRadius` | `number` | `260` | 搅动半径 |
-| `settle` | `number` | `0.9` | 余波回稳秒数 |
-| `className` | `string` | — | 外层 class |
-| `style` | `CSSProperties` | — | 外层样式 |
-| `children` | `ReactNode` / slot | — | 被雨覆盖的内容 |
+| Property        | Type               | Default             | 说明               |
+| --------------- | ------------------ | ------------------- | ------------------ |
+| `charset`       | `string`           | 片假名 + 数字等     | 雨滴字符集         |
+| `cell`          | `number`           | `15`                | 字元格大小（8–64） |
+| `color`         | `[r,g,b]`          | `[0.267, 0.455, 1]` | 雨色 0–1           |
+| `headColor`     | `[r,g,b]`          | `[0.169, 0.416, 1]` | 头部亮色           |
+| `speed`         | `number`           | `0.2`               | 下落速度           |
+| `speedVariance` | `number`           | `0.5`               | 列速差             |
+| `density`       | `number`           | `0.15`              | 生成密度           |
+| `trail`         | `number`           | `0.65`              | 拖尾               |
+| `glow`          | `number`           | `1.75`              | 头部亮度           |
+| `mutate`        | `number`           | `0`                 | 字符突变速度       |
+| `flicker`       | `number`           | `0`                 | 闪烁               |
+| `layers`        | `number`           | `2`                 | 视差层 1–3         |
+| `dim`           | `number`           | `0.5`               | 未照亮区域压暗     |
+| `light`         | `number`           | `2.8`               | 雨滴照明强度       |
+| `lightRadius`   | `number`           | `240`               | 光池半径           |
+| `lightHeight`   | `number`           | `172`               | 光源高度           |
+| `relief`        | `number`           | `0.05`              | 浮雕感             |
+| `stir`          | `number`           | `0.7`               | 光标搅动           |
+| `stirRadius`    | `number`           | `260`               | 搅动半径           |
+| `settle`        | `number`           | `0.9`               | 余波回稳秒数       |
+| `className`     | `string`           | —                   | 外层 class         |
+| `style`         | `CSSProperties`    | —                   | 外层样式           |
+| `children`      | `ReactNode` / slot | —                   | 被雨覆盖的内容     |
 
 ## 核心 API
 

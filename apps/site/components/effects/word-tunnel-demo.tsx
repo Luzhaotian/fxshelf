@@ -14,12 +14,8 @@ export function WordTunnelDemo({ fill = false }: { fill?: boolean }) {
           fill ? 'min-h-dvh' : 'min-h-[min(52vh,440px)]',
         )}
       >
-        <p className="text-2xl font-semibold tracking-tight text-white/90 sm:text-3xl">
-          词云隧道
-        </p>
-        <p className="max-w-sm text-sm text-white/50">
-          文字朝灭点飞来 · 纯 CSS 3D · 零动画库
-        </p>
+        <p className="text-2xl font-semibold tracking-tight text-white/90 sm:text-3xl">词云隧道</p>
+        <p className="max-w-sm text-sm text-white/50">文字朝灭点飞来 · 纯 CSS 3D · 零动画库</p>
       </div>
     </WordTunnel>
   )
@@ -28,5 +24,9 @@ export function WordTunnelDemo({ fill = false }: { fill?: boolean }) {
     return <div className="min-h-dvh w-full bg-[#0c081e]">{stage}</div>
   }
 
-  return <DemoFrame effectId="word-tunnel" className="bg-[#0c081e]">{stage}</DemoFrame>
+  return (
+    <DemoFrame effectId="word-tunnel" className="bg-[#0c081e]">
+      {stage}
+    </DemoFrame>
+  )
 }

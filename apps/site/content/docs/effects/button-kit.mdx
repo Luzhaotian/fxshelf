@@ -21,11 +21,11 @@ Button Kit 把常见按钮外观收成一个组件，用字符串切换：
 
 一套 `core`（变体映射 + CSS）配 React / Vue 薄封装。
 
-| 方式 | React | Vue |
-|------|--------|-----|
-| **npm** | [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | `@fxshelf/button-kit/vue` |
-| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js) → 全局 `ButtonKit` | 暂无（SFC 源码） |
-| **复制源码** | 拷 `src/core` + `src/react` | 拷 `src/core` + `src/vue` |
+| 方式               | React                                                                                          | Vue                       |
+| ------------------ | ---------------------------------------------------------------------------------------------- | ------------------------- |
+| **npm**            | [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit)                     | `@fxshelf/button-kit/vue` |
+| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js) → 全局 `ButtonKit` | 暂无（SFC 源码）          |
+| **复制源码**       | 拷 `src/core` + `src/react`                                                                    | 拷 `src/core` + `src/vue` |
 
 ## 安装
 
@@ -74,30 +74,33 @@ import '@fxshelf/button-kit/styles.css'
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="https://unpkg.com/@fxshelf/button-kit/dist/index.css" />
-</head>
-<body>
-  <div id="app"></div>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/@fxshelf/button-kit/dist/index.css" />
+  </head>
+  <body>
+    <div id="app"></div>
 
-  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js"></script>
 
-  <script>
-    var Button = ButtonKit.Button
-    ReactDOM.createRoot(document.getElementById('app')).render(
-      React.createElement(Button, { variant: 'glow' }, 'Continue'),
-    )
-  </script>
-</body>
+    <script>
+      var Button = ButtonKit.Button
+      ReactDOM.createRoot(document.getElementById('app')).render(
+        React.createElement(Button, { variant: 'glow' }, 'Continue'),
+      )
+    </script>
+  </body>
 </html>
 ```
 
 - 全局 `ButtonKit` 上有 `Button`、`BUTTON_VARIANTS` 等。
 - 也可用 jsDelivr：`https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/dist/button-kit.iife.js`
-- 生产环境建议锁定版本：`@fxshelf/button-kit@0.1.1/...`
+- 生产环境建议锁定版本：`@fxshelf/button-kit@0.1.2/...`
 - 顺序：React 必须在 button-kit 之前加载；样式用 `dist/index.css`。
 - 不要用 jsDelivr 的 `gh/.../dist` 直链（`dist/` 不进 Git）。
 - 仓库内完整示例：[CDN示例.html](https://github.com/Luzhaotian/fxshelf/blob/main/packages/button-kit/docs/CDN示例.html)
@@ -129,13 +132,13 @@ import './components/button-kit/core/styles.css'
 
 ## Props
 
-| Property | Type | Default | 说明 |
-|----------|------|---------|------|
-| `variant` | `string` | `solid` | 样式名；`chroma` 为炫彩流光（光晕仅 hover）；未知值回退 `solid` |
-| `children` / slot | — | — | 按钮文案 |
-| `className` | `string` | — | 追加 class |
-| `style` | `CSSProperties` | — | 内联样式 |
-| 其余 | `button` 原生属性 | — | `disabled`、`onClick` 等 |
+| Property          | Type              | Default | 说明                                                            |
+| ----------------- | ----------------- | ------- | --------------------------------------------------------------- |
+| `variant`         | `string`          | `solid` | 样式名；`chroma` 为炫彩流光（光晕仅 hover）；未知值回退 `solid` |
+| `children` / slot | —                 | —       | 按钮文案                                                        |
+| `className`       | `string`          | —       | 追加 class                                                      |
+| `style`           | `CSSProperties`   | —       | 内联样式                                                        |
+| 其余              | `button` 原生属性 | —       | `disabled`、`onClick` 等                                        |
 
 也可导入 `BUTTON_VARIANTS` 拿到全部合法字符串。
 

@@ -41,7 +41,12 @@ server.registerTool(
         message: z.string().max(200).default('pong').describe('Optional text to echo back.'),
       })
       .strict(),
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    annotations: {
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
   },
   async ({ message }) => {
     const serverTime = new Date().toISOString()
@@ -74,7 +79,12 @@ server.registerTool(
   {
     title: 'List fxshelf effects',
     description: `List every animation effect on the fxshelf shelf with its npm package, version, one-line blurb and docUrl. Call this first to discover what is available. Returns markdown + structured JSON. Example question it answers: "what effects does fxshelf have?"`,
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    annotations: {
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
   },
   async () => {
     const lines = [
@@ -106,7 +116,9 @@ server.registerTool(
 
 const effectNameSchema = z
   .string()
-  .describe(`Effect id (or npm package name), e.g. "starfield" or "@fxshelf/starfield". One of: ${effects.map((e) => e.id).join(', ')}`)
+  .describe(
+    `Effect id (or npm package name), e.g. "starfield" or "@fxshelf/starfield". One of: ${effects.map((e) => e.id).join(', ')}`,
+  )
 
 server.registerTool(
   'get_effect_docs',
@@ -114,7 +126,12 @@ server.registerTool(
     title: 'Get effect documentation',
     description: `Fetch the full documentation for one fxshelf effect as markdown: overview, install, React and Vue usage examples, prop/API tables, and CDN notes. Use before writing code against a package. Args: effect — id like "starfield". Returns markdown text.`,
     inputSchema: z.object({ effect: effectNameSchema }).strict(),
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    annotations: {
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
   },
   async ({ effect: name }) => {
     const found = findEffect(name)
@@ -130,7 +147,16 @@ server.registerTool(
       e.markdown.slice(0, CHARACTER_LIMIT),
     ]
     for (const extra of e.extraDocs) {
-      parts.push('', `---`, '', `# ${extra.id}`, '', `Docs site: ${extra.docUrl}`, '', extra.markdown.slice(0, CHARACTER_LIMIT))
+      parts.push(
+        '',
+        `---`,
+        '',
+        `# ${extra.id}`,
+        '',
+        `Docs site: ${extra.docUrl}`,
+        '',
+        extra.markdown.slice(0, CHARACTER_LIMIT),
+      )
     }
     return { content: [{ type: 'text' as const, text: parts.join('\n') }] }
   },
@@ -147,7 +173,9 @@ server.registerTool(
         groups: z
           .array(z.enum(['core', 'react', 'vue']))
           .default(['core', 'react', 'vue'])
-          .describe('Which source groups to return. Omit user-irrelevant frameworks to save context.'),
+          .describe(
+            'Which source groups to return. Omit user-irrelevant frameworks to save context.',
+          ),
         max_chars: z
           .number()
           .int()
@@ -157,7 +185,12 @@ server.registerTool(
           .describe('Truncate output at this many characters (default 60000).'),
       })
       .strict(),
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    annotations: {
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
   },
   async ({ effect: name, groups, max_chars }) => {
     const found = findEffect(name)
@@ -208,7 +241,12 @@ server.registerTool(
           .describe('Max length of the embedded HTML sample (default 20000).'),
       })
       .strict(),
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    annotations: {
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
   },
   async ({ effect: name, max_chars }) => {
     const found = findEffect(name)
@@ -242,7 +280,14 @@ server.registerResource(
         uri: uri.href,
         mimeType: 'application/json',
         text: JSON.stringify(
-          effects.map(({ id, title, blurb, npm, version, docUrl }) => ({ id, title, blurb, npm, version, docUrl })),
+          effects.map(({ id, title, blurb, npm, version, docUrl }) => ({
+            id,
+            title,
+            blurb,
+            npm,
+            version,
+            docUrl,
+          })),
           null,
           2,
         ),

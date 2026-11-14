@@ -1,12 +1,6 @@
 'use client'
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-  type ReactNode,
-} from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import {
   createStarfield,
   type StarfieldInstance,
@@ -47,10 +41,7 @@ export function Starfield({
   })
 
   return (
-    <div
-      className={className}
-      style={{ position: 'relative', overflow: 'hidden', ...style }}
-    >
+    <div className={className} style={{ position: 'relative', overflow: 'hidden', ...style }}>
       <canvas
         ref={canvasRef}
         aria-label={ariaLabel}
@@ -64,9 +55,7 @@ export function Starfield({
         }}
       />
       {children != null ? (
-        <div style={{ position: 'relative', zIndex: 1, height: '100%' }}>
-          {children}
-        </div>
+        <div style={{ position: 'relative', zIndex: 1, height: '100%' }}>{children}</div>
       ) : null}
     </div>
   )

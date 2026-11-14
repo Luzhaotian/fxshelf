@@ -29,7 +29,7 @@
 }
 .swarm-experience .el-text {
   position: absolute;
-  font-feature-settings: "cv11", "ss01";
+  font-feature-settings: 'cv11', 'ss01';
 }
 .swarm-experience .el-rect {
   position: absolute;

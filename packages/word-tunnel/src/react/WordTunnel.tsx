@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  useEffect,
-  useId,
-  useMemo,
-  useState,
-  type CSSProperties,
-  type ReactNode,
-} from 'react'
+import { useEffect, useId, useMemo, useState, type CSSProperties, type ReactNode } from 'react'
 import {
   DEFAULTS,
   buildConvergeKeyframes,

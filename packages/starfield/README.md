@@ -6,11 +6,11 @@ Canvas 2D starfield tunnel for **React** and **Vue** — stars fly toward the ca
 
 Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — install independently.
 
-| | |
-|--|--|
-| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/starfield) |
-| **npm** | [`@fxshelf/starfield@0.1.2`](https://www.npmjs.com/package/@fxshelf/starfield) |
-| **CDN** | [unpkg](https://unpkg.com/@fxshelf/starfield/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/starfield/) |
+|                 |                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/starfield)                   |
+| **npm**         | [`@fxshelf/starfield@0.1.3`](https://www.npmjs.com/package/@fxshelf/starfield)                                |
+| **CDN**         | [unpkg](https://unpkg.com/@fxshelf/starfield/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/starfield/) |
 
 Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
 
@@ -20,10 +20,10 @@ Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs
 npm install @fxshelf/starfield
 ```
 
-| Consumer | Peer |
-|----------|------|
-| React | `react` / `react-dom` ≥ 18 |
-| Vue | `vue` ≥ 3.3, with `.vue` compilation (e.g. Vite) |
+| Consumer | Peer                                             |
+| -------- | ------------------------------------------------ |
+| React    | `react` / `react-dom` ≥ 18                       |
+| Vue      | `vue` ≥ 3.3, with `.vue` compilation (e.g. Vite) |
 
 ## Usage — React
 
@@ -32,11 +32,7 @@ import { Starfield } from '@fxshelf/starfield'
 
 export function Hero() {
   return (
-    <Starfield
-      style={{ height: 420, background: '#0f0f12' }}
-      particleCount={263}
-      brightness={73}
-    >
+    <Starfield style={{ height: 420, background: '#0f0f12' }} particleCount={263} brightness={73}>
       <h1 style={{ color: '#fff', padding: 32 }}>Hello</h1>
     </Starfield>
   )
@@ -65,17 +61,17 @@ import { Starfield } from '@fxshelf/starfield/vue'
 
 ## Common props
 
-| Prop | Default | Description |
-|------|---------|-------------|
-| `particleCount` | `263` | Number of stars |
-| `speed` | `1` | Fly-toward speed |
-| `density` | `48` | Radial density |
-| `starSize` | `8` | Base size |
-| `brightness` | `73` | Brightness 0–100 |
-| `glitterIntensity` | `4` | Flash intensity |
-| `trailAmount` | `26` | Trail persistence |
-| `color1` / `color2` / `color3` | `#ffffff` | Palette |
-| `reverse` | `false` | Fly away instead |
+| Prop                           | Default   | Description       |
+| ------------------------------ | --------- | ----------------- |
+| `particleCount`                | `263`     | Number of stars   |
+| `speed`                        | `1`       | Fly-toward speed  |
+| `density`                      | `48`      | Radial density    |
+| `starSize`                     | `8`       | Base size         |
+| `brightness`                   | `73`      | Brightness 0–100  |
+| `glitterIntensity`             | `4`       | Flash intensity   |
+| `trailAmount`                  | `26`      | Trail persistence |
+| `color1` / `color2` / `color3` | `#ffffff` | Palette           |
+| `reverse`                      | `false`   | Fly away instead  |
 
 ## Usage — CDN (React 18 UMD)
 
@@ -83,7 +79,10 @@ Self-contained build `dist/starfield.iife.js`, global `Starfield`. Full example:
 
 ```html
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+></script>
 <script src="https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js"></script>
 
 <div id="app" style="height:420px;background:#0f0f12"></div>
@@ -97,7 +96,7 @@ Self-contained build `dist/starfield.iife.js`, global `Starfield`. Full example:
 </script>
 ```
 
-Pin the version in production, e.g. `https://unpkg.com/@fxshelf/starfield@0.1.2/dist/starfield.iife.js`.  
+Pin the version in production, e.g. `https://unpkg.com/@fxshelf/starfield@0.1.3/dist/starfield.iife.js`.  
 Do not use jsDelivr GitHub `gh/.../dist` links.
 
 ## Copy as source

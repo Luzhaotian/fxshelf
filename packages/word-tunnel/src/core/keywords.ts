@@ -102,13 +102,8 @@ export function wordCountForWidth(width: number): number {
   return Math.min(280, Math.max(40, 80 + steps * 40))
 }
 
-function baseMinDistance(
-  count: number,
-  innerRadius: number,
-  outerRadius: number,
-): number {
-  const area =
-    Math.PI * (outerRadius * 1.12) ** 2 - Math.PI * innerRadius ** 2
+function baseMinDistance(count: number, innerRadius: number, outerRadius: number): number {
+  const area = Math.PI * (outerRadius * 1.12) ** 2 - Math.PI * innerRadius ** 2
   return Math.min(13, Math.max(5.5, Math.sqrt(Math.max(area, 1) / count) * 0.92))
 }
 
@@ -197,10 +192,7 @@ export function buildWords(options: BuildWordsOptions = {}): TunnelWord[] {
   const count = options.count ?? 80
   const seed = options.seed ?? DEFAULTS.seed
   const innerRadius = options.innerRadius ?? DEFAULTS.innerRadius
-  const outerRadius = Math.max(
-    innerRadius + 1,
-    options.outerRadius ?? DEFAULTS.outerRadius,
-  )
+  const outerRadius = Math.max(innerRadius + 1, options.outerRadius ?? DEFAULTS.outerRadius)
   const travelMin = options.travelMin ?? DEFAULTS.travelMin
   const travelRange = Math.max(0, options.travelRange ?? DEFAULTS.travelRange)
 
@@ -226,9 +218,7 @@ export function buildWords(options: BuildWordsOptions = {}): TunnelWord[] {
       for (let t = 0; t < tries; t++) {
         const p = samplePoint(rnd, innerRadius, outerRadius)
         const candidate: Placed = { px: p.px, py: p.py, nearness, weight }
-        if (
-          placed.every((o) => !tooClose(candidate, o, baseMin * minFactor))
-        ) {
+        if (placed.every((o) => !tooClose(candidate, o, baseMin * minFactor))) {
           px = p.px
           py = p.py
           ok = true
@@ -247,10 +237,8 @@ export function buildWords(options: BuildWordsOptions = {}): TunnelWord[] {
 
     const travel = travelMin + rnd() * travelRange
     const z1 = Math.round(z0 - travel)
-    const opacity =
-      Math.round((0.18 + nearness * 0.72 + rnd() * 0.08) * 100) / 100
-    const duration =
-      Math.round((5.5 + (1 - nearness) * 6 + rnd() * 5) * 100) / 100
+    const opacity = Math.round((0.18 + nearness * 0.72 + rnd() * 0.08) * 100) / 100
+    const duration = Math.round((5.5 + (1 - nearness) * 6 + rnd() * 5) * 100) / 100
     const delay = Math.round(-rnd() * duration * 100) / 100
 
     list.push({

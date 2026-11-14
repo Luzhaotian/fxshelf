@@ -9,10 +9,7 @@ export type CreateOrbitOptions = {
 export type OrbitController = {
   attach(el: HTMLElement): void
   detach(): void
-  setOptions(partial: {
-    autoSpeed?: number
-    dragSensitivity?: number
-  }): void
+  setOptions(partial: { autoSpeed?: number; dragSensitivity?: number }): void
   destroy(): void
   getProgress(): number
 }

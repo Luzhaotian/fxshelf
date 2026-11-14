@@ -32,9 +32,7 @@ const rootClass = computed(() =>
 
 const rootStyle = computed((): StyleValue => props.style)
 
-const loop = computed(() =>
-  props.images.length === 0 ? [] : [...props.images, ...props.images],
-)
+const loop = computed(() => (props.images.length === 0 ? [] : [...props.images, ...props.images]))
 </script>
 
 <template>

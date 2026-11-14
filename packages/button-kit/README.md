@@ -6,11 +6,11 @@ Animated button shelf for **React** and **Vue** — switch looks with a `variant
 
 Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — install independently.
 
-| | |
-|--|--|
-| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/button-kit) |
-| **npm** | [`@fxshelf/button-kit@0.1.1`](https://www.npmjs.com/package/@fxshelf/button-kit) |
-| **CDN** | [unpkg](https://unpkg.com/@fxshelf/button-kit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/) |
+|                 |                                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/button-kit)                    |
+| **npm**         | [`@fxshelf/button-kit@0.1.2`](https://www.npmjs.com/package/@fxshelf/button-kit)                                |
+| **CDN**         | [unpkg](https://unpkg.com/@fxshelf/button-kit/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/button-kit/) |
 
 Supports **npm**, **CDN `<script>`**, and **copy-as-source**. Details: site docs or [docs/使用说明.md](./docs/使用说明.md).
 
@@ -26,10 +26,10 @@ Import styles once:
 import '@fxshelf/button-kit/styles.css'
 ```
 
-| Consumer | Peer |
-|----------|------|
-| React | `react` / `react-dom` ≥ 18 |
-| Vue | `vue` ≥ 3.3, with `.vue` compilation (e.g. Vite) |
+| Consumer | Peer                                             |
+| -------- | ------------------------------------------------ |
+| React    | `react` / `react-dom` ≥ 18                       |
+| Vue      | `vue` ≥ 3.3, with `.vue` compilation (e.g. Vite) |
 
 ## Usage — React
 
@@ -59,18 +59,18 @@ import '@fxshelf/button-kit/styles.css'
 
 ## Variants
 
-| Value | Effect |
-|-------|--------|
-| `solid` | Solid dark |
-| `outline` | Outline, fill on hover |
-| `soft` | Soft light fill |
-| `glow` | Breathing glow |
-| `neon` | Neon outline |
-| `shimmer` | Sweep light on hover |
-| `chroma` | Chroma shift; edge glow on hover |
-| `liquid` | Liquid rise fill |
-| `wipe` | Diagonal wipe fill |
-| `glass` | Frosted glass |
+| Value     | Effect                           |
+| --------- | -------------------------------- |
+| `solid`   | Solid dark                       |
+| `outline` | Outline, fill on hover           |
+| `soft`    | Soft light fill                  |
+| `glow`    | Breathing glow                   |
+| `neon`    | Neon outline                     |
+| `shimmer` | Sweep light on hover             |
+| `chroma`  | Chroma shift; edge glow on hover |
+| `liquid`  | Liquid rise fill                 |
+| `wipe`    | Diagonal wipe fill               |
+| `glass`   | Frosted glass                    |
 
 Unknown strings fall back to `solid`.
 
@@ -82,7 +82,10 @@ Self-contained build `dist/button-kit.iife.js`, global `ButtonKit`. Full example
 <link rel="stylesheet" href="https://unpkg.com/@fxshelf/button-kit/dist/index.css" />
 
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+></script>
 <script src="https://unpkg.com/@fxshelf/button-kit/dist/button-kit.iife.js"></script>
 
 <div id="app"></div>
@@ -93,7 +96,7 @@ Self-contained build `dist/button-kit.iife.js`, global `ButtonKit`. Full example
 </script>
 ```
 
-Pin the version in production, e.g. `@fxshelf/button-kit@0.1.1/...`.  
+Pin the version in production, e.g. `@fxshelf/button-kit@0.1.2/...`.  
 Do not use jsDelivr GitHub `gh/.../dist` links (`dist/` is not committed).
 
 ## Copy as source

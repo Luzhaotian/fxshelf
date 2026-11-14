@@ -10,13 +10,13 @@ fxshelf 的 MCP server —— 让 AI 助手（Claude Code、Cursor 或任何 MCP
 
 ## 覆盖的动效
 
-| 动效 | npm |
-|------|-----|
-| Card Orbit | `@fxshelf/card-orbit` |
-| Glyph Rain | `@fxshelf/glyph-rain` |
-| Starfield | `@fxshelf/starfield` |
-| Button Kit | `@fxshelf/button-kit` |
-| Word Tunnel | `@fxshelf/word-tunnel` |
+| 动效          | npm                      |
+| ------------- | ------------------------ |
+| Card Orbit    | `@fxshelf/card-orbit`    |
+| Glyph Rain    | `@fxshelf/glyph-rain`    |
+| Starfield     | `@fxshelf/starfield`     |
+| Button Kit    | `@fxshelf/button-kit`    |
+| Word Tunnel   | `@fxshelf/word-tunnel`   |
 | Swarm Cursors | `@fxshelf/swarm-cursors` |
 
 ## 配置
@@ -42,13 +42,13 @@ fxshelf 的 MCP server —— 让 AI 助手（Claude Code、Cursor 或任何 MCP
 
 ## 工具
 
-| 工具 | 返回内容 |
-|------|----------|
-| `ping` | 连通性检查：ok 标志、服务名/版本、动效数量、快照生成时间、服务器时间（可选回显） |
-| `list_effects` | 全部动效：id、标题、简介、npm 包名、版本、文档链接 |
-| `get_effect_docs` | 单个动效的完整文档 Markdown（安装、React/Vue 用法、API） |
-| `get_effect_source` | 真实源码文件（`core` / `react` / `vue` 三组），带路径，可直接复制 |
-| `get_cdn_snippet` | 锁定版本的 `<script>` 片段（unpkg / jsDelivr、React UMD 前置、CSS 链接、可运行 HTML 示例） |
+| 工具                | 返回内容                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| `ping`              | 连通性检查：ok 标志、服务名/版本、动效数量、快照生成时间、服务器时间（可选回显）           |
+| `list_effects`      | 全部动效：id、标题、简介、npm 包名、版本、文档链接                                         |
+| `get_effect_docs`   | 单个动效的完整文档 Markdown（安装、React/Vue 用法、API）                                   |
+| `get_effect_source` | 真实源码文件（`core` / `react` / `vue` 三组），带路径，可直接复制                          |
+| `get_cdn_snippet`   | 锁定版本的 `<script>` 片段（unpkg / jsDelivr、React UMD 前置、CSS 链接、可运行 HTML 示例） |
 
 Resources：`fxshelf://effects`（JSON 索引）、`fxshelf://effects/{id}/docs`（单包文档）。
 

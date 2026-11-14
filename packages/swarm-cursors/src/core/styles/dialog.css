@@ -34,7 +34,7 @@
 .swarm-experience .dialog-eyebrow {
   color: #62666d;
   font:
-    500 11px/1.4 "JetBrains Mono",
+    500 11px/1.4 'JetBrains Mono',
     monospace;
   letter-spacing: 0.04em;
 }
@@ -107,7 +107,7 @@
   color: #aeb4bd;
   background: #131518;
   font:
-    400 12px/1.5 "JetBrains Mono",
+    400 12px/1.5 'JetBrains Mono',
     monospace;
 }
 .swarm-experience .dialog-code {
@@ -122,7 +122,7 @@
   background: #131518;
   color: #e0e2e5;
   font:
-    400 12px/1.8 "JetBrains Mono",
+    400 12px/1.8 'JetBrains Mono',
     monospace;
   white-space: pre;
   tab-size: 2;

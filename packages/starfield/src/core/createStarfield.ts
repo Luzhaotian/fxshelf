@@ -255,9 +255,7 @@ export function createStarfield(
       const maxR = 1 + c.starScale * 2.5
       const r = Math.min(baseR * flashMult, maxR)
       const lifeT = c.reverse ? s.z : 1 - s.z
-      const fadeIn = c.reverse
-        ? Math.min(1, (s.z - c.focalDepth) / (1 - c.focalDepth) / 0.12)
-        : 1
+      const fadeIn = c.reverse ? Math.min(1, (s.z - c.focalDepth) / (1 - c.focalDepth) / 0.12) : 1
       const a =
         Math.min(1, c.reverse ? 0.85 - lifeT * 0.6 : lifeT * 0.9 + 0.05) *
         fadeIn *

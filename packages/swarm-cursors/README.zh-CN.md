@@ -6,10 +6,10 @@
 
 属于 [fxshelf](https://github.com/Luzhaotian/fxshelf) 动效书架，可单独安装。
 
-| | |
-|--|--|
+|                 |                                                                                                 |
+| --------------- | ----------------------------------------------------------------------------------------------- |
 | **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/swarm-cursors) |
-| **npm** | [`@fxshelf/swarm-cursors@0.1.0`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) |
+| **npm**         | [`@fxshelf/swarm-cursors@0.1.1`](https://www.npmjs.com/package/@fxshelf/swarm-cursors)          |
 
 **v0.1 仅 React**（DOM 施工引擎），暂无 Vue。
 

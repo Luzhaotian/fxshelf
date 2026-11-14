@@ -1,12 +1,6 @@
 'use client'
 
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Button, BUTTON_VARIANTS, type ButtonVariant } from '@fxshelf/button-kit'
 import '@fxshelf/button-kit/styles.css'
 import { DemoFrame } from '@/components/effects/demo-frame'
@@ -84,9 +78,7 @@ export function ButtonKitDemo({ fill = false }: { fill?: boolean }) {
         )}
       >
         <Button variant={variant}>Continue with {variant}</Button>
-        <code className="text-xs text-white/45">
-          {`<Button variant="${variant}" />`}
-        </code>
+        <code className="text-xs text-white/45">{`<Button variant="${variant}" />`}</code>
       </div>
     </>
   )

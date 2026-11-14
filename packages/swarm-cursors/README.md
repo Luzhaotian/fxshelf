@@ -6,11 +6,11 @@ Multi-cursor **swarm page builder** for **React** — workers draw guides, shape
 
 Part of the [fxshelf](https://github.com/Luzhaotian/fxshelf) effect shelf — install independently.
 
-| | |
-|--|--|
-| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/swarm-cursors) |
-| **npm** | [`@fxshelf/swarm-cursors@0.1.0`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) |
-| **CDN** | [unpkg](https://unpkg.com/@fxshelf/swarm-cursors/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/swarm-cursors/) |
+|                 |                                                                                                                       |
+| --------------- | --------------------------------------------------------------------------------------------------------------------- |
+| **Docs / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/swarm-cursors)                       |
+| **npm**         | [`@fxshelf/swarm-cursors@0.1.1`](https://www.npmjs.com/package/@fxshelf/swarm-cursors)                                |
+| **CDN**         | [unpkg](https://unpkg.com/@fxshelf/swarm-cursors/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/swarm-cursors/) |
 
 **React-only** in v0.1 (DOM construction engine). Vue is not shipped yet.
 

@@ -40,7 +40,10 @@ export const effects = data.effects
 
 /** 按 id 查找；未找到时返回列出可用 id 的错误文本（null 表示命中）。 */
 export function findEffect(id: string): { effect: EffectEntry } | { error: string } {
-  const wanted = id.trim().replace(/^@fxshelf\//, '').toLowerCase()
+  const wanted = id
+    .trim()
+    .replace(/^@fxshelf\//, '')
+    .toLowerCase()
   const effect = effects.find((e) => e.id === id || e.id.toLowerCase() === wanted || e.npm === id)
   if (effect) return { effect }
   const fuzzy = effects.find(
@@ -113,7 +116,14 @@ export function formatCdn(effect: EffectEntry, maxChars: number): string {
     `jsDelivr alternative: \`${cdn.jsdelivr}\``,
   ]
   if (cdn.sampleHtml) {
-    lines.push('', '## Full runnable sample (from the package repo)', '', '```html', cdn.sampleHtml.slice(0, maxChars), '```')
+    lines.push(
+      '',
+      '## Full runnable sample (from the package repo)',
+      '',
+      '```html',
+      cdn.sampleHtml.slice(0, maxChars),
+      '```',
+    )
     if (cdn.sampleHtml.length > maxChars) {
       lines.push(`> ⚠️ Sample truncated at ${maxChars} chars; raise max_chars for the full file.`)
     }

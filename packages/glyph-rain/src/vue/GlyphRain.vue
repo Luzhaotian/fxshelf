@@ -52,12 +52,10 @@ let instance: GlyphRainInstance | null = null
 const native = computed(() => supported.value && !failed.value)
 
 const rootClass = computed(() => props.className ?? '')
-const rootStyle = computed(
-  (): StyleValue => ({
-    position: 'relative',
-    ...props.style,
-  }),
-)
+const rootStyle = computed((): StyleValue => ({
+  position: 'relative',
+  ...props.style,
+}))
 
 function optionPayload(): GlyphRainOptions {
   return {
@@ -169,13 +167,7 @@ onBeforeUnmount(() => {
     <canvas
       ref="outputRef"
       aria-hidden="true"
-      style="
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      "
+      style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none"
     />
   </div>
 </template>

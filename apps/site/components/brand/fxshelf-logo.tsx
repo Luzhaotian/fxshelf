@@ -12,15 +12,9 @@ type FxshelfLogoProps = {
  * Brand mark: two shelf planks + an accent motion trail.
  * Wordmark uses currentColor; trail uses --fx-accent.
  */
-export function FxshelfLogo({
-  className,
-  withWordmark = true,
-  size = 22,
-}: FxshelfLogoProps) {
+export function FxshelfLogo({ className, withWordmark = true, size = 22 }: FxshelfLogoProps) {
   return (
-    <span
-      className={['inline-flex items-center gap-2', className].filter(Boolean).join(' ')}
-    >
+    <span className={['inline-flex items-center gap-2', className].filter(Boolean).join(' ')}>
       <svg
         className={styles.mark}
         width={size}
@@ -29,15 +23,7 @@ export function FxshelfLogo({
         fill="none"
         aria-hidden
       >
-        <rect
-          x="1.5"
-          y="1.5"
-          width="29"
-          height="29"
-          rx="7.5"
-          fill="currentColor"
-          opacity="0.1"
-        />
+        <rect x="1.5" y="1.5" width="29" height="29" rx="7.5" fill="currentColor" opacity="0.1" />
         {/* upper shelf */}
         <rect
           className={`${styles.shelf} ${styles.shelfTop}`}
@@ -66,17 +52,9 @@ export function FxshelfLogo({
           strokeWidth="2.4"
           strokeLinecap="round"
         />
-        <circle
-          className={styles.trail}
-          cx="24.8"
-          cy="13.2"
-          r="2.15"
-          fill="var(--fx-accent)"
-        />
+        <circle className={styles.trail} cx="24.8" cy="13.2" r="2.15" fill="var(--fx-accent)" />
       </svg>
-      {withWordmark ? (
-        <span className="font-semibold tracking-tight">fxshelf</span>
-      ) : null}
+      {withWordmark ? <span className="font-semibold tracking-tight">fxshelf</span> : null}
     </span>
   )
 }

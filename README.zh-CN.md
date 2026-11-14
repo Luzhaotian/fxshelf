@@ -5,23 +5,23 @@
 面向 **React** / **Vue** 的可复制微动效包书架。  
 浏览站点、按需安装 —— 也可以把源码直接拷进项目。不依赖 Framer Motion / GSAP。
 
-| | |
-|--|--|
+|                 |                                                                                                     |
+| --------------- | --------------------------------------------------------------------------------------------------- |
 | **站点 / 文档** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/)（中文为主；各包 README 双语） |
-| **包作用域** | `@fxshelf/*` |
-| **部署** | GitHub Actions → Pages（`main` 推送）；发包可手动跑 Release workflow |
+| **包作用域**    | `@fxshelf/*`                                                                                        |
+| **部署**        | GitHub Actions → Pages（`main` 推送）；发包可手动跑 Release workflow                                |
 
 ## 包列表
 
-| 包名 | 版本 | 说明 |
-|------|------|------|
-| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | [`0.1.7`](./packages/card-orbit) | 路径约束的 3D 卡片轨道 —— 升起、弧线、飞出 |
-| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain) | [`0.1.2`](./packages/glyph-rain) | Matrix 风格字符雨 —— 光标搅动，可选内容照明 |
-| [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield) | [`0.1.2`](./packages/starfield) | Canvas 2D 星空隧道 —— 透视飞近、闪烁与拖尾 |
-| [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit) | [`0.1.1`](./packages/button-kit) | 按钮动效书架 —— 用 `variant` 字符串切换样式 |
-| [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel) | [`0.1.1`](./packages/word-tunnel) | 3D 词云隧道 —— 文字朝灭点飞来 |
-| [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) | [`0.1.0`](./packages/swarm-cursors) | 多光标 swarm 页面共建 —— 滚动时工人画出整页（React） |
-| [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp) | [`0.1.0`](./packages/mcp) | MCP server —— 让 AI 助手（Claude Code / Cursor）浏览书架、读文档、复制源码 |
+| 包名                                                                             | 版本                                | 说明                                                                       |
+| -------------------------------------------------------------------------------- | ----------------------------------- | -------------------------------------------------------------------------- |
+| [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit)       | [`0.1.8`](./packages/card-orbit)    | 路径约束的 3D 卡片轨道 —— 升起、弧线、飞出                                 |
+| [`@fxshelf/glyph-rain`](https://www.npmjs.com/package/@fxshelf/glyph-rain)       | [`0.1.3`](./packages/glyph-rain)    | Matrix 风格字符雨 —— 光标搅动，可选内容照明                                |
+| [`@fxshelf/starfield`](https://www.npmjs.com/package/@fxshelf/starfield)         | [`0.1.3`](./packages/starfield)     | Canvas 2D 星空隧道 —— 透视飞近、闪烁与拖尾                                 |
+| [`@fxshelf/button-kit`](https://www.npmjs.com/package/@fxshelf/button-kit)       | [`0.1.2`](./packages/button-kit)    | 按钮动效书架 —— 用 `variant` 字符串切换样式                                |
+| [`@fxshelf/word-tunnel`](https://www.npmjs.com/package/@fxshelf/word-tunnel)     | [`0.1.2`](./packages/word-tunnel)   | 3D 词云隧道 —— 文字朝灭点飞来                                              |
+| [`@fxshelf/swarm-cursors`](https://www.npmjs.com/package/@fxshelf/swarm-cursors) | [`0.1.1`](./packages/swarm-cursors) | 多光标 swarm 页面共建 —— 滚动时工人画出整页（React）                       |
+| [`@fxshelf/mcp`](https://www.npmjs.com/package/@fxshelf/mcp)                     | [`0.1.1`](./packages/mcp)           | MCP server —— 让 AI 助手（Claude Code / Cursor）浏览书架、读文档、复制源码 |
 
 ```bash
 npm install @fxshelf/card-orbit
@@ -68,8 +68,10 @@ scripts/           run-packages.mjs · publish-packages.mjs
 
 提交由 husky 拦截：
 
-- **pre-commit** — 对暂存的 JS/TS/Vue 跑 oxlint
+- **pre-commit** — `lint-staged`：`oxfmt` 格式化暂存文件，再对 JS/TS/Vue 跑 `oxlint`
 - **commit-msg** — commitlint（Conventional Commits）
+
+手动格式化：`npm run fmt` / `npm run fmt:check`（[`.oxfmtrc.json`](./.oxfmtrc.json)）
 
 格式：`type(scope?): 中文说明` — **subject 必须含中文**。
 

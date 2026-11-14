@@ -163,8 +163,9 @@
       <p class="eyebrow">Path coordinates</p>
       <h1>坐标轴上的三条弯道</h1>
       <p class="lede">
-        卡片不自由飞——每一帧只在共用进度 <code>local ∈ [0,1]</code> 上取样。下图把舞台中心当作原点，画出真实路径的
-        <code>x%</code> / <code>y%</code> 投影，以及示踪点沿轨运动（与 <code>src/core/path.ts</code> 同一套公式）。
+        卡片不自由飞——每一帧只在共用进度
+        <code>local ∈ [0,1]</code> 上取样。下图把舞台中心当作原点，画出真实路径的 <code>x%</code> /
+        <code>y%</code> 投影，以及示踪点沿轨运动（与 <code>src/core/path.ts</code> 同一套公式）。
       </p>
 
       <div class="grid">
@@ -199,7 +200,8 @@
           </div>
 
           <p class="note">
-            示踪点大小随 <code>depth</code> 变化。真实舞台还有 translateZ / rotate / scale，但平面轨迹就是这条折线。
+            示踪点大小随 <code>depth</code> 变化。真实舞台还有 translateZ / rotate /
+            scale，但平面轨迹就是这条折线。
           </p>
         </div>
 
@@ -228,9 +230,7 @@
             )
           : 0
         const depth = active
-          ? Math.sin(
-              (local < F ? local / (2 * F) : 0.5 + (local - F) / (2 * (1 - F))) * Math.PI,
-            )
+          ? Math.sin((local < F ? local / (2 * F) : 0.5 + (local - F) / (2 * (1 - F))) * Math.PI)
           : 0
         let x
         let y
@@ -302,10 +302,7 @@
       const exitJoined = join(arcPts, exitPts)
 
       const svg = document.getElementById('canvas')
-      svg.setAttribute(
-        'viewBox',
-        `${bounds.minX} ${bounds.minSy} ${bounds.w} ${bounds.h}`,
-      )
+      svg.setAttribute('viewBox', `${bounds.minX} ${bounds.minSy} ${bounds.w} ${bounds.h}`)
 
       const origin = toSvg(0, 0)
       const axisX2 = toSvg(bounds.minX + bounds.w - 12, 0)

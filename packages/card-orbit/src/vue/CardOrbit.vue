@@ -50,21 +50,15 @@ const progress = ref(0)
 let orbit: ReturnType<typeof createOrbit> | null = null
 
 const rootClass = computed(() =>
-  [
-    'card-orbit',
-    props.desktopOnly ? 'card-orbit--desktop-only' : '',
-    props.className ?? '',
-  ]
+  ['card-orbit', props.desktopOnly ? 'card-orbit--desktop-only' : '', props.className ?? '']
     .filter(Boolean)
     .join(' '),
 )
 
-const rootStyle = computed(
-  (): StyleValue => ({
-    perspective: `${props.perspective}px`,
-    ...props.style,
-  }),
-)
+const rootStyle = computed((): StyleValue => ({
+  perspective: `${props.perspective}px`,
+  ...props.style,
+}))
 
 const cards = computed(() => {
   const { images, alts, activeWindow } = props

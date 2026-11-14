@@ -1,7 +1,7 @@
-import React, { memo } from "react";
-import { PAGE_WIDTH } from "../scene/theme.js";
-import { ElementKind } from "../scene/types.js";
-import { fontFamily, lineHeight } from "../scene/text-metrics.js";
+import React, { memo } from 'react'
+import { PAGE_WIDTH } from '../scene/theme.js'
+import { ElementKind } from '../scene/types.js'
+import { fontFamily, lineHeight } from '../scene/text-metrics.js'
 
 /**
  * 对YAML示例进行轻量着色，保留逐字输入时尚未完整的代码片段。
@@ -10,29 +10,28 @@ import { fontFamily, lineHeight } from "../scene/text-metrics.js";
  */
 function CodeText({ text }) {
   // 注释独立着色，其他行按键名和标点拆分，剩余空白保持原样。
-  if (text.trimStart().startsWith("#"))
-    return <span style={{ color: "#6B7078" }}>{text}</span>;
-  const tokens = [];
-  const pattern = /([A-Za-z_]+)(?=:)|([{}:,])|([^{}:,A-Za-z_]+|[A-Za-z_]+)/g;
-  let match;
-  let firstKey = true;
+  if (text.trimStart().startsWith('#')) return <span style={{ color: '#6B7078' }}>{text}</span>
+  const tokens = []
+  const pattern = /([A-Za-z_]+)(?=:)|([{}:,])|([^{}:,A-Za-z_]+|[A-Za-z_]+)/g
+  let match
+  let firstKey = true
   while ((match = pattern.exec(text))) {
     if (match[1]) {
       tokens.push(
-        <span key={match.index} style={{ color: firstKey ? "#8FC9D6" : "#AEB6EE" }}>
+        <span key={match.index} style={{ color: firstKey ? '#8FC9D6' : '#AEB6EE' }}>
           {match[1]}
-        </span>
-      );
-      firstKey = false;
+        </span>,
+      )
+      firstKey = false
     } else if (match[2]) {
       tokens.push(
-        <span key={match.index} style={{ color: "#81868D" }}>
+        <span key={match.index} style={{ color: '#81868D' }}>
           {match[2]}
-        </span>
-      );
-    } else tokens.push(match[3]);
+        </span>,
+      )
+    } else tokens.push(match[3])
   }
-  return tokens;
+  return tokens
 }
 
 /**
@@ -43,7 +42,7 @@ function CodeText({ text }) {
  */
 function sameVersion(previous, next) {
   // 直接比较可变对象会漏掉字符和坐标更新，因此单独传递数值版本。
-  return previous.version === next.version;
+  return previous.version === next.version
 }
 
 /**
@@ -53,15 +52,15 @@ function sameVersion(previous, next) {
  */
 function TextElementView({ element }) {
   // 尚未开始施工的实体不占用DOM显示层，但布局坐标始终由场景数据保留。
-  if (!element.vis) return null;
-  const style = element.st;
+  if (!element.vis) return null
+  const style = element.st
   const content = element.selAll ? (
     <span className="text-sel">{element.shown}</span>
   ) : style.code ? (
     <CodeText text={element.shown} />
   ) : (
     element.shown
-  );
+  )
   return (
     <div
       className="el-text"
@@ -70,7 +69,7 @@ function TextElementView({ element }) {
         left: element.x + element.dx,
         top: element.y + element.dy,
         width: element.w,
-        whiteSpace: element.w != null && !style.pre ? "pre-wrap" : "pre",
+        whiteSpace: element.w != null && !style.pre ? 'pre-wrap' : 'pre',
         fontFamily: fontFamily(style),
         fontSize: element.size,
         fontWeight: style.weight,
@@ -85,7 +84,7 @@ function TextElementView({ element }) {
         <span className="caret" style={{ height: element.size * 1.15 }} />
       )}
     </div>
-  );
+  )
 }
 
 /**
@@ -95,7 +94,7 @@ function TextElementView({ element }) {
  */
 function RectangleElementView({ element }) {
   // 拉框阶段使用临时宽高，施工完成后再应用最终填色、圆角和边线。
-  if (!element.vis) return null;
+  if (!element.vis) return null
   return (
     <div
       className="el-rect"
@@ -105,15 +104,12 @@ function RectangleElementView({ element }) {
         top: element.y + element.dy,
         width: element.draw?.w ?? element.w,
         height: element.draw?.h ?? element.h,
-        background: element.styled ? element.fill : "#D9D9D9",
+        background: element.styled ? element.fill : '#D9D9D9',
         borderRadius: element.styled ? element.r : 0,
-        boxShadow:
-          element.styled && element.stroke
-            ? `inset 0 0 0 1px ${element.stroke}`
-            : "none",
+        boxShadow: element.styled && element.stroke ? `inset 0 0 0 1px ${element.stroke}` : 'none',
       }}
     />
-  );
+  )
 }
 
 /**
@@ -123,9 +119,9 @@ function RectangleElementView({ element }) {
  */
 function PathElementView({ element }) {
   // 标志使用真实曲线和路径长度控制描边，其余路径沿已放置锚点连接。
-  if (!element.vis || element.placed === 0) return null;
+  if (!element.vis || element.placed === 0) return null
   if (element.d && element.tf) {
-    const progress = Math.min(1, (element.placed - 1) / element.pts.length);
+    const progress = Math.min(1, (element.placed - 1) / element.pts.length)
     return (
       <path
         d={element.d}
@@ -139,35 +135,35 @@ function PathElementView({ element }) {
         fill={element.fill}
         fillOpacity={element.fillOn ? 1 : 0}
         style={{
-          transition: "fill-opacity 220ms ease, stroke-dashoffset 120ms linear",
+          transition: 'fill-opacity 220ms ease, stroke-dashoffset 120ms linear',
         }}
       />
-    );
+    )
   }
   const path =
     element.pts
       .slice(0, element.placed)
-      .map((point, index) => `${index ? "L" : "M"}${point.x} ${point.y}`)
-      .join(" ") + (element.shut ? " Z" : "");
+      .map((point, index) => `${index ? 'L' : 'M'}${point.x} ${point.y}`)
+      .join(' ') + (element.shut ? ' Z' : '')
   return (
     <path
       d={path}
       data-element-id={element.id}
       stroke={element.stroke}
       strokeWidth={element.sw}
-      fill={element.fill ?? "none"}
+      fill={element.fill ?? 'none'}
       fillOpacity={element.fillOn ? 1 : 0}
-      style={{ transition: "fill-opacity 220ms ease" }}
+      style={{ transition: 'fill-opacity 220ms ease' }}
       vectorEffect="non-scaling-stroke"
       strokeLinejoin="miter"
       strokeLinecap="square"
     />
-  );
+  )
 }
 
-const TextElement = memo(TextElementView, sameVersion);
-const RectangleElement = memo(RectangleElementView, sameVersion);
-const PathElement = memo(PathElementView, sameVersion);
+const TextElement = memo(TextElementView, sameVersion)
+const RectangleElement = memo(RectangleElementView, sameVersion)
+const PathElement = memo(PathElementView, sameVersion)
 
 /**
  * 按矩形、路径、文字的固定顺序渲染一组场景实体。
@@ -196,5 +192,5 @@ export function SceneElements({ elements, height }) {
           <TextElement key={element.id} element={element} version={element.v} />
         ))}
     </>
-  );
+  )
 }

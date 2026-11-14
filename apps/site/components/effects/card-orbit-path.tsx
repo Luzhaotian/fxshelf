@@ -1,10 +1,10 @@
 'use client'
 
-import {Canvas, useFrame} from '@react-three/fiber'
-import {Grid, OrbitControls, Text} from '@react-three/drei'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Grid, OrbitControls, Text } from '@react-three/drei'
 import katex from 'katex'
-import {useEffect, useMemo, useRef, useState, type ReactNode} from 'react'
-import {F, G, samplePath} from '@fxshelf/card-orbit'
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { F, G, samplePath } from '@fxshelf/card-orbit'
 import * as THREE from 'three'
 import 'katex/dist/katex.min.css'
 import styles from './card-orbit-path.module.css'
@@ -14,11 +14,7 @@ const SPEED = 0.16
 
 function toVec3(local: number): THREE.Vector3 {
   const p = samplePath(local, true)
-  return new THREE.Vector3(
-    p.x * SCALE,
-    -p.y * SCALE,
-    (-1000 + 1280 * p.depth) * 0.0012,
-  )
+  return new THREE.Vector3(p.x * SCALE, -p.y * SCALE, (-1000 + 1280 * p.depth) * 0.0012)
 }
 
 function segmentOf(local: number): 'rise' | 'arc' | 'exit' {
@@ -39,7 +35,7 @@ function buildSegment(from: number, to: number, steps = 48): Float32Array {
   return arr
 }
 
-function Tracer({local}: {local: number}) {
+function Tracer({ local }: { local: number }) {
   const ref = useRef<THREE.Mesh>(null)
   const localRef = useRef(local)
 
@@ -70,12 +66,12 @@ function Tracer({local}: {local: number}) {
   )
 }
 
-function Formula({tex, className}: {tex: string; className?: string}) {
+function Formula({ tex, className }: { tex: string; className?: string }) {
   const html = useMemo(
-    () => katex.renderToString(tex, {throwOnError: false, displayMode: false}),
+    () => katex.renderToString(tex, { throwOnError: false, displayMode: false }),
     [tex],
   )
-  return <span className={className} dangerouslySetInnerHTML={{__html: html}} />
+  return <span className={className} dangerouslySetInnerHTML={{ __html: html }} />
 }
 
 function AxisLabel({
@@ -93,7 +89,8 @@ function AxisLabel({
       anchorX="center"
       anchorY="middle"
       outlineWidth={0.012}
-      outlineColor="#f7f5f1">
+      outlineColor="#f7f5f1"
+    >
       {children}
     </Text>
   )
@@ -136,7 +133,7 @@ function PathLines() {
           dashSize: 0.12,
           gapSize: 0.08,
         })
-      : new THREE.LineBasicMaterial({color})
+      : new THREE.LineBasicMaterial({ color })
     const line = new THREE.Line(geo, mat)
     if (dashed) line.computeLineDistances()
     return line
@@ -177,9 +174,9 @@ export function CardOrbitPathLab(): ReactNode {
   }, [paused])
 
   const segs = [
-    {id: 'rise' as const, label: '① 上升', color: '#cc5400', hint: '竖直爬上来'},
-    {id: 'arc' as const, label: '② 拐弯', color: '#0a0a0a', hint: '四分之一圆弧'},
-    {id: 'exit' as const, label: '③ 退出', color: '#6b7280', hint: '水平滑出'},
+    { id: 'rise' as const, label: '① 上升', color: '#cc5400', hint: '竖直爬上来' },
+    { id: 'arc' as const, label: '② 拐弯', color: '#0a0a0a', hint: '四分之一圆弧' },
+    { id: 'exit' as const, label: '③ 退出', color: '#6b7280', hint: '水平滑出' },
   ]
 
   return (
@@ -211,10 +208,8 @@ export function CardOrbitPathLab(): ReactNode {
 
           <ul className={styles.segs}>
             {segs.map((s) => (
-              <li
-                key={s.id}
-                className={seg === s.id ? styles.segActive : styles.segIdle}>
-                <span className={styles.dot} style={{background: s.color}} />
+              <li key={s.id} className={seg === s.id ? styles.segActive : styles.segIdle}>
+                <span className={styles.dot} style={{ background: s.color }} />
                 <div>
                   <div className={styles.segLabel}>{s.label}</div>
                   <div className={styles.muted}>{s.hint}</div>
@@ -223,16 +218,13 @@ export function CardOrbitPathLab(): ReactNode {
             ))}
           </ul>
 
-          <button
-            type="button"
-            className={styles.button}
-            onClick={() => setPaused((p) => !p)}>
+          <button type="button" className={styles.button} onClick={() => setPaused((p) => !p)}>
             {paused ? '继续动画' : '暂停示踪点'}
           </button>
         </div>
 
         <div className={styles.canvasWrap}>
-          <Canvas camera={{position: [4.2, 2.4, 5.2], fov: 42}} gl={{antialias: true}}>
+          <Canvas camera={{ position: [4.2, 2.4, 5.2], fov: 42 }} gl={{ antialias: true }}>
             <color attach="background" args={['#f7f5f1']} />
             <ambientLight intensity={0.85} />
             <directionalLight position={[4, 6, 3]} intensity={1.1} />

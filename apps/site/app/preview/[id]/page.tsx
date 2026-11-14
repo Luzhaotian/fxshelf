@@ -8,9 +8,7 @@ export function generateStaticParams() {
   return effects.map((effect) => ({ id: effect.id }))
 }
 
-export async function generateMetadata(
-  props: PageProps<'/preview/[id]'>,
-): Promise<Metadata> {
+export async function generateMetadata(props: PageProps<'/preview/[id]'>): Promise<Metadata> {
   const { id } = await props.params
   const effect = effects.find((item) => item.id === id)
   return {

@@ -17,15 +17,15 @@ npm run pack:check
 
 ## Packages（当前书架）
 
-| Package | 路径 |
-|---------|------|
-| `@fxshelf/card-orbit` | [`packages/card-orbit`](./packages/card-orbit) |
-| `@fxshelf/glyph-rain` | [`packages/glyph-rain`](./packages/glyph-rain) |
-| `@fxshelf/starfield` | [`packages/starfield`](./packages/starfield) |
-| `@fxshelf/button-kit` | [`packages/button-kit`](./packages/button-kit) |
-| `@fxshelf/word-tunnel` | [`packages/word-tunnel`](./packages/word-tunnel) |
-| `@fxshelf/swarm-cursors` | [`packages/swarm-cursors`](./packages/swarm-cursors)（v0.1 React-only） |
-| `@fxshelf/mcp` | [`packages/mcp`](./packages/mcp)（MCP server，非动效包；数据由 `scripts/gen-data.mjs` 构建时生成） |
+| Package                  | 路径                                                                                               |
+| ------------------------ | -------------------------------------------------------------------------------------------------- |
+| `@fxshelf/card-orbit`    | [`packages/card-orbit`](./packages/card-orbit)                                                     |
+| `@fxshelf/glyph-rain`    | [`packages/glyph-rain`](./packages/glyph-rain)                                                     |
+| `@fxshelf/starfield`     | [`packages/starfield`](./packages/starfield)                                                       |
+| `@fxshelf/button-kit`    | [`packages/button-kit`](./packages/button-kit)                                                     |
+| `@fxshelf/word-tunnel`   | [`packages/word-tunnel`](./packages/word-tunnel)                                                   |
+| `@fxshelf/swarm-cursors` | [`packages/swarm-cursors`](./packages/swarm-cursors)（v0.1 React-only）                            |
+| `@fxshelf/mcp`           | [`packages/mcp`](./packages/mcp)（MCP server，非动效包；数据由 `scripts/gen-data.mjs` 构建时生成） |
 
 文档站：[`apps/site`](./apps/site)（中文为主；包级 README 双语）。
 
@@ -33,7 +33,12 @@ npm run pack:check
 
 Format: `type(scope?): 中文说明` — **subject must include Chinese**.
 
-Husky runs oxlint (pre-commit) and commitlint (commit-msg).  
+Husky hooks:
+
+- **pre-commit** — `lint-staged`：`oxfmt` 格式化暂存文件，再对 JS/TS/Vue 跑 `oxlint`
+- **commit-msg** — commitlint（Conventional Commits）
+
+手动格式化：`npm run fmt`（检查：`npm run fmt:check`）。配置见 [`.oxfmtrc.json`](./.oxfmtrc.json)。  
 Cursor「Generate Commit Message」 follows [`.cursorrules`](./.cursorrules).
 
 See root [README](./README.md#commit-convention) for allowed types.
@@ -43,7 +48,7 @@ See root [README](./README.md#commit-convention) for allowed types.
 1. Create `packages/<id>/` with `"name": "@fxshelf/<id>"`（建议初版 `0.1.0`）
 2. Append an entry in [`apps/site/lib/effects.ts`](./apps/site/lib/effects.ts)
 3. Add `apps/site/components/effects/<id>-demo.tsx`（用 [`DemoFrame`](./apps/site/components/effects/demo-frame.tsx) 包一层）与 `<id>-preview.tsx`
-4. Register demo in [`apps/site/components/mdx.tsx`](./apps/site/components/mdx.tsx)，preview in [`apps/site/app/(home)/page.tsx`](./apps/site/app/(home)/page.tsx) `previews`，fullscreen in [`effect-fullscreen-demo.tsx`](./apps/site/components/effects/effect-fullscreen-demo.tsx)（`/preview/<id>` 静态参数来自 `effects.ts`）
+4. Register demo in [`apps/site/components/mdx.tsx`](./apps/site/components/mdx.tsx)，preview in [`apps/site/app/(home)/page.tsx`](<./apps/site/app/(home)/page.tsx>) `previews`，fullscreen in [`effect-fullscreen-demo.tsx`](./apps/site/components/effects/effect-fullscreen-demo.tsx)（`/preview/<id>` 静态参数来自 `effects.ts`）
 5. Add `apps/site/content/docs/effects/<id>.mdx`（含 npm / CDN / 复制源码；CDN 写清 `@pkg@x.y.z` 锁定示例）
 6. Update [`apps/site/content/docs/effects/meta.json`](./apps/site/content/docs/effects/meta.json)
 7. Update [`apps/site/content/docs/index.mdx`](./apps/site/content/docs/index.mdx) Cards

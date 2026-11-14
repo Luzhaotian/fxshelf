@@ -23,12 +23,7 @@ export type GlyphRainProps = GlyphRainOptions & {
 
 const emptySubscribe = () => () => {}
 
-export function GlyphRain({
-  children,
-  className,
-  style,
-  ...options
-}: GlyphRainProps) {
+export function GlyphRain({ children, className, style, ...options }: GlyphRainProps) {
   const sourceRef = useRef<HTMLCanvasElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const outputRef = useRef<HTMLCanvasElement>(null)
@@ -36,11 +31,7 @@ export function GlyphRain({
   const [initialOptions] = useState(options)
   const [failed, setFailed] = useState(false)
 
-  const supported = useSyncExternalStore(
-    emptySubscribe,
-    supportsHtmlInCanvas,
-    () => false,
-  )
+  const supported = useSyncExternalStore(emptySubscribe, supportsHtmlInCanvas, () => false)
   const native = supported && !failed
 
   useEffect(() => {
@@ -48,10 +39,7 @@ export function GlyphRain({
     const content = contentRef.current
     const output = outputRef.current
     if (!source || !content || !output) return
-    instanceRef.current = createGlyphRain(
-      { source, content, output },
-      initialOptions,
-    )
+    instanceRef.current = createGlyphRain({ source, content, output }, initialOptions)
     if (native && !instanceRef.current) setFailed(true)
     return () => {
       instanceRef.current?.destroy()

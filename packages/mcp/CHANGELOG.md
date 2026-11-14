@@ -1,5 +1,10 @@
 # @fxshelf/mcp
 
+## 0.1.1
+
+- 同步书架包版本（含 swarm-cursors）
+- oxfmt 格式化
+
 ## 0.1.0
 
 - 初版：stdio MCP server，构建时内嵌书架快照

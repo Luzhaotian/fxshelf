@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 /**
  * Generic intro mark for the shelf package.
@@ -27,5 +27,5 @@ export function IntroMark({ className }) {
         strokeLinecap="round"
       />
     </svg>
-  );
+  )
 }

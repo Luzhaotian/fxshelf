@@ -21,16 +21,11 @@ export type PathPoint = {
 
 export function samplePath(local: number, active: boolean): PathPoint {
   const fade = active
-    ? Math.min(
-        Math.min(1, Math.max(0, local / 0.06)),
-        Math.min(1, Math.max(0, (1 - local) / 0.08)),
-      )
+    ? Math.min(Math.min(1, Math.max(0, local / 0.06)), Math.min(1, Math.max(0, (1 - local) / 0.08)))
     : 0
 
   const depth = active
-    ? Math.sin(
-        (local < F ? local / (2 * F) : 0.5 + (local - F) / (2 * (1 - F))) * Math.PI,
-      )
+    ? Math.sin((local < F ? local / (2 * F) : 0.5 + (local - F) / (2 * (1 - F))) * Math.PI)
     : 0
 
   let x: number

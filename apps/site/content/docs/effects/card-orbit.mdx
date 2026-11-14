@@ -17,11 +17,11 @@ Card Orbit 是一套路径约束的 3D 卡片轨道动效：卡片沿固定轨�
 
 一套 `core`（路径 + 样式 + 动画驱动）配 React / Vue 两套薄封装。支持：
 
-| 方式 | React | Vue |
-|------|--------|-----|
-| **npm** | [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit) | `@fxshelf/card-orbit/vue` |
-| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/card-orbit/dist/card-orbit.iife.js) → 全局 `CardOrbit` | 暂无（SFC 源码） |
-| **复制源码** | 拷 `src/core` + `src/react` | 拷 `src/core` + `src/vue` |
+| 方式               | React                                                                                          | Vue                       |
+| ------------------ | ---------------------------------------------------------------------------------------------- | ------------------------- |
+| **npm**            | [`@fxshelf/card-orbit`](https://www.npmjs.com/package/@fxshelf/card-orbit)                     | `@fxshelf/card-orbit/vue` |
+| **CDN `<script>`** | [unpkg IIFE](https://unpkg.com/@fxshelf/card-orbit/dist/card-orbit.iife.js) → 全局 `CardOrbit` | 暂无（SFC 源码）          |
+| **复制源码**       | 拷 `src/core` + `src/react`                                                                    | 拷 `src/core` + `src/vue` |
 
 灵感与参考实现来自 [tasteskill.dev](https://tasteskill.dev)。
 
@@ -80,33 +80,38 @@ const images = ['/a.webp', '/b.webp', '/c.webp']
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="https://unpkg.com/@fxshelf/card-orbit/dist/index.css" />
-</head>
-<body>
-  <div id="hero"></div>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/@fxshelf/card-orbit/dist/index.css" />
+  </head>
+  <body>
+    <div id="hero"></div>
 
-  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@fxshelf/card-orbit/dist/card-orbit.iife.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/@fxshelf/card-orbit/dist/card-orbit.iife.js"></script>
 
-  <script>
-    var images = ['/a.webp', '/b.webp', '/c.webp']
-    ReactDOM.createRoot(document.getElementById('hero')).render(
-      React.createElement(React.Fragment, null,
-        React.createElement(CardOrbit.CardOrbitMobile, { images: images }),
-        React.createElement(CardOrbit.CardOrbit, { images: images }),
-      ),
-    )
-  </script>
-</body>
+    <script>
+      var images = ['/a.webp', '/b.webp', '/c.webp']
+      ReactDOM.createRoot(document.getElementById('hero')).render(
+        React.createElement(
+          React.Fragment,
+          null,
+          React.createElement(CardOrbit.CardOrbitMobile, { images: images }),
+          React.createElement(CardOrbit.CardOrbit, { images: images }),
+        ),
+      )
+    </script>
+  </body>
 </html>
 ```
 
 - 全局 `CardOrbit` 上有 `CardOrbit`、`CardOrbitMobile` 及 core 工具（`createOrbit` / `samplePath` 等）。
 - 也可用 jsDelivr：`https://cdn.jsdelivr.net/npm/@fxshelf/card-orbit/dist/card-orbit.iife.js`
-- 生产环境建议锁定版本：`@fxshelf/card-orbit@0.1.7/...`
+- 生产环境建议锁定版本：`@fxshelf/card-orbit@0.1.8/...`
 - 顺序：React 必须在 card-orbit 之前加载。
 - 不要用 jsDelivr 的 `gh/.../dist` 直链（`dist/` 不进 Git）。
 - 仓库内完整示例：[CDN示例.html](https://github.com/Luzhaotian/fxshelf/blob/main/packages/card-orbit/docs/CDN示例.html)
@@ -151,37 +156,37 @@ import './components/card-orbit/core/styles.css'
 
 ## 组件与 props
 
-| 组件 | 作用 |
-|------|------|
-| `CardOrbit` | 桌面 3D 轨迹（默认仅 `lg+` / 1024px 显示） |
-| `CardOrbitMobile` | 窄屏横向跑马灯（默认 `lg+` 隐藏） |
+| 组件              | 作用                                       |
+| ----------------- | ------------------------------------------ |
+| `CardOrbit`       | 桌面 3D 轨迹（默认仅 `lg+` / 1024px 显示） |
+| `CardOrbitMobile` | 窄屏横向跑马灯（默认 `lg+` 隐藏）          |
 
 React / Vue **props 名称一致**。图片 URL 由调用方提供，包内不捆绑资源。典型搭配：二者同时挂载，靠内置 CSS 互斥显示。
 
 ### `CardOrbit`
 
-| Prop | 默认 | 说明 |
-|------|------|------|
-| `images` | — | 图片 URL 数组（必填） |
-| `alts` | — | 与图片一一对应的 alt |
-| `className` / `style` | — | 根节点 |
-| `stageClassName` / `cardClassName` / `imageClassName` | — | 子节点 class |
-| `autoSpeed` | `45e-6` | 未拖动时自动推进 |
-| `dragSensitivity` | `8e-4` | 指针拖动灵敏度 |
-| `activeWindow` | `0.72` | 可见相位窗口 `(0, 1)` |
-| `perspective` | `3400` | CSS perspective（px） |
-| `ariaLabel` | `'Card orbit carousel'` | 无障碍标签 |
-| `desktopOnly` | `true` | 是否仅大屏显示 |
+| Prop                                                  | 默认                    | 说明                  |
+| ----------------------------------------------------- | ----------------------- | --------------------- |
+| `images`                                              | —                       | 图片 URL 数组（必填） |
+| `alts`                                                | —                       | 与图片一一对应的 alt  |
+| `className` / `style`                                 | —                       | 根节点                |
+| `stageClassName` / `cardClassName` / `imageClassName` | —                       | 子节点 class          |
+| `autoSpeed`                                           | `45e-6`                 | 未拖动时自动推进      |
+| `dragSensitivity`                                     | `8e-4`                  | 指针拖动灵敏度        |
+| `activeWindow`                                        | `0.72`                  | 可见相位窗口 `(0, 1)` |
+| `perspective`                                         | `3400`                  | CSS perspective（px） |
+| `ariaLabel`                                           | `'Card orbit carousel'` | 无障碍标签            |
+| `desktopOnly`                                         | `true`                  | 是否仅大屏显示        |
 
 ### `CardOrbitMobile`
 
-| Prop | 默认 | 说明 |
-|------|------|------|
-| `images` / `alts` | — | 同桌面 |
-| `className` / `style` | — | 根节点 |
-| `trackClassName` / `cardClassName` / `imageClassName` | — | 子节点 class |
-| `hideOnDesktop` | `true` | `lg+` 是否隐藏 |
-| `durationSec` | `28` | 跑马灯一周时长（秒） |
+| Prop                                                  | 默认   | 说明                 |
+| ----------------------------------------------------- | ------ | -------------------- |
+| `images` / `alts`                                     | —      | 同桌面               |
+| `className` / `style`                                 | —      | 根节点               |
+| `trackClassName` / `cardClassName` / `imageClassName` | —      | 子节点 class         |
+| `hideOnDesktop`                                       | `true` | `lg+` 是否隐藏       |
+| `durationSec`                                         | `28`   | 跑马灯一周时长（秒） |
 
 ## MCP
 

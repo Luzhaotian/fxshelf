@@ -5,11 +5,7 @@ export { Fragment }
 
 type CreateElement = (type: ElementType, props?: unknown) => ReactElement
 
-export function jsx(
-  type: ElementType,
-  props: unknown,
-  key?: Key,
-): ReactElement {
+export function jsx(type: ElementType, props: unknown, key?: Key): ReactElement {
   const create = createElement as unknown as CreateElement
   return key === undefined
     ? create(type, props)

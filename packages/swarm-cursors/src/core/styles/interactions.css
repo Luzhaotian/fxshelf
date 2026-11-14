@@ -48,7 +48,7 @@
   height: 112px;
   color: #8b93a1;
 }
-html[data-theme="dark"] .swarm-experience .intro-mark {
+html[data-theme='dark'] .swarm-experience .intro-mark {
   color: #9aa3ad;
 }
 .swarm-experience .intro-trigger:disabled {

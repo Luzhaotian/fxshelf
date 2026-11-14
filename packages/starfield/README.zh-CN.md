@@ -6,11 +6,11 @@
 
 属于 [fxshelf](https://github.com/Luzhaotian/fxshelf) 动效书架中的一个可独立安装包。
 
-| | |
-|--|--|
-| **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/starfield) |
-| **npm** | [`@fxshelf/starfield@0.1.2`](https://www.npmjs.com/package/@fxshelf/starfield) |
-| **CDN** | [unpkg](https://unpkg.com/@fxshelf/starfield/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/starfield/) |
+|                 |                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/starfield)                   |
+| **npm**         | [`@fxshelf/starfield@0.1.3`](https://www.npmjs.com/package/@fxshelf/starfield)                                |
+| **CDN**         | [unpkg](https://unpkg.com/@fxshelf/starfield/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/starfield/) |
 
 支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
 
@@ -20,10 +20,10 @@
 npm install @fxshelf/starfield
 ```
 
-| 使用方 | Peer |
-|--------|------|
-| React | `react` / `react-dom` ≥ 18 |
-| Vue | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
+| 使用方 | Peer                                    |
+| ------ | --------------------------------------- |
+| React  | `react` / `react-dom` ≥ 18              |
+| Vue    | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
 
 ## 用法 — React
 
@@ -32,11 +32,7 @@ import { Starfield } from '@fxshelf/starfield'
 
 export function Hero() {
   return (
-    <Starfield
-      style={{ height: 420, background: '#0f0f12' }}
-      particleCount={263}
-      brightness={73}
-    >
+    <Starfield style={{ height: 420, background: '#0f0f12' }} particleCount={263} brightness={73}>
       <h1 style={{ color: '#fff', padding: 32 }}>Hello</h1>
     </Starfield>
   )
@@ -65,17 +61,17 @@ import { Starfield } from '@fxshelf/starfield/vue'
 
 ## 常用 props
 
-| prop | 默认 | 说明 |
-|------|------|------|
-| `particleCount` | `263` | 星星数量 |
-| `speed` | `1` | 飞近速度 |
-| `density` | `48` | 径向疏密 |
-| `starSize` | `8` | 基础尺寸 |
-| `brightness` | `73` | 亮度 0–100 |
-| `glitterIntensity` | `4` | 闪烁强度 |
-| `trailAmount` | `26` | 尾迹残留 |
+| prop                           | 默认      | 说明       |
+| ------------------------------ | --------- | ---------- |
+| `particleCount`                | `263`     | 星星数量   |
+| `speed`                        | `1`       | 飞近速度   |
+| `density`                      | `48`      | 径向疏密   |
+| `starSize`                     | `8`       | 基础尺寸   |
+| `brightness`                   | `73`      | 亮度 0–100 |
+| `glitterIntensity`             | `4`       | 闪烁强度   |
+| `trailAmount`                  | `26`      | 尾迹残留   |
 | `color1` / `color2` / `color3` | `#ffffff` | 三色调色板 |
-| `reverse` | `false` | 反向飞离 |
+| `reverse`                      | `false`   | 反向飞离   |
 
 ## 用法 — CDN（React 18 UMD）
 
@@ -83,7 +79,10 @@ import { Starfield } from '@fxshelf/starfield/vue'
 
 ```html
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+></script>
 <script src="https://unpkg.com/@fxshelf/starfield/dist/starfield.iife.js"></script>
 
 <div id="app" style="height:420px;background:#0f0f12"></div>
@@ -97,7 +96,7 @@ import { Starfield } from '@fxshelf/starfield/vue'
 </script>
 ```
 
-生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/starfield@0.1.2/dist/starfield.iife.js`。  
+生产环境建议锁定版本，例如 `https://unpkg.com/@fxshelf/starfield@0.1.3/dist/starfield.iife.js`。  
 不要用 jsDelivr GitHub `gh/.../dist` 直链。
 
 ## 复制源码

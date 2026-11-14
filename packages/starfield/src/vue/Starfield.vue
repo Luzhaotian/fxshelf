@@ -42,13 +42,11 @@ const canvasRef = ref<HTMLCanvasElement | null>(null)
 let instance: StarfieldInstance | null = null
 
 const rootClass = computed(() => props.className ?? '')
-const rootStyle = computed(
-  (): StyleValue => ({
-    position: 'relative',
-    overflow: 'hidden',
-    ...props.style,
-  }),
-)
+const rootStyle = computed((): StyleValue => ({
+  position: 'relative',
+  overflow: 'hidden',
+  ...props.style,
+}))
 
 function optionPayload(): StarfieldOptions {
   return {

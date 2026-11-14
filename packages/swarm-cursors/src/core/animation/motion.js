@@ -6,7 +6,7 @@
  */
 export function randomBetween(minimum, maximum) {
   // 所有随机运动共用此入口，便于后续替换为固定随机种子。
-  return minimum + Math.random() * (maximum - minimum);
+  return minimum + Math.random() * (maximum - minimum)
 }
 
 /**
@@ -18,7 +18,7 @@ export function randomBetween(minimum, maximum) {
  */
 export function clamp(value, minimum, maximum) {
   // 防止施工速度、帧间隔和工人数量超出配置范围。
-  return Math.max(minimum, Math.min(maximum, value));
+  return Math.max(minimum, Math.min(maximum, value))
 }
 
 /**
@@ -28,7 +28,7 @@ export function clamp(value, minimum, maximum) {
  */
 export function easeInOutCubic(progress) {
   // 前半段加速、后半段减速，拖拽动作在两端保持柔和。
-  return progress < 0.5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
+  return progress < 0.5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2
 }
 
 /**
@@ -38,7 +38,7 @@ export function easeInOutCubic(progress) {
  */
 export function easeOutCubic(progress) {
   // 越接近终点位移越小。
-  return 1 - (1 - progress) ** 3;
+  return 1 - (1 - progress) ** 3
 }
 
 /**
@@ -48,5 +48,5 @@ export function easeOutCubic(progress) {
  */
 export function markChanged(element) {
   // 渲染层会比较v，避免每帧重绘尚未变化的所有文字和路径。
-  element.v++;
+  element.v++
 }

@@ -17,10 +17,7 @@ export type ButtonVariant = (typeof BUTTON_VARIANTS)[number]
 export const DEFAULT_VARIANT: ButtonVariant = 'solid'
 
 export function resolveVariant(variant?: string): ButtonVariant {
-  if (
-    variant != null &&
-    (BUTTON_VARIANTS as readonly string[]).includes(variant)
-  ) {
+  if (variant != null && (BUTTON_VARIANTS as readonly string[]).includes(variant)) {
     return variant as ButtonVariant
   }
   return DEFAULT_VARIANT

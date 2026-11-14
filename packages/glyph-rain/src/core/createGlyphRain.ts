@@ -31,8 +31,8 @@ export function createGlyphRain(
   const paintable = source as PaintableCanvas
   const htmlInCanvas = Boolean(
     sourceCtx &&
-      typeof sourceCtx.drawElementImage === 'function' &&
-      typeof paintable.requestPaint === 'function',
+    typeof sourceCtx.drawElementImage === 'function' &&
+    typeof paintable.requestPaint === 'function',
   )
 
   let contentDirty = false
@@ -104,11 +104,7 @@ export function createGlyphRain(
 
   const quad = gl.createBuffer()
   gl.bindBuffer(gl.ARRAY_BUFFER, quad)
-  gl.bufferData(
-    gl.ARRAY_BUFFER,
-    new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-    gl.STATIC_DRAW,
-  )
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW)
   gl.enableVertexAttribArray(0)
   gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0)
 
@@ -142,22 +138,11 @@ export function createGlyphRain(
     atlasCount = atlas.count
     atlasGrid = atlas.grid
     gl.bindTexture(gl.TEXTURE_2D, atlasTexture)
-    gl.texParameteri(
-      gl.TEXTURE_2D,
-      gl.TEXTURE_MIN_FILTER,
-      gl.LINEAR_MIPMAP_LINEAR,
-    )
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR)
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
-    gl.texImage2D(
-      gl.TEXTURE_2D,
-      0,
-      gl.RGBA,
-      gl.RGBA,
-      gl.UNSIGNED_BYTE,
-      atlas.canvas,
-    )
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, atlas.canvas)
     gl.generateMipmap(gl.TEXTURE_2D)
   }
 
@@ -176,10 +161,7 @@ export function createGlyphRain(
     if (htmlInCanvas) {
       const cssWidth = Math.max(1, Math.round(source.clientWidth))
       const cssHeight = Math.max(1, Math.round(source.clientHeight))
-      if (
-        source.width !== cssWidth * dpr ||
-        source.height !== cssHeight * dpr
-      ) {
+      if (source.width !== cssWidth * dpr || source.height !== cssHeight * dpr) {
         source.width = cssWidth * dpr
         source.height = cssHeight * dpr
       }
@@ -194,14 +176,7 @@ export function createGlyphRain(
     contentDirty = false
     pageLum = readPageLum()
     gl.bindTexture(gl.TEXTURE_2D, contentTexture)
-    gl.texImage2D(
-      gl.TEXTURE_2D,
-      0,
-      gl.RGBA,
-      gl.RGBA,
-      gl.UNSIGNED_BYTE,
-      source,
-    )
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, source)
     sourceCtx!.clearRect(0, 0, source.width, source.height)
   }
 
@@ -221,17 +196,7 @@ export function createGlyphRain(
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST)
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
-  gl.texImage2D(
-    gl.TEXTURE_2D,
-    0,
-    gl.RG32F,
-    WAKE_RES,
-    1,
-    0,
-    gl.RG,
-    gl.FLOAT,
-    wakeField,
-  )
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RG32F, WAKE_RES, 1, 0, gl.RG, gl.FLOAT, wakeField)
 
   function stirAmount(): number {
     return Math.min(Math.max(config.stir, 0), 1)
@@ -275,17 +240,7 @@ export function createGlyphRain(
     if (!live && !wakeLive) return
     wakeLive = live
     gl.bindTexture(gl.TEXTURE_2D, wakeTexture)
-    gl.texSubImage2D(
-      gl.TEXTURE_2D,
-      0,
-      0,
-      0,
-      WAKE_RES,
-      1,
-      gl.RG,
-      gl.FLOAT,
-      wakeField,
-    )
+    gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, WAKE_RES, 1, gl.RG, gl.FLOAT, wakeField)
   }
 
   function render() {
@@ -305,12 +260,7 @@ export function createGlyphRain(
     gl.uniform1f(uniforms.uCell!, Math.min(Math.max(config.cell, 8), 64) * dpr)
     gl.uniform1f(uniforms.uGlyphCount!, atlasCount)
     gl.uniform1f(uniforms.uAtlasGrid!, atlasGrid)
-    gl.uniform3f(
-      uniforms.uColor!,
-      config.color[0],
-      config.color[1],
-      config.color[2],
-    )
+    gl.uniform3f(uniforms.uColor!, config.color[0], config.color[1], config.color[2])
     gl.uniform3f(
       uniforms.uHeadColor!,
       config.headColor[0],
@@ -318,25 +268,16 @@ export function createGlyphRain(
       config.headColor[2],
     )
     gl.uniform1f(uniforms.uSpeed!, Math.min(Math.max(config.speed, 0.05), 3))
-    gl.uniform1f(
-      uniforms.uSpeedVar!,
-      Math.min(Math.max(config.speedVariance, 0), 1),
-    )
+    gl.uniform1f(uniforms.uSpeedVar!, Math.min(Math.max(config.speedVariance, 0), 1))
     gl.uniform1f(uniforms.uDensity!, Math.min(Math.max(config.density, 0), 1))
     gl.uniform1f(uniforms.uTrail!, Math.min(Math.max(config.trail, 0.2), 3))
     gl.uniform1f(uniforms.uGlow!, Math.min(Math.max(config.glow, 0), 3))
     gl.uniform1f(uniforms.uMutate!, Math.min(Math.max(config.mutate, 0), 4))
     gl.uniform1f(uniforms.uFlicker!, Math.min(Math.max(config.flicker, 0), 1))
-    gl.uniform1f(
-      uniforms.uLayers!,
-      Math.round(Math.min(Math.max(config.layers, 1), 3)),
-    )
+    gl.uniform1f(uniforms.uLayers!, Math.round(Math.min(Math.max(config.layers, 1), 3)))
     gl.uniform1f(uniforms.uDim!, Math.min(Math.max(config.dim, 0), 1))
     gl.uniform1f(uniforms.uLight!, Math.min(Math.max(config.light, 0), 3))
-    gl.uniform1f(
-      uniforms.uLightRadius!,
-      Math.min(Math.max(config.lightRadius, 20), 600) * dpr,
-    )
+    gl.uniform1f(uniforms.uLightRadius!, Math.min(Math.max(config.lightRadius, 20), 600) * dpr)
     gl.uniform1f(uniforms.uLightHeight!, Math.max(config.lightHeight, 4) * dpr)
     gl.uniform1f(uniforms.uRelief!, Math.min(Math.max(config.relief, 0), 2))
     gl.uniform1f(uniforms.uStir!, wakeTouched ? stirAmount() : 0)
@@ -460,10 +401,7 @@ export function createGlyphRain(
       for (const [key, value] of Object.entries(next)) {
         const prev = config[key as keyof typeof config]
         if (Array.isArray(value) && Array.isArray(prev)) {
-          if (
-            value.length !== prev.length ||
-            value.some((item, i) => item !== prev[i])
-          ) {
+          if (value.length !== prev.length || value.some((item, i) => item !== prev[i])) {
             changed = true
             break
           }
@@ -506,9 +444,5 @@ export function createGlyphRain(
 }
 
 export { supportsHtmlInCanvas }
-export type {
-  GlyphRainElements,
-  GlyphRainInstance,
-  GlyphRainOptions,
-} from './types'
+export type { GlyphRainElements, GlyphRainInstance, GlyphRainOptions } from './types'
 export { DEFAULT_CHARSET, DEFAULTS } from './types'

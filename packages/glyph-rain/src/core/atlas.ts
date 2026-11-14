@@ -3,9 +3,7 @@ export function buildAtlas(charset: string): {
   count: number
   grid: number
 } {
-  const glyphs = Array.from(new Set(Array.from(charset))).filter(
-    (g) => g.trim().length > 0,
-  )
+  const glyphs = Array.from(new Set(Array.from(charset))).filter((g) => g.trim().length > 0)
   if (glyphs.length === 0) glyphs.push('0', '1')
   const count = glyphs.length
   const grid = Math.max(Math.ceil(Math.sqrt(count)), 1)

@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import React, { useRef } from "react";
-import { useSwarm } from "./hooks/useSwarm.js";
-import { usePageInteractions } from "./hooks/usePageInteractions.js";
-import { ContentCanvas, IntroLogo, StickyNavigation } from "./components/Stage.jsx";
-import { CursorLayer } from "./components/Cursor.jsx";
-import { ConstructionOverlay } from "./components/ConstructionOverlay.jsx";
-import { Rulers } from "./components/Rulers.jsx";
-import { InteractionDialog } from "./components/InteractionDialog.jsx";
-import { createScene } from "./scene/create-scene.js";
-import { PAGE_INTERACTIONS } from "./interactions/actions.js";
-import "./styles/index.css";
+import React, { useRef } from 'react'
+import { useSwarm } from './hooks/useSwarm.js'
+import { usePageInteractions } from './hooks/usePageInteractions.js'
+import { ContentCanvas, IntroLogo, StickyNavigation } from './components/Stage.jsx'
+import { CursorLayer } from './components/Cursor.jsx'
+import { ConstructionOverlay } from './components/ConstructionOverlay.jsx'
+import { Rulers } from './components/Rulers.jsx'
+import { InteractionDialog } from './components/InteractionDialog.jsx'
+import { createScene } from './scene/create-scene.js'
+import { PAGE_INTERACTIONS } from './interactions/actions.js'
+import './styles/index.css'
 
 /**
  * Full-page (or embeddable) swarm construction experience.
@@ -37,34 +37,30 @@ export function SwarmExperience({
   onAction: onExternalAction,
   autoStart = false,
   onEngine,
-  navLabel = "Main navigation",
+  navLabel = 'Main navigation',
   embed = false,
   showOverlay = true,
   showRulers = true,
   showDialog = true,
   introMark,
-  className = "",
+  className = '',
 }) {
-  const rootRef = useRef(null);
+  const rootRef = useRef(null)
   const engine = useSwarm({
     sceneFactory,
     autoStart,
     onEngine,
     rootRef: embed ? rootRef : null,
-  });
+  })
   const { dialog, onAction, closeDialog } = usePageInteractions(
     engine,
     onExternalAction,
     embed ? rootRef : null,
-  );
+  )
 
-  const rootClass = [
-    "swarm-experience",
-    embed ? "swarm-experience--embed" : "",
-    className,
-  ]
+  const rootClass = ['swarm-experience', embed ? 'swarm-experience--embed' : '', className]
     .filter(Boolean)
-    .join(" ");
+    .join(' ')
 
   return (
     <div ref={rootRef} className={rootClass}>
@@ -77,25 +73,15 @@ export function SwarmExperience({
               onAction={onAction}
               label={navLabel}
             />
-            <ContentCanvas
-              engine={engine}
-              interactions={interactions}
-              onAction={onAction}
-            />
-            <IntroLogo
-              started={engine.started}
-              onAction={onAction}
-              introMark={introMark}
-            />
+            <ContentCanvas engine={engine} interactions={interactions} onAction={onAction} />
+            <IntroLogo started={engine.started} onAction={onAction} introMark={introMark} />
             {showOverlay ? <ConstructionOverlay engine={engine} /> : null}
             <CursorLayer engine={engine} />
           </main>
           {showRulers ? <Rulers engine={engine} /> : null}
-          {showDialog ? (
-            <InteractionDialog dialog={dialog} onClose={closeDialog} />
-          ) : null}
+          {showDialog ? <InteractionDialog dialog={dialog} onClose={closeDialog} /> : null}
         </>
       )}
     </div>
-  );
+  )
 }

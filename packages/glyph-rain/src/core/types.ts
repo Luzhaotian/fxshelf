@@ -59,8 +59,7 @@ export type GlyphRainInstance = {
   destroy: () => void
 }
 
-export const DEFAULT_CHARSET =
-  'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789Z*+-<>¦=:.'
+export const DEFAULT_CHARSET = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789Z*+-<>¦=:.'
 
 export const DEFAULTS: Required<GlyphRainOptions> = {
   charset: DEFAULT_CHARSET,

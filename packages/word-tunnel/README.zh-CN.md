@@ -6,11 +6,11 @@
 
 属于 [fxshelf](https://github.com/Luzhaotian/fxshelf) 动效书架中的一个可独立安装包。
 
-| | |
-|--|--|
-| **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/word-tunnel) |
-| **npm** | [`@fxshelf/word-tunnel@0.1.1`](https://www.npmjs.com/package/@fxshelf/word-tunnel) |
-| **CDN** | [unpkg](https://unpkg.com/@fxshelf/word-tunnel/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/word-tunnel/) |
+|                 |                                                                                                                   |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **文档 / Demo** | [luzhaotian.github.io/fxshelf](https://luzhaotian.github.io/fxshelf/docs/effects/word-tunnel)                     |
+| **npm**         | [`@fxshelf/word-tunnel@0.1.2`](https://www.npmjs.com/package/@fxshelf/word-tunnel)                                |
+| **CDN**         | [unpkg](https://unpkg.com/@fxshelf/word-tunnel/) · [jsDelivr](https://cdn.jsdelivr.net/npm/@fxshelf/word-tunnel/) |
 
 支持 **npm**、**CDN `<script>`**、**复制源码**。详细用法见站点文档或 [docs/使用说明.md](./docs/使用说明.md)。
 
@@ -26,10 +26,10 @@ npm install @fxshelf/word-tunnel
 import '@fxshelf/word-tunnel/styles.css'
 ```
 
-| 使用方 | Peer |
-|--------|------|
-| React | `react` / `react-dom` ≥ 18 |
-| Vue | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
+| 使用方 | Peer                                    |
+| ------ | --------------------------------------- |
+| React  | `react` / `react-dom` ≥ 18              |
+| Vue    | `vue` ≥ 3.3，且能编译 `.vue`（如 Vite） |
 
 ## 用法 — React
 
@@ -69,17 +69,17 @@ import '@fxshelf/word-tunnel/styles.css'
 
 ## 常用 props
 
-| prop | 默认 | 说明 |
-|------|------|------|
-| `words` | 内置词条 | 词条数组 |
-| `count` | 按宽度自适应 | 固定词数 |
-| `seed` | `20250913` | 随机种子（同值布局可复现） |
-| `perspective` | `900` | CSS perspective |
-| `innerRadius` | `8` | 中心空洞半径 |
-| `outerRadius` | `52` | 外圈采样半径 |
-| `travelMin` / `travelRange` | `480` / `560` | z 飞行距离 |
-| `fadeIn` / `fadeOut` | `10` / `88` | 淡入/淡出进度 0–100 |
-| `color` / `fontSize` | `#fff` / `24` | 文字样式 |
+| prop                        | 默认          | 说明                       |
+| --------------------------- | ------------- | -------------------------- |
+| `words`                     | 内置词条      | 词条数组                   |
+| `count`                     | 按宽度自适应  | 固定词数                   |
+| `seed`                      | `20250913`    | 随机种子（同值布局可复现） |
+| `perspective`               | `900`         | CSS perspective            |
+| `innerRadius`               | `8`           | 中心空洞半径               |
+| `outerRadius`               | `52`          | 外圈采样半径               |
+| `travelMin` / `travelRange` | `480` / `560` | z 飞行距离                 |
+| `fadeIn` / `fadeOut`        | `10` / `88`   | 淡入/淡出进度 0–100        |
+| `color` / `fontSize`        | `#fff` / `24` | 文字样式                   |
 
 ## 用法 — CDN（React 18 UMD）
 
@@ -89,7 +89,10 @@ import '@fxshelf/word-tunnel/styles.css'
 <link rel="stylesheet" href="https://unpkg.com/@fxshelf/word-tunnel/dist/index.css" />
 
 <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+></script>
 <script src="https://unpkg.com/@fxshelf/word-tunnel/dist/word-tunnel.iife.js"></script>
 
 <div id="app" style="height:420px;background:#0c081e"></div>
@@ -102,7 +105,7 @@ import '@fxshelf/word-tunnel/styles.css'
 </script>
 ```
 
-生产环境建议锁定版本，如 `@fxshelf/word-tunnel@0.1.1/...`。  
+生产环境建议锁定版本，如 `@fxshelf/word-tunnel@0.1.2/...`。  
 不要用 jsDelivr GitHub `gh/.../dist` 直链（`dist/` 不进 Git）。
 
 ## 复制源码

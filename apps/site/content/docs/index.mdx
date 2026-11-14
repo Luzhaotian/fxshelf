@@ -10,12 +10,36 @@ description: 浏览并安装 fxshelf 动效包
 ## 浏览
 
 <Cards>
-  <Card title="Card Orbit" href="/docs/effects/card-orbit" description="路径约束的 3D 卡片轨道 —— 升起、弧线、飞出。" />
-  <Card title="Glyph Rain" href="/docs/effects/glyph-rain" description="Matrix 风格字符雨 —— 光标搅动，可选内容照明。" />
-  <Card title="Starfield" href="/docs/effects/starfield" description="Canvas 星空隧道 —— 透视飞近、闪烁与拖尾。" />
-  <Card title="Button Kit" href="/docs/effects/button-kit" description="按钮动效书架 —— 用 variant 字符串切换样式。" />
-  <Card title="Word Tunnel" href="/docs/effects/word-tunnel" description="3D 词云隧道 —— 文字朝灭点飞来。" />
-  <Card title="Swarm Cursors" href="/docs/effects/swarm-cursors" description="多光标 swarm 页面共建 —— 滚动时工人画出整页。" />
+  <Card
+    title="Card Orbit"
+    href="/docs/effects/card-orbit"
+    description="路径约束的 3D 卡片轨道 —— 升起、弧线、飞出。"
+  />
+  <Card
+    title="Glyph Rain"
+    href="/docs/effects/glyph-rain"
+    description="Matrix 风格字符雨 —— 光标搅动，可选内容照明。"
+  />
+  <Card
+    title="Starfield"
+    href="/docs/effects/starfield"
+    description="Canvas 星空隧道 —— 透视飞近、闪烁与拖尾。"
+  />
+  <Card
+    title="Button Kit"
+    href="/docs/effects/button-kit"
+    description="按钮动效书架 —— 用 variant 字符串切换样式。"
+  />
+  <Card
+    title="Word Tunnel"
+    href="/docs/effects/word-tunnel"
+    description="3D 词云隧道 —— 文字朝灭点飞来。"
+  />
+  <Card
+    title="Swarm Cursors"
+    href="/docs/effects/swarm-cursors"
+    description="多光标 swarm 页面共建 —— 滚动时工人画出整页。"
+  />
 </Cards>
 
 ```bash
@@ -48,13 +72,13 @@ npm install @fxshelf/swarm-cursors
 
 工具一览：
 
-| 工具 | 返回内容 |
-|------|----------|
-| `ping` | 连通性检查：ok 标志、服务名/版本、动效数量、快照时间（可选回显） |
-| `list_effects` | 全部动效：id、标题、简介、npm 包名、版本、文档链接 |
-| `get_effect_docs` | 单个动效的完整文档 Markdown（安装、React/Vue 用法、API） |
+| 工具                | 返回内容                                                          |
+| ------------------- | ----------------------------------------------------------------- |
+| `ping`              | 连通性检查：ok 标志、服务名/版本、动效数量、快照时间（可选回显）  |
+| `list_effects`      | 全部动效：id、标题、简介、npm 包名、版本、文档链接                |
+| `get_effect_docs`   | 单个动效的完整文档 Markdown（安装、React/Vue 用法、API）          |
 | `get_effect_source` | 真实源码文件（`core` / `react` / `vue` 三组），带路径，可直接复制 |
-| `get_cdn_snippet` | 锁定版本的 `<script>` 片段（unpkg / jsDelivr、可运行 HTML 示例） |
+| `get_cdn_snippet`   | 锁定版本的 `<script>` 片段（unpkg / jsDelivr、可运行 HTML 示例）  |
 
 配置好后可以直接对助手说「给我的 hero 区加一个星空隧道背景」「把 word-tunnel 的 Vue 源码给我」，或先说「测试一下 fxshelf MCP 是否连通」验证接入。详见 [`@fxshelf/mcp`](https://github.com/Luzhaotian/fxshelf/tree/main/packages/mcp)。
 

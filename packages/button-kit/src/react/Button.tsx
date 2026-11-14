@@ -1,15 +1,7 @@
 'use client'
 
-import {
-  type ButtonHTMLAttributes,
-  type CSSProperties,
-  type ReactNode,
-} from 'react'
-import {
-  BUTTON_VARIANTS,
-  type ButtonVariant,
-  variantClassName,
-} from '../core/variants'
+import { type ButtonHTMLAttributes, type CSSProperties, type ReactNode } from 'react'
+import { BUTTON_VARIANTS, type ButtonVariant, variantClassName } from '../core/variants'
 import '../core/styles.css'
 
 export type ButtonProps = Omit<
@@ -31,9 +23,7 @@ export function Button({
   type = 'button',
   ...rest
 }: ButtonProps) {
-  const classes = [variantClassName(variant), className]
-    .filter(Boolean)
-    .join(' ')
+  const classes = [variantClassName(variant), className].filter(Boolean).join(' ')
 
   return (
     <button type={type} className={classes} style={style} {...rest}>

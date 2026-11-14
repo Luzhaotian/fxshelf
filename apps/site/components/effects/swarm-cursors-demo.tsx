@@ -7,13 +7,7 @@ import '@fxshelf/swarm-cursors/styles.css'
 import { DemoFrame } from '@/components/effects/demo-frame'
 import { cn } from '@/lib/cn'
 
-function ReplayButton({
-  onReplay,
-  className,
-}: {
-  onReplay: () => void
-  className?: string
-}) {
+function ReplayButton({ onReplay, className }: { onReplay: () => void; className?: string }) {
   return (
     <button
       type="button"
@@ -36,12 +30,7 @@ export function SwarmCursorsDemo({ fill = false }: { fill?: boolean }) {
   const replay = () => setReplayKey((key) => key + 1)
 
   const stage = (
-    <div
-      className={cn(
-        'relative w-full bg-[#e8ecf1]',
-        fill ? 'h-full' : 'h-[min(56vh,480px)]',
-      )}
-    >
+    <div className={cn('relative w-full bg-[#e8ecf1]', fill ? 'h-full' : 'h-[min(56vh,480px)]')}>
       <SwarmCursors
         key={replayKey}
         embed

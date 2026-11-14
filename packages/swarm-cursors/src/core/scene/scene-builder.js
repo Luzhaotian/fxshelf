@@ -1,12 +1,5 @@
-import {
-  COLORS,
-  FRAME_LEFT,
-  FRAME_RIGHT,
-  EDGE_START,
-  EDGE_END,
-  LOGO_PATHS,
-} from "./theme.js";
-import { ElementKind, TaskType } from "./types.js";
+import { COLORS, FRAME_LEFT, FRAME_RIGHT, EDGE_START, EDGE_END, LOGO_PATHS } from './theme.js'
+import { ElementKind, TaskType } from './types.js'
 
 /**
  * 将可编辑的页面元素转换为场景与施工任务，维护复制和文字替换的依赖关系。
@@ -15,10 +8,10 @@ export class SceneBuilder {
   /** 初始化独立的页面元素、任务和重复组容器。 */
   constructor() {
     // 每次创建页面都使用全新对象，回放不会污染之前的元素状态。
-    this.elements = [];
-    this.tasks = [];
-    this.groups = [];
-    this.byId = new Map();
+    this.elements = []
+    this.tasks = []
+    this.groups = []
+    this.byId = new Map()
   }
 
   /**
@@ -28,10 +21,10 @@ export class SceneBuilder {
    */
   addElement(element) {
     // 创建阶段就检查重复标识，避免任务悄悄绘制到另一个区块。
-    if (this.byId.has(element.id)) throw new Error(`场景元素标识重复：${element.id}`);
-    this.elements.push(element);
-    this.byId.set(element.id, element);
-    return element;
+    if (this.byId.has(element.id)) throw new Error(`场景元素标识重复：${element.id}`)
+    this.elements.push(element)
+    this.byId.set(element.id, element)
+    return element
   }
 
   /**
@@ -44,8 +37,8 @@ export class SceneBuilder {
    */
   task(id, y, spec, deps = []) {
     // 保留声明顺序，距离与滚动优先级相同时仍有稳定的施工顺序。
-    this.tasks.push({ id, y, spec, deps });
-    return id;
+    this.tasks.push({ id, y, spec, deps })
+    return id
   }
 
   /**
@@ -77,13 +70,13 @@ export class SceneBuilder {
       edit: false,
       owner: null,
       fillOn: false,
-    });
+    })
     return this.task(
       `p:${id}`,
       Math.min(...points.map((point) => point.y)),
       { type: TaskType.PATH, el: id },
-      options.deps
-    );
+      options.deps,
+    )
   }
 
   /**
@@ -114,8 +107,8 @@ export class SceneBuilder {
       stroke: options.stroke,
       draw: null,
       styled: false,
-    });
-    return this.task(`r:${id}`, y, { type: TaskType.RECTANGLE, el: id }, options.deps);
+    })
+    return this.task(`r:${id}`, y, { type: TaskType.RECTANGLE, el: id }, options.deps)
   }
 
   /**
@@ -140,21 +133,21 @@ export class SceneBuilder {
       x,
       y,
       w: options.w,
-      align: options.align ?? "left",
+      align: options.align ?? 'left',
       text: style.upper ? content.toUpperCase() : content,
-      shown: "",
+      shown: '',
       st: style,
       size: style.size,
       editing: false,
       selAll: false,
       dyn: options.dyn,
-    });
+    })
     return this.task(
       `t:${id}`,
       y,
       { type: TaskType.TEXT, el: id, snap: options.snap, grow: options.grow },
-      options.deps
-    );
+      options.deps,
+    )
   }
 
   /**
@@ -180,8 +173,8 @@ export class SceneBuilder {
       op: 1,
       flash: 0,
       dragging: false,
-    });
-    return this.task(`g:${id}`, taskY, { type: TaskType.GUIDE, el: id });
+    })
+    return this.task(`g:${id}`, taskY, { type: TaskType.GUIDE, el: id })
   }
 
   /**
@@ -193,64 +186,64 @@ export class SceneBuilder {
    */
   duplicate(id, elementIds, copies) {
     // 副本依赖原组所有施工任务，保持原站先做一个、再拖动复制的观感。
-    const group = { id, ids: elementIds, copies: [] };
+    const group = { id, ids: elementIds, copies: [] }
     const sourceTasks = this.tasks
-      .filter((task) => "el" in task.spec && elementIds.includes(task.spec.el))
-      .map((task) => task.id);
-    const copyTasks = [];
+      .filter((task) => 'el' in task.spec && elementIds.includes(task.spec.el))
+      .map((task) => task.id)
+    const copyTasks = []
     copies.forEach((copy, copyIndex) => {
-      const ids = [];
-      let textIndex = 0;
+      const ids = []
+      let textIndex = 0
       for (const sourceId of elementIds) {
-        const source = this.byId.get(sourceId);
-        const copyId = `${sourceId}~${copyIndex + 1}`;
-        ids.push(copyId);
+        const source = this.byId.get(sourceId)
+        const copyId = `${sourceId}~${copyIndex + 1}`
+        ids.push(copyId)
         if (source.kind === ElementKind.TEXT) {
-          const replacement = copy.edits[textIndex++];
-          const text = source.st.upper ? replacement?.toUpperCase() : replacement;
+          const replacement = copy.edits[textIndex++]
+          const text = source.st.upper ? replacement?.toUpperCase() : replacement
           this.addElement({
             ...source,
             id: copyId,
             x: source.x + copy.dx,
             y: source.y + copy.dy,
             text: text ?? source.text,
-          });
+          })
         } else if (source.kind === ElementKind.RECTANGLE) {
           this.addElement({
             ...source,
             id: copyId,
             x: source.x + copy.dx,
             y: source.y + copy.dy,
-          });
+          })
         }
       }
-      group.copies.push({ dx: copy.dx, dy: copy.dy, ids });
-      const top = Math.min(...ids.map((elementId) => this.byId.get(elementId).y));
+      group.copies.push({ dx: copy.dx, dy: copy.dy, ids })
+      const top = Math.min(...ids.map((elementId) => this.byId.get(elementId).y))
       copyTasks.push(
         this.task(
           `d:${id}:${copyIndex}`,
           top,
           { type: TaskType.DUPLICATE, group: id, k: copyIndex },
-          sourceTasks
-        )
-      );
-    });
+          sourceTasks,
+        ),
+      )
+    })
     // 所有复制结束后才替换副本文案，避免后续副本复制到已替换的内容。
     group.copies.forEach((copy) =>
       copy.ids.forEach((elementId, index) => {
-        const element = this.byId.get(elementId);
-        const source = this.byId.get(elementIds[index]);
+        const element = this.byId.get(elementId)
+        const source = this.byId.get(elementIds[index])
         if (element.kind === ElementKind.TEXT && element.text !== source.text) {
           this.task(
             `e:${elementId}`,
             element.y,
             { type: TaskType.EDIT_TEXT, el: elementId },
-            copyTasks
-          );
+            copyTasks,
+          )
         }
-      })
-    );
-    this.groups.push(group);
+      }),
+    )
+    this.groups.push(group)
   }
 
   /**
@@ -263,19 +256,19 @@ export class SceneBuilder {
    */
   frame(id, top, bottom, reverse = false) {
     // 交替改变描线方向，保留不同光标从两侧进入页面的施工节奏。
-    const [start, end] = reverse ? [EDGE_END, EDGE_START] : [EDGE_START, EDGE_END];
+    const [start, end] = reverse ? [EDGE_END, EDGE_START] : [EDGE_START, EDGE_END]
     this.path(`rule-${id}`, [
       { x: start, y: bottom },
       { x: end, y: bottom },
-    ]);
+    ])
     this.path(`left-${id}`, [
       { x: FRAME_LEFT, y: top },
       { x: FRAME_LEFT, y: bottom },
-    ]);
+    ])
     this.path(`right-${id}`, [
       { x: FRAME_RIGHT, y: bottom },
       { x: FRAME_RIGHT, y: top },
-    ]);
+    ])
   }
 
   /**
@@ -295,8 +288,8 @@ export class SceneBuilder {
         { x, y: top },
         { x, y: bottom },
       ],
-      { deps }
-    );
+      { deps },
+    )
   }
 
   /**
@@ -316,8 +309,8 @@ export class SceneBuilder {
         { x: left, y },
         { x: right, y },
       ],
-      { deps }
-    );
+      { deps },
+    )
   }
 
   /**
@@ -330,7 +323,7 @@ export class SceneBuilder {
    */
   logo(id, x, y, height) {
     // 原始标志坐标高度为140，路径和施工锚点使用同一缩放比例。
-    const transform = { x, y, s: height / 140 };
+    const transform = { x, y, s: height / 140 }
     LOGO_PATHS.forEach((path, index) => {
       this.path(
         `${id}${index}`,
@@ -345,8 +338,8 @@ export class SceneBuilder {
           add: false,
           d: path.d,
           tf: transform,
-        }
-      );
-    });
+        },
+      )
+    })
   }
 }
